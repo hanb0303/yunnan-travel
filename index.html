@@ -1313,54 +1313,35 @@ const ITINERARY_DATA = [
             ${data.transit}
           </div>
 
-          <!-- 세부 일정 (1일차는 시간 컬럼 유지, 2~8일차는 시간 제외 및 왼쪽 정렬 16~18px 볼드) -->
-          <div class="space-y-2.5 pt-1">
-            <span class="text-lg sm:text-xl font-bold text-slate-900 block">세부 일정</span>
-            <div class="space-y-0">
-              ${data.schedule.map((item, idx, arr) => {
+          <!-- 세부 일정 (토스/애플 초미니멀 클린 리스트: 세로선 완전 배제, 정갈한 도트와 시원한 16~18px 텍스트) -->
+          <div class="space-y-2 pt-1">
+            <span class="text-lg sm:text-xl font-bold text-slate-900 block mb-1">세부 일정</span>
+            <div class="space-y-1.5">
+              ${data.schedule.map((item) => {
                 if (data.day === 1) {
                   const timeMatch = item.match(/^(\d{1,2}:\d{2})\s*(.*)$/);
                   if (timeMatch) {
                     return `
-                      <div class="flex items-start gap-2.5 pb-2.5 last:pb-0">
-                        <div class="w-12 sm:w-13 shrink-0 text-left pt-0.5">
-                          <span class="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">${timeMatch[1]}</span>
-                        </div>
-                        <div class="flex flex-col items-center shrink-0 w-2.5 pt-1.5">
-                          <div class="w-2 h-2 rounded-full bg-slate-900"></div>
-                          ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-0.5 min-h-[14px]"></div>' : ''}
-                        </div>
-                        <div class="flex-1 text-base sm:text-lg text-slate-900 font-medium leading-snug">
-                          ${timeMatch[2]}
-                        </div>
+                      <div class="flex items-baseline gap-2.5 py-1">
+                        <span class="w-12 sm:w-13 shrink-0 text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">${timeMatch[1]}</span>
+                        <span class="flex-1 text-[16px] sm:text-[18px] text-slate-900 font-bold leading-snug">${timeMatch[2]}</span>
                       </div>
                     `;
                   }
                   return `
-                    <div class="flex items-start gap-2.5 pb-2.5 last:pb-0">
-                      <div class="w-12 sm:w-13 shrink-0 text-left pt-0.5"></div>
-                      <div class="flex flex-col items-center shrink-0 w-2.5 pt-1.5">
-                        <div class="w-2 h-2 rounded-full bg-slate-400"></div>
-                        ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-0.5 min-h-[14px]"></div>' : ''}
-                      </div>
-                      <div class="flex-1 text-base sm:text-lg text-slate-900 font-medium leading-snug">
-                        ${item}
-                      </div>
+                    <div class="flex items-baseline gap-2.5 py-1">
+                      <span class="w-12 sm:w-13 shrink-0"></span>
+                      <span class="flex-1 text-[16px] sm:text-[18px] text-slate-900 font-bold leading-snug">${item}</span>
                     </div>
                   `;
                 }
 
-                // 2일차~8일차: 행간 여백 컴팩트 조정, 16~18px 볼드, 1줄 최적화
+                // 2일차~8일차: 복잡한 세로선 완전 제거, 미니멀한 단일 도트 + 시원한 텍스트
                 const cleanItem = item.replace(/^(\d{1,2}:\d{2})\s*/, '');
                 return `
-                  <div class="flex items-start gap-3 pb-2.5 last:pb-0">
-                    <div class="flex flex-col items-center shrink-0 w-2.5 pt-1.5">
-                      <div class="w-2.5 h-2.5 rounded-full bg-slate-900"></div>
-                      ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-0.5 min-h-[14px]"></div>' : ''}
-                    </div>
-                    <div class="flex-1 text-[16px] sm:text-[18px] text-slate-900 font-bold leading-snug">
-                      ${cleanItem}
-                    </div>
+                  <div class="flex items-start gap-2.5 py-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-slate-400 mt-2 shrink-0"></span>
+                    <span class="flex-1 text-[16px] sm:text-[18px] text-slate-900 font-bold leading-snug">${cleanItem}</span>
                   </div>
                 `;
               }).join('')}
