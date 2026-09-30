@@ -115,10 +115,10 @@
   <!-- 전체 레이아웃 (모바일 및 태블릿 최적화 컨테이너) -->
   <div class="max-w-lg mx-auto min-h-screen bg-white shadow-md flex flex-col">
 
-    <!-- 상단 헤더 (애플 미니멀 스타일) -->
+    <!-- 상단 헤더 (애플 미니멀 타이포그래피) -->
     <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-slate-100 px-5 py-3.5 flex items-center justify-between">
-      <h1 class="text-xl font-bold text-slate-900 tracking-tight">운남성 여행 안내</h1>
-      <span class="text-sm font-semibold text-slate-500">10.04(일) ~ 10.11(일)</span>
+      <h1 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">운남성 여행 안내</h1>
+      <span class="text-base font-semibold text-slate-500">10.04(일) ~ 10.11(일)</span>
     </header>
 
 
@@ -130,33 +130,33 @@
         
         <!-- 1일차~8일차 1행 가로 탭 (스크롤바 없이 깔끔, 터치 시 자동 중앙 정렬) -->
         <div class="space-y-2">
-          <div class="flex items-center justify-between text-sm font-semibold text-slate-600 px-1">
+          <div class="flex items-center justify-between text-base font-bold text-slate-700 px-1">
             <span>일차 선택</span>
-            <span id="current-day-indicator" class="text-base font-bold text-slate-900">1일차 보는 중</span>
+            <span id="current-day-indicator" class="text-lg font-bold text-slate-900">1일차 보는 중</span>
           </div>
           <div id="day-tabs-row" class="flex items-center gap-2 overflow-x-auto py-1 scroll-smooth no-scrollbar">
-            <button onclick="selectDay(1)" id="day-btn-1" class="day-btn px-4 py-2.5 rounded-xl text-base font-bold bg-slate-900 text-white shrink-0 transition shadow-xs">
+            <button onclick="selectDay(1)" id="day-btn-1" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold bg-slate-900 text-white shrink-0 transition shadow-xs">
               1일차
             </button>
-            <button onclick="selectDay(2)" id="day-btn-2" class="day-btn px-4 py-2.5 rounded-xl text-base font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
+            <button onclick="selectDay(2)" id="day-btn-2" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
               2일차
             </button>
-            <button onclick="selectDay(3)" id="day-btn-3" class="day-btn px-4 py-2.5 rounded-xl text-base font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
+            <button onclick="selectDay(3)" id="day-btn-3" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
               3일차
             </button>
-            <button onclick="selectDay(4)" id="day-btn-4" class="day-btn px-4 py-2.5 rounded-xl text-base font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
+            <button onclick="selectDay(4)" id="day-btn-4" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
               4일차
             </button>
-            <button onclick="selectDay(5)" id="day-btn-5" class="day-btn px-4 py-2.5 rounded-xl text-base font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
+            <button onclick="selectDay(5)" id="day-btn-5" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
               5일차
             </button>
-            <button onclick="selectDay(6)" id="day-btn-6" class="day-btn px-4 py-2.5 rounded-xl text-base font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
+            <button onclick="selectDay(6)" id="day-btn-6" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
               6일차
             </button>
-            <button onclick="selectDay(7)" id="day-btn-7" class="day-btn px-4 py-2.5 rounded-xl text-base font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
+            <button onclick="selectDay(7)" id="day-btn-7" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
               7일차
             </button>
-            <button onclick="selectDay(8)" id="day-btn-8" class="day-btn px-4 py-2.5 rounded-xl text-base font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
+            <button onclick="selectDay(8)" id="day-btn-8" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-medium bg-slate-100 text-slate-700 hover:bg-slate-200 shrink-0 transition">
               8일차
             </button>
           </div>
@@ -165,10 +165,10 @@
         <!-- 단일 포커스 카드 컨테이너 (JS 동적 렌더링) -->
         <div id="day-card-container"></div>
 
-        <!-- 전체 루트 요약 (심플 인라인 1줄, 테두리 제거) -->
-        <div class="px-4 py-3 bg-slate-50 rounded-2xl flex items-center justify-center gap-2 mt-2 text-xs sm:text-sm">
-          <span class="font-bold text-slate-900 shrink-0">전체</span>
-          <span class="text-slate-700 font-medium text-[11px] min-[375px]:text-xs sm:text-sm tracking-tight whitespace-nowrap">인천 → 쿤밍 → 따리 → 호도협 → 샹그릴라 → 리장 → 쿤밍 → 인천</span>
+        <!-- 전체 루트 요약 (선명하고 큼직한 텍스트, 토스 면 분할) -->
+        <div class="px-4 py-3.5 bg-slate-50 rounded-2xl flex items-center gap-2.5 mt-2 text-sm sm:text-base overflow-x-auto no-scrollbar">
+          <span class="font-bold text-slate-900 shrink-0 bg-slate-200/80 px-2 py-0.5 rounded-md text-sm font-bold">전체 여정</span>
+          <span class="text-slate-800 font-semibold tracking-tight whitespace-nowrap">인천 → 쿤밍 → 따리 → 호도협 → 샹그릴라 → 리장 → 쿤밍 → 인천</span>
         </div>
       </section>
 
@@ -177,31 +177,31 @@
       <section id="section-checklist" class="tab-pane hidden space-y-4">
         <!-- 상단 서브 세그먼트 스위처 (체크리스트 vs 대한항공 항공편) -->
         <div class="grid grid-cols-2 p-1.5 bg-slate-100 rounded-2xl text-center select-none">
-          <button type="button" onclick="switchPrepSegment('check')" id="prep-subtab-check" class="py-2.5 rounded-xl text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition">
+          <button type="button" onclick="switchPrepSegment('check')" id="prep-subtab-check" class="py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition">
             준비물 체크리스트
           </button>
-          <button type="button" onclick="switchPrepSegment('flight')" id="prep-subtab-flight" class="py-2.5 rounded-xl text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-900 transition">
+          <button type="button" onclick="switchPrepSegment('flight')" id="prep-subtab-flight" class="py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition">
             대한항공 항공편
           </button>
         </div>
 
         <!-- 2-1. 준비물 체크리스트 뷰 -->
         <div id="prep-view-check" class="space-y-4">
-          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+          <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
             <div>
-              <h2 class="text-xl font-bold text-slate-900 tracking-tight">여행 필수 준비물</h2>
-              <p class="text-sm font-medium text-slate-500 mt-0.5">터치하면 체크되며 자동 저장됩니다</p>
+              <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">여행 필수 준비물</h2>
+              <p class="text-base font-medium text-slate-500 mt-1">터치하면 체크되며 자동 저장됩니다</p>
             </div>
-          <button type="button" onclick="resetChecklist()" class="text-sm font-semibold text-slate-400 hover:text-slate-800 transition py-1">
-            초기화
-          </button>
-        </div>
+            <button type="button" onclick="resetChecklist()" class="text-base font-semibold text-slate-400 hover:text-slate-800 transition py-1 px-2">
+              초기화
+            </button>
+          </div>
 
         <!-- 진행률 바 (선 제거, 면 분할) -->
         <div class="p-4 bg-slate-50 rounded-2xl space-y-2.5">
-          <div class="flex justify-between text-base font-bold text-slate-800">
+          <div class="flex justify-between text-base sm:text-lg font-bold text-slate-800">
             <span>준비 완료율</span>
-            <span id="check-percent" class="text-lg font-bold text-slate-900">0%</span>
+            <span id="check-percent" class="text-xl font-bold text-slate-900">0%</span>
           </div>
           <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
             <div id="check-progress-bar" class="bg-slate-900 h-full rounded-full transition-all duration-300" style="width: 0%;"></div>
@@ -210,13 +210,13 @@
 
         <!-- 카테고리 서브 탭 (서류·통신 / 의약품 / 복장·잡화) -->
         <div class="grid grid-cols-3 gap-1.5 p-1.5 bg-slate-100 rounded-xl">
-          <button onclick="switchChecklistTab('docs')" id="check-tab-docs" class="check-subtab-btn py-2.5 px-1 rounded-lg text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition text-center">
+          <button onclick="switchChecklistTab('docs')" id="check-tab-docs" class="check-subtab-btn py-3 px-1 rounded-lg text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition text-center">
             서류·통신 (<span id="count-docs">0/7</span>)
           </button>
-          <button onclick="switchChecklistTab('meds')" id="check-tab-meds" class="check-subtab-btn py-2.5 px-1 rounded-lg text-sm sm:text-base font-bold text-slate-600 hover:text-slate-900 transition text-center">
+          <button onclick="switchChecklistTab('meds')" id="check-tab-meds" class="check-subtab-btn py-3 px-1 rounded-lg text-sm sm:text-base font-bold text-slate-600 hover:text-slate-900 transition text-center">
             의약품 (<span id="count-meds">0/6</span>)
           </button>
-          <button onclick="switchChecklistTab('clothes')" id="check-tab-clothes" class="check-subtab-btn py-2.5 px-1 rounded-lg text-sm sm:text-base font-bold text-slate-600 hover:text-slate-900 transition text-center">
+          <button onclick="switchChecklistTab('clothes')" id="check-tab-clothes" class="check-subtab-btn py-3 px-1 rounded-lg text-sm sm:text-base font-bold text-slate-600 hover:text-slate-900 transition text-center">
             복장·잡화 (<span id="count-clothes">0/7</span>)
           </button>
         </div>
@@ -224,46 +224,46 @@
         <!-- 서브 섹션 1: 서류 / 결제 / 통신 / 공항 -->
         <div id="check-pane-docs" class="check-pane space-y-3">
           <div class="border border-slate-200 rounded-xl divide-y divide-slate-100 bg-white shadow-2xs">
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">여권 원본 (만료 6개월 이상)</span>
               </div>
-              <span class="text-xs font-black px-2 py-0.5 rounded bg-rose-100 text-rose-700 shrink-0">필수</span>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">중국 전용 eSIM 또는 로밍 신청</span>
               </div>
-              <span class="text-xs font-black px-2 py-0.5 rounded bg-rose-100 text-rose-700 shrink-0">필수</span>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">알리페이 앱 카드 등록 (현지 결제용)</span>
               </div>
-              <span class="text-xs font-black px-2 py-0.5 rounded bg-blue-100 text-blue-700 shrink-0">추천</span>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 shrink-0">추천</span>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">해외 여행자보험 가입</span>
               </div>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">스마트패스 등록 (인천공항 빠른 출국)</span>
               </div>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">전자 입국신고 QR코드 저장</span>
               </div>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">비상용 위안화 현금 소액</span>
@@ -277,9 +277,9 @@
           <!-- 서류 직접 입력 바 -->
           <div class="flex items-center gap-2 pt-1">
             <input type="text" id="custom-input-docs" placeholder="서류·통신 준비물 추가 (예: 여권 사본)" 
-                   class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-base text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-slate-800 transition"
+                   class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-base sm:text-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-slate-800 transition"
                    onkeydown="if(event.key === 'Enter') addCustomItem('docs')">
-            <button type="button" onclick="addCustomItem('docs')" class="px-4 py-2.5 bg-slate-900 text-white rounded-xl text-base font-bold shrink-0 hover:bg-slate-800 active:scale-95 transition shadow-xs">
+            <button type="button" onclick="addCustomItem('docs')" class="px-5 py-3 bg-slate-900 text-white rounded-xl text-base sm:text-lg font-bold shrink-0 hover:bg-slate-800 active:scale-95 transition shadow-xs">
               추가
             </button>
           </div>
@@ -288,39 +288,39 @@
         <!-- 서브 섹션 2: 의약품 및 건강 -->
         <div id="check-pane-meds" class="check-pane hidden space-y-3">
           <div class="border border-slate-200 rounded-xl divide-y divide-slate-100 bg-white shadow-2xs">
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">고산병약 (다이아목스 처방)</span>
               </div>
-              <span class="text-xs font-black px-2 py-0.5 rounded bg-rose-100 text-rose-700 shrink-0">필수</span>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">개인 정기 복용약 (혈압·당뇨약 등)</span>
               </div>
-              <span class="text-xs font-black px-2 py-0.5 rounded bg-rose-100 text-rose-700 shrink-0">필수</span>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">타이레놀 (고산 두통 대비)</span>
               </div>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">소화제·정장제·지사제 (상비약)</span>
               </div>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">목캔디 (건조한 고지대 대비)</span>
               </div>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">무릎 보호대 및 파스</span>
@@ -334,9 +334,9 @@
           <!-- 의약품 직접 입력 바 -->
           <div class="flex items-center gap-2 pt-1">
             <input type="text" id="custom-input-meds" placeholder="의약품 준비물 추가 (예: 인공눈물, 연고)" 
-                   class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-base text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-slate-800 transition"
+                   class="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-base sm:text-lg text-slate-900 placeholder:text-slate-400 focus:outline-none focus:bg-white focus:border-slate-800 transition"
                    onkeydown="if(event.key === 'Enter') addCustomItem('meds')">
-            <button type="button" onclick="addCustomItem('meds')" class="px-4 py-2.5 bg-slate-900 text-white rounded-xl text-base font-bold shrink-0 hover:bg-slate-800 active:scale-95 transition shadow-xs">
+            <button type="button" onclick="addCustomItem('meds')" class="px-5 py-3 bg-slate-900 text-white rounded-xl text-base sm:text-lg font-bold shrink-0 hover:bg-slate-800 active:scale-95 transition shadow-xs">
               추가
             </button>
           </div>
@@ -345,26 +345,26 @@
         <!-- 서브 섹션 3: 복장 및 잡화 -->
         <div id="check-pane-clothes" class="check-pane hidden space-y-3">
           <div class="border border-slate-200 rounded-xl divide-y divide-slate-100 bg-white shadow-2xs">
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">편안한 운동화 또는 트레킹화</span>
               </div>
-              <span class="text-xs font-black px-2 py-0.5 rounded bg-rose-100 text-rose-700 shrink-0">필수</span>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">경량 패딩 + 방풍 재킷 (기온차 대비)</span>
               </div>
-              <span class="text-xs font-black px-2 py-0.5 rounded bg-rose-100 text-rose-700 shrink-0">필수</span>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
-            <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">보조배터리 (기내 가방에 휴대)</span>
               </div>
-              <span class="text-xs font-black px-2 py-0.5 rounded bg-rose-100 text-rose-700 shrink-0">필수</span>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
             <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
@@ -408,54 +408,54 @@
         <!-- 2-1. 준비물 체크리스트 뷰 끝 -->
 
         <!-- 2-2. 대한항공 항공편 상세 뷰 (여행준비 탭 통합) -->
-        <div id="prep-view-flight" class="hidden space-y-3">
-          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+        <div id="prep-view-flight" class="hidden space-y-4">
+          <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
             <div>
-              <h2 class="text-xl font-bold text-slate-900 tracking-tight">대한항공 왕복 항공편</h2>
-              <p class="text-sm font-medium text-slate-500 mt-0.5">인천(ICN) ↔ 쿤밍(KMG) · 직항 왕복</p>
+              <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">대한항공 왕복 항공편</h2>
+              <p class="text-base font-medium text-slate-500 mt-1">인천(ICN) ↔ 쿤밍(KMG) · 직항 왕복</p>
             </div>
           </div>
 
         <!-- 1. 출국편 카드 (가는 날) -->
         <div class="border border-slate-100 rounded-3xl bg-white overflow-hidden shadow-2xs">
           <!-- 상단 헤더 바 -->
-          <div class="bg-slate-50 border-b border-slate-100 px-4 sm:px-5 py-2.5 flex items-center justify-between">
-            <span class="text-base font-bold text-slate-900">출국 · 10월 4일 (일)</span>
-            <span class="text-sm font-bold text-blue-700">KE885 · 4시간 50분</span>
+          <div class="bg-slate-50 border-b border-slate-100 px-5 py-3 flex items-center justify-between">
+            <span class="text-lg font-bold text-slate-900">출국 · 10월 4일 (일)</span>
+            <span class="text-base font-bold text-slate-800">KE885 · 4시간 50분</span>
           </div>
 
           <!-- 메인 비행 시간 & 공항 -->
-          <div class="px-4 sm:px-5 py-3">
+          <div class="px-5 py-4">
             <div class="flex items-center justify-between">
               <!-- 출발 (인천) -->
               <div class="text-left">
-                <span class="text-sm font-semibold text-slate-500 block">출발 · 인천</span>
+                <span class="text-base font-semibold text-slate-600 block">출발 · 인천</span>
                 <span class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight block mt-0.5">18:40</span>
-                <span class="inline-block mt-1 text-xs sm:text-sm font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">제2터미널</span>
+                <span class="inline-block mt-1.5 text-sm sm:text-base font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800">제2터미널</span>
               </div>
 
               <!-- 중앙 경로 화살표 & 비행 시간 -->
               <div class="flex-1 flex flex-col items-center justify-center px-2">
-                <span class="text-xs sm:text-sm font-bold text-blue-700 mb-1">4시간 50분</span>
-                <div class="w-full max-w-[110px] flex items-center justify-center">
+                <span class="text-sm sm:text-base font-bold text-slate-800 mb-1">4시간 50분</span>
+                <div class="w-full max-w-[120px] flex items-center justify-center">
                   <div class="h-0.5 flex-1 bg-slate-300"></div>
-                  <span class="text-slate-500 font-bold text-xs px-2">✈</span>
+                  <span class="text-slate-400 font-bold text-sm px-2">직항</span>
                   <div class="h-0.5 flex-1 bg-slate-300"></div>
                 </div>
-                <span class="text-xs sm:text-sm font-semibold text-slate-500 mt-1">대한항공 직항</span>
+                <span class="text-sm font-semibold text-slate-500 mt-1">대한항공</span>
               </div>
 
               <!-- 도착 (쿤밍) -->
               <div class="text-right">
-                <span class="text-sm font-semibold text-slate-500 block">도착 · 쿤밍</span>
+                <span class="text-base font-semibold text-slate-600 block">도착 · 쿤밍</span>
                 <span class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight block mt-0.5">22:30</span>
-                <span class="inline-block mt-1 text-xs sm:text-sm font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">창수이공항</span>
+                <span class="inline-block mt-1.5 text-sm sm:text-base font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800">창수이공항</span>
               </div>
             </div>
           </div>
 
           <!-- 하단 핵심 정보 -->
-          <div class="border-t border-slate-100 bg-slate-50/70 px-4 sm:px-5 py-2 flex items-center justify-between text-sm sm:text-base">
+          <div class="border-t border-slate-100 bg-slate-50/70 px-5 py-3 flex items-center justify-between text-base sm:text-lg">
             <div>
               <span class="font-medium text-slate-500">공항 집결:</span>
               <span class="font-bold text-slate-900 ml-1">15:40까지 (T2 3층)</span>
@@ -470,43 +470,43 @@
         <!-- 2. 귀국편 카드 (오는 날) -->
         <div class="border border-slate-100 rounded-3xl bg-white overflow-hidden shadow-2xs">
           <!-- 상단 헤더 바 -->
-          <div class="bg-slate-50 border-b border-slate-100 px-4 sm:px-5 py-2.5 flex items-center justify-between">
-            <span class="text-base font-bold text-slate-900">귀국 · 10월 11일 (일)</span>
-            <span class="text-sm font-bold text-blue-700">KE886 · 4시간 20분</span>
+          <div class="bg-slate-50 border-b border-slate-100 px-5 py-3 flex items-center justify-between">
+            <span class="text-lg font-bold text-slate-900">귀국 · 10월 11일 (일)</span>
+            <span class="text-base font-bold text-slate-800">KE886 · 4시간 20분</span>
           </div>
 
           <!-- 메인 비행 시간 & 공항 -->
-          <div class="px-4 sm:px-5 py-3">
+          <div class="px-5 py-4">
             <div class="flex items-center justify-between">
               <!-- 출발 (쿤밍) -->
               <div class="text-left">
-                <span class="text-sm font-semibold text-slate-500 block">출발 · 쿤밍</span>
+                <span class="text-base font-semibold text-slate-600 block">출발 · 쿤밍</span>
                 <span class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight block mt-0.5">23:30</span>
-                <span class="inline-block mt-1 text-xs sm:text-sm font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">창수이공항</span>
+                <span class="inline-block mt-1.5 text-sm sm:text-base font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800">창수이공항</span>
               </div>
 
               <!-- 중앙 경로 화살표 & 비행 시간 -->
               <div class="flex-1 flex flex-col items-center justify-center px-2">
-                <span class="text-xs sm:text-sm font-bold text-blue-700 mb-1">4시간 20분</span>
-                <div class="w-full max-w-[110px] flex items-center justify-center">
+                <span class="text-sm sm:text-base font-bold text-slate-800 mb-1">4시간 20분</span>
+                <div class="w-full max-w-[120px] flex items-center justify-center">
                   <div class="h-0.5 flex-1 bg-slate-300"></div>
-                  <span class="text-slate-500 font-bold text-xs px-2">✈</span>
+                  <span class="text-slate-400 font-bold text-sm px-2">직항</span>
                   <div class="h-0.5 flex-1 bg-slate-300"></div>
                 </div>
-                <span class="text-xs sm:text-sm font-semibold text-slate-500 mt-1">기내 1박 숙면</span>
+                <span class="text-sm font-semibold text-slate-500 mt-1">기내 1박 숙면</span>
               </div>
 
               <!-- 도착 (인천) -->
               <div class="text-right">
-                <span class="text-sm font-semibold text-slate-500 block">도착 · 인천</span>
+                <span class="text-base font-semibold text-slate-600 block">도착 · 인천</span>
                 <span class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight block mt-0.5">04:50</span>
-                <span class="inline-block mt-1 text-xs sm:text-sm font-semibold px-2 py-0.5 rounded-md bg-slate-100 text-slate-700">10.12(월) T2</span>
+                <span class="inline-block mt-1.5 text-sm sm:text-base font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800">10.12(월) T2</span>
               </div>
             </div>
           </div>
 
           <!-- 하단 핵심 정보 -->
-          <div class="border-t border-slate-100 bg-slate-50/70 px-4 sm:px-5 py-2 flex items-center justify-between text-sm sm:text-base">
+          <div class="border-t border-slate-100 bg-slate-50/70 px-5 py-3 flex items-center justify-between text-base sm:text-lg">
             <div>
               <span class="font-medium text-slate-500">공항 이동:</span>
               <span class="font-bold text-slate-900 ml-1">리장 → 쿤밍 고속철</span>
@@ -519,10 +519,10 @@
         </div>
 
         <!-- 전자 입국신고 링크 버튼 -->
-        <div class="pt-0.5">
-          <a href="https://s.nia.gov.cn/ArrivalCardFillingPhone/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-3 px-4 text-center rounded-xl bg-slate-900 text-white text-base font-bold hover:bg-slate-800 active:scale-[0.99] transition shadow-xs">
+        <div class="pt-1">
+          <a href="https://s.nia.gov.cn/ArrivalCardFillingPhone/" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 w-full py-4 px-4 text-center rounded-2xl bg-slate-900 text-white text-base sm:text-lg font-bold hover:bg-slate-800 active:scale-[0.99] transition shadow-xs">
             <span>중국 전자 입국신고 공식 포털 열기</span>
-            <span class="text-slate-400">↗</span>
+            <span class="text-slate-400 font-bold">→</span>
           </a>
         </div>
         </div>
@@ -533,36 +533,36 @@
       <!-- ================= 4. 전체 지도 탭 (토스/애플 스타일 미니멀 벡터 지도) ================= -->
       <section id="section-map" class="tab-pane hidden space-y-3">
         
-        <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+        <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
           <div>
-            <h2 class="text-xl font-bold text-slate-900 tracking-tight">운남성 여정 지도</h2>
-            <p class="text-sm font-medium text-slate-500 mt-0.5">10.04 - 10.11 · 7박 8일 순환 동선</p>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">운남성 여정 지도</h2>
+            <p class="text-base font-medium text-slate-500 mt-1">10.04 - 10.11 · 7박 8일 순환 동선</p>
           </div>
         </div>
 
         <!-- 토스/애플 스타일 서브탭 세그먼트 (노선도 vs 구글 지도) -->
-        <div class="grid grid-cols-2 gap-1 p-1 bg-slate-100 rounded-xl text-center">
-          <button type="button" onclick="switchMapSubTab('route')" id="map-subtab-route" class="py-2 rounded-lg text-sm font-bold bg-white text-slate-900 shadow-2xs transition">
+        <div class="grid grid-cols-2 p-1.5 bg-slate-100 rounded-2xl text-center select-none">
+          <button type="button" onclick="switchMapSubTab('route')" id="map-subtab-route" class="py-2.5 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition">
             여정 노선도
           </button>
-          <button type="button" onclick="switchMapSubTab('google')" id="map-subtab-google" class="py-2 rounded-lg text-sm font-medium text-slate-500 hover:text-slate-900 transition">
+          <button type="button" onclick="switchMapSubTab('google')" id="map-subtab-google" class="py-2.5 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition">
             구글 지도
           </button>
         </div>
 
         <!-- 1. 여정 노선도 뷰 -->
-        <div id="map-view-route" class="space-y-3">
+        <div id="map-view-route" class="space-y-3.5">
           <!-- 토스/애플 스타일 세그먼트 컨트롤러 (가로 스크롤 없이 1줄에 쏙 들어가는 9분할 그리드) -->
-          <div class="grid grid-cols-[1.1fr_repeat(8,1fr)] gap-0.5 sm:gap-1 p-1 bg-slate-100 rounded-xl text-center" id="yn-map-day-tabs">
-            <button type="button" onclick="selectMapDay(0)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-bold transition bg-slate-900 text-white shadow-2xs" data-day="0">전체</button>
-            <button type="button" onclick="selectMapDay(1)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="1">1일</button>
-            <button type="button" onclick="selectMapDay(2)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="2">2일</button>
-            <button type="button" onclick="selectMapDay(3)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="3">3일</button>
-            <button type="button" onclick="selectMapDay(4)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="4">4일</button>
-            <button type="button" onclick="selectMapDay(5)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="5">5일</button>
-            <button type="button" onclick="selectMapDay(6)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="6">6일</button>
-            <button type="button" onclick="selectMapDay(7)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="7">7일</button>
-            <button type="button" onclick="selectMapDay(8)" class="yn-map-tab-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="8">8일</button>
+          <div class="grid grid-cols-[1.1fr_repeat(8,1fr)] gap-0.5 sm:gap-1 p-1.5 bg-slate-100 rounded-xl text-center" id="yn-map-day-tabs">
+            <button type="button" onclick="selectMapDay(0)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-bold transition bg-slate-900 text-white shadow-2xs" data-day="0">전체</button>
+            <button type="button" onclick="selectMapDay(1)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="1">1일</button>
+            <button type="button" onclick="selectMapDay(2)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="2">2일</button>
+            <button type="button" onclick="selectMapDay(3)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="3">3일</button>
+            <button type="button" onclick="selectMapDay(4)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="4">4일</button>
+            <button type="button" onclick="selectMapDay(5)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="5">5일</button>
+            <button type="button" onclick="selectMapDay(6)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="6">6일</button>
+            <button type="button" onclick="selectMapDay(7)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="7">7일</button>
+            <button type="button" onclick="selectMapDay(8)" class="yn-map-tab-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="8">8일</button>
           </div>
 
           <!-- 메인 인터랙티브 지도 캔버스 -->
@@ -610,16 +610,16 @@
         <!-- 2. 구글 지도 뷰 (인앱 임베드) -->
         <div id="map-view-google" class="hidden space-y-3">
           <!-- 일차별 선택 세그먼트 -->
-          <div class="grid grid-cols-[1.1fr_repeat(8,1fr)] gap-0.5 sm:gap-1 p-1 bg-slate-100 rounded-xl text-center" id="google-map-day-tabs">
-            <button type="button" onclick="selectGoogleMapDay(0)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-bold transition bg-slate-900 text-white shadow-2xs" data-day="0">전체</button>
-            <button type="button" onclick="selectGoogleMapDay(1)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="1">1일</button>
-            <button type="button" onclick="selectGoogleMapDay(2)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="2">2일</button>
-            <button type="button" onclick="selectGoogleMapDay(3)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="3">3일</button>
-            <button type="button" onclick="selectGoogleMapDay(4)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="4">4일</button>
-            <button type="button" onclick="selectGoogleMapDay(5)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="5">5일</button>
-            <button type="button" onclick="selectGoogleMapDay(6)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="6">6일</button>
-            <button type="button" onclick="selectGoogleMapDay(7)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="7">7일</button>
-            <button type="button" onclick="selectGoogleMapDay(8)" class="google-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="8">8일</button>
+          <div class="grid grid-cols-[1.1fr_repeat(8,1fr)] gap-0.5 sm:gap-1 p-1.5 bg-slate-100 rounded-xl text-center" id="google-map-day-tabs">
+            <button type="button" onclick="selectGoogleMapDay(0)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-bold transition bg-slate-900 text-white shadow-2xs" data-day="0">전체</button>
+            <button type="button" onclick="selectGoogleMapDay(1)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="1">1일</button>
+            <button type="button" onclick="selectGoogleMapDay(2)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="2">2일</button>
+            <button type="button" onclick="selectGoogleMapDay(3)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="3">3일</button>
+            <button type="button" onclick="selectGoogleMapDay(4)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="4">4일</button>
+            <button type="button" onclick="selectGoogleMapDay(5)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="5">5일</button>
+            <button type="button" onclick="selectGoogleMapDay(6)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="6">6일</button>
+            <button type="button" onclick="selectGoogleMapDay(7)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="7">7일</button>
+            <button type="button" onclick="selectGoogleMapDay(8)" class="google-map-day-btn py-2 rounded-lg text-xs sm:text-sm font-medium transition text-slate-500 hover:text-slate-900" data-day="8">8일</button>
           </div>
 
           <!-- 인앱 구글 지도 컨테이너 -->
@@ -628,10 +628,10 @@
           </div>
 
           <!-- 선택된 일차 목적지 정보 요약 카드 -->
-          <div class="px-4 py-2.5 bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-between">
+          <div class="px-5 py-3.5 bg-slate-50 rounded-2xl border border-slate-100 flex items-center justify-between">
             <div class="min-w-0">
-              <div class="text-xs font-bold text-slate-400 mb-0.5">선택 목적지</div>
-              <div class="text-base font-bold text-slate-900 truncate tracking-tight" id="google-map-target-title">운남성 전체 여정</div>
+              <div class="text-sm font-bold text-slate-500 mb-1">선택 목적지</div>
+              <div class="text-base sm:text-lg font-bold text-slate-900 truncate tracking-tight" id="google-map-target-title">운남성 전체 여정</div>
             </div>
           </div>
         </div>
@@ -639,54 +639,54 @@
       </section>
 
       <!-- ================= 5. AI 검색 탭 (인앱 스마트 여행 백과) ================= -->
-      <section id="section-ai" class="tab-pane hidden space-y-3.5">
+      <section id="section-ai" class="tab-pane hidden space-y-4">
         
         <!-- 통일된 상단 헤더 -->
-        <div class="flex items-center justify-between pb-2.5 border-b border-slate-100">
+        <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
           <div>
-            <h2 class="text-xl font-bold text-slate-900 tracking-tight">AI 여행 백과</h2>
-            <p class="text-sm font-medium text-slate-500 mt-0.5">명소 · 음식 · 역사 · 문화 즉시 검색</p>
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">AI 여행 백과</h2>
+            <p class="text-base font-medium text-slate-500 mt-1">명소 · 음식 · 역사 · 문화 즉시 검색</p>
           </div>
         </div>
 
-        <!-- 검색창 입력 박스 -->
+        <!-- 검색창 입력 박스 (토스/애플 대형 검색 바) -->
         <div class="relative">
-          <input type="text" id="ai-search-input" oninput="handleAiSearch(this.value)" placeholder="명소, 음식, 호텔, 준비물, 일정 검색 (예: 옥룡설산, 람월곡, 환전)" 
-                 class="w-full bg-slate-100 border border-transparent focus:border-slate-800 focus:bg-white rounded-2xl px-4 py-3.5 text-base font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none transition shadow-2xs">
-          <button type="button" onclick="clearAiSearch()" id="ai-search-clear" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-xs font-bold hover:bg-slate-300 transition">
+          <input type="text" id="ai-search-input" oninput="handleAiSearch(this.value)" placeholder="명소, 음식, 호텔, 준비물 검색 (예: 옥룡설산, 환전)" 
+                 class="w-full bg-slate-100 border border-transparent focus:border-slate-800 focus:bg-white rounded-2xl px-5 py-4 text-base sm:text-lg font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none transition shadow-2xs">
+          <button type="button" onclick="clearAiSearch()" id="ai-search-clear" class="hidden absolute right-4 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-sm font-bold hover:bg-slate-300 transition">
             ✕
           </button>
         </div>
 
-        <!-- 추천 검색어 칩 목록 (가로 스크롤 & 터치 시 자동 중앙 정렬) -->
-        <div class="space-y-1.5">
-          <div class="text-xs font-semibold text-slate-400 px-1">추천 키워드</div>
-          <div id="ai-chips-scroll" class="flex items-center gap-1.5 overflow-x-auto pb-1 no-scrollbar scroll-smooth">
-            <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="옥룡설산">옥룡설산</button>
-            <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="람월곡">람월곡</button>
-            <button type="button" onclick="quickAiSearch('케이블카', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="케이블카">케이블카</button>
-            <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="호도협">호도협</button>
-            <button type="button" onclick="quickAiSearch('말타기', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="말타기">호도협 말/빵차</button>
-            <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="리장 고성">리장 고성</button>
-            <button type="button" onclick="quickAiSearch('물레방아', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="물레방아">고성 길찾기</button>
-            <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="송찬림사">송찬림사</button>
-            <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="따리 고성">따리 고성</button>
-            <button type="button" onclick="quickAiSearch('생태회랑', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="생태회랑">얼하이 생태회랑</button>
-            <button type="button" onclick="quickAiSearch('고수', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="고수">고수 빼주세요</button>
-            <button type="button" onclick="quickAiSearch('장미빵', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="장미빵">장미빵</button>
-            <button type="button" onclick="quickAiSearch('과교미선', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="과교미선">과교미선</button>
-            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="야생 버섯 전골">버섯전골</button>
-            <button type="button" onclick="quickAiSearch('야크 고기 훠궈', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="야크 고기 훠궈">야크훠궈</button>
-            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="화장실">화장실/휴지</button>
-            <button type="button" onclick="quickAiSearch('샤워', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="샤워">고산 첫날 샤워금기</button>
-            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="고산병">고산병약/다이아목스</button>
-            <button type="button" onclick="quickAiSearch('자외선', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="자외선">자외선/선크림</button>
-            <button type="button" onclick="quickAiSearch('쇼핑', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="쇼핑">선물/쇼핑팁</button>
-            <button type="button" onclick="quickAiSearch('사진', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="사진">인생샷 포토존</button>
-            <button type="button" onclick="quickAiSearch('호텔', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="호텔">호텔/숙소</button>
-            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="10월 날씨">10월 날씨</button>
-            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="환전">환전/알리페이</button>
-            <button type="button" onclick="quickAiSearch('eSIM', this)" class="ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-700 shrink-0 transition" data-keyword="eSIM">eSIM/로밍</button>
+        <!-- 추천 검색어 칩 목록 (시원한 14-15px 볼드 버튼) -->
+        <div class="space-y-2">
+          <div class="text-sm font-bold text-slate-500 px-1">추천 키워드</div>
+          <div id="ai-chips-scroll" class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar scroll-smooth">
+            <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="옥룡설산">옥룡설산</button>
+            <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="람월곡">람월곡</button>
+            <button type="button" onclick="quickAiSearch('케이블카', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="케이블카">케이블카</button>
+            <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="호도협">호도협</button>
+            <button type="button" onclick="quickAiSearch('말타기', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="말타기">호도협 말/빵차</button>
+            <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="리장 고성">리장 고성</button>
+            <button type="button" onclick="quickAiSearch('물레방아', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="물레방아">고성 길찾기</button>
+            <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="송찬림사">송찬림사</button>
+            <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="따리 고성">따리 고성</button>
+            <button type="button" onclick="quickAiSearch('생태회랑', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="생태회랑">얼하이 생태회랑</button>
+            <button type="button" onclick="quickAiSearch('고수', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="고수">고수 빼주세요</button>
+            <button type="button" onclick="quickAiSearch('장미빵', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="장미빵">장미빵</button>
+            <button type="button" onclick="quickAiSearch('과교미선', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="과교미선">과교미선</button>
+            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="야생 버섯 전골">버섯전골</button>
+            <button type="button" onclick="quickAiSearch('야크 고기 훠궈', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="야크 고기 훠궈">야크훠궈</button>
+            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="화장실">화장실/휴지</button>
+            <button type="button" onclick="quickAiSearch('샤워', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="샤워">고산 첫날 샤워금기</button>
+            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="고산병">고산병약/다이아목스</button>
+            <button type="button" onclick="quickAiSearch('자외선', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="자외선">자외선/선크림</button>
+            <button type="button" onclick="quickAiSearch('쇼핑', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="쇼핑">선물/쇼핑팁</button>
+            <button type="button" onclick="quickAiSearch('사진', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="사진">인생샷 포토존</button>
+            <button type="button" onclick="quickAiSearch('호텔', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="호텔">호텔/숙소</button>
+            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="10월 날씨">10월 날씨</button>
+            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="환전">환전/알리페이</button>
+            <button type="button" onclick="quickAiSearch('eSIM', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="eSIM">eSIM/로밍</button>
           </div>
         </div>
 
@@ -699,40 +699,28 @@
 
     </main>
 
-    <!-- 하단 고정 내비게이션 바 (아이폰 Safe Area + 4분할 와이드 터치 영역 + 미니멀 SVG 아이콘) -->
+    <!-- 하단 고정 내비게이션 바 (토스·애플 미니멀 텍스트 탭바: 아이콘 완전 배제, 시원한 16-17px 볼드 타이포그래피) -->
     <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200" style="padding-bottom: env(safe-area-inset-bottom, 14px);">
       <div id="bottom-tabs-container" class="max-w-lg mx-auto grid grid-cols-4 h-16 text-center select-none">
         
         <!-- 1. 일정표 -->
-        <button type="button" onclick="switchMainTab('itinerary')" id="bottom-tab-itinerary" class="bottom-tab-btn flex flex-col items-center justify-center h-full py-1 text-slate-900 transition group" data-tab="itinerary">
-          <svg class="tab-icon w-6 h-6 mb-1 text-slate-900 stroke-[2] transition-transform group-active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-          </svg>
-          <span class="tab-label text-xs sm:text-sm font-bold">일정표</span>
+        <button type="button" onclick="switchMainTab('itinerary')" id="bottom-tab-itinerary" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-bold text-slate-900 tracking-tight transition active:scale-95" data-tab="itinerary">
+          일정표
         </button>
 
         <!-- 2. 여정지도 -->
-        <button type="button" onclick="switchMainTab('map')" id="bottom-tab-map" class="bottom-tab-btn flex flex-col items-center justify-center h-full py-1 text-slate-400 hover:text-slate-600 transition group" data-tab="map">
-          <svg class="tab-icon w-6 h-6 mb-1 text-slate-400 stroke-[1.8] transition-transform group-active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
-          </svg>
-          <span class="tab-label text-xs sm:text-sm font-semibold">여정지도</span>
+        <button type="button" onclick="switchMainTab('map')" id="bottom-tab-map" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="map">
+          여정지도
         </button>
 
-        <!-- 3. AI 검색 (우측 끝 오터치 방지를 위해 중앙 배치) -->
-        <button type="button" onclick="switchMainTab('ai')" id="bottom-tab-ai" class="bottom-tab-btn flex flex-col items-center justify-center h-full py-1 text-slate-400 hover:text-slate-600 transition group" data-tab="ai">
-          <svg class="tab-icon w-6 h-6 mb-1 text-slate-400 stroke-[1.8] transition-transform group-active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-          <span class="tab-label text-xs sm:text-sm font-semibold">AI 검색</span>
+        <!-- 3. AI 검색 (우측 끝 오터치 방지를 위한 중앙 배치) -->
+        <button type="button" onclick="switchMainTab('ai')" id="bottom-tab-ai" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="ai">
+          AI 검색
         </button>
 
-        <!-- 4. 여행준비 (준비물 체크리스트 + 항공권) -->
-        <button type="button" onclick="switchMainTab('checklist')" id="bottom-tab-checklist" class="bottom-tab-btn flex flex-col items-center justify-center h-full py-1 text-slate-400 hover:text-slate-600 transition group" data-tab="checklist">
-          <svg class="tab-icon w-6 h-6 mb-1 text-slate-400 stroke-[1.8] transition-transform group-active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-          </svg>
-          <span class="tab-label text-xs sm:text-sm font-semibold">여행준비</span>
+        <!-- 4. 여행준비 (체크리스트 + 항공권) -->
+        <button type="button" onclick="switchMainTab('checklist')" id="bottom-tab-checklist" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="checklist">
+          여행준비
         </button>
 
       </div>
@@ -1251,70 +1239,63 @@ const ITINERARY_DATA = [
       container.innerHTML = `
         <div class="bg-white rounded-3xl p-5 sm:p-6 space-y-5 shadow-2xs border border-slate-100">
           
-          <!-- 헤더: 일차 및 날짜 -->
+          <!-- 헤더: 일차 및 날짜 (시원한 볼드 타이포그래피) -->
           <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
-            <div class="flex items-center gap-2.5">
-              <span class="text-sm font-bold px-3 py-1 rounded-lg bg-slate-900 text-white">Day ${data.day}</span>
-              <span class="text-lg font-bold text-slate-900">${data.date}</span>
+            <div class="flex items-center gap-3">
+              <span class="text-base font-bold px-3.5 py-1.5 rounded-xl bg-slate-900 text-white">Day ${data.day}</span>
+              <span class="text-xl font-bold text-slate-900">${data.date}</span>
             </div>
-            <span class="text-sm font-semibold text-slate-400">${dayNum} / 8일</span>
+            <span class="text-base font-semibold text-slate-500">${dayNum} / 8일</span>
           </div>
 
-          <!-- 당일 핵심 타이틀 (한 줄 정돈) -->
+          <!-- 당일 핵심 타이틀 (시원하고 큼직한 제목) -->
           <div>
-            <h3 class="text-base min-[390px]:text-lg sm:text-xl font-bold text-slate-900 leading-snug tracking-tight truncate" title="${data.title}">
+            <h3 class="text-lg min-[390px]:text-xl sm:text-2xl font-bold text-slate-900 leading-snug tracking-tight" title="${data.title}">
               ${data.title}
             </h3>
           </div>
 
-          <!-- 실시간 날씨 위젯 (새로고침 삭제, 아이콘 배제, 수직 중앙 균형 배치) -->
-          <div class="bg-slate-50 rounded-2xl p-4 flex items-center justify-between gap-3">
-            <div class="flex items-center gap-3 min-w-0">
-              <div id="weather-icon-box-${data.day}" class="w-11 h-11 rounded-xl bg-white flex items-center justify-center shrink-0 shadow-2xs">
-                <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path stroke-linecap="round" d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"></path></svg>
+          <!-- 실시간 날씨 위젯 (아이콘 완전 배제, 토스·애플 미니멀 텍스트 카드) -->
+          <div class="bg-slate-50 rounded-2xl p-4 sm:p-5 flex items-center justify-between gap-3">
+            <div class="min-w-0">
+              <div class="flex items-baseline gap-2.5">
+                <span id="weather-temp-${data.day}" class="text-3xl font-bold text-slate-900 leading-none">--℃</span>
+                <span id="weather-cond-${data.day}" class="text-lg font-bold text-slate-800 truncate">확인 중</span>
               </div>
-              <div class="min-w-0">
-                <div class="flex items-baseline gap-2">
-                  <span id="weather-temp-${data.day}" class="text-2xl font-bold text-slate-900 leading-none">--℃</span>
-                  <span id="weather-cond-${data.day}" class="text-base font-semibold text-slate-700 truncate">날씨 확인 중</span>
-                </div>
-                <div class="text-sm font-medium text-slate-500 mt-1 whitespace-nowrap" id="weather-range-${data.day}">
-                  최저 --℃ / 최고 --℃
-                </div>
+              <div class="text-base font-medium text-slate-600 mt-1 whitespace-nowrap" id="weather-range-${data.day}">
+                최저 --℃ / 최고 --℃
               </div>
             </div>
-            <div class="flex items-center shrink-0 self-center">
-              <span class="px-3.5 py-2 rounded-xl bg-white border border-slate-200/90 text-sm font-bold text-slate-800 shadow-2xs">
+            <div class="flex items-center shrink-0">
+              <span class="px-4 py-2 rounded-xl bg-white border border-slate-200/90 text-base font-bold text-slate-900 shadow-2xs">
                 ${data.weather.city}
               </span>
             </div>
           </div>
 
-          <!-- 지역 및 이동 수단 (면 분할, 선 제거) -->
-          <div class="bg-slate-50 p-4 rounded-2xl space-y-2.5 text-sm sm:text-base">
-            <div class="flex items-start gap-2.5">
-              <span class="font-semibold text-slate-500 shrink-0 w-20">방문 지역</span>
-              <span class="font-bold text-slate-900">${data.location}</span>
+          <!-- 지역 및 이동 수단 (선명한 라벨과 또렷한 텍스트) -->
+          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl space-y-3 text-base sm:text-lg">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-slate-600 shrink-0 w-24">방문 지역</span>
+              <span class="font-bold text-slate-900 leading-snug">${data.location}</span>
             </div>
-            <div class="flex items-start gap-2.5">
-              <span class="font-semibold text-slate-500 shrink-0 w-20">이동 수단</span>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-slate-600 shrink-0 w-24">이동 수단</span>
               <span class="font-medium text-slate-800 leading-relaxed">${data.transit}</span>
             </div>
           </div>
 
-          <!-- 세부 일정 (토스 스타일 미니멀 타임라인) -->
+          <!-- 세부 일정 (토스 스타일 미니멀 타임라인 + 큰 글씨) -->
           <div class="space-y-3 pt-1">
-            <span class="text-base font-bold text-slate-900 block">세부 일정</span>
+            <span class="text-lg font-bold text-slate-900 block">세부 일정</span>
             <div class="space-y-0">
               ${data.schedule.map((item, idx, arr) => `
                 <div class="flex items-stretch gap-3.5">
-                  <!-- 좌측 센터 정렬 인디케이터 (도트와 세로선이 완벽한 100% 동일 축 정렬) -->
-                  <div class="flex flex-col items-center shrink-0 w-2.5 pt-2">
-                    <div class="w-2 h-2 rounded-full bg-slate-900"></div>
+                  <div class="flex flex-col items-center shrink-0 w-2.5 pt-2.5">
+                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900"></div>
                     ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1"></div>' : ''}
                   </div>
-                  <!-- 우측 일정 텍스트 -->
-                  <div class="pb-3.5 flex-1 text-base sm:text-lg text-slate-800 font-medium leading-relaxed">
+                  <div class="pb-4 flex-1 text-base sm:text-lg text-slate-900 font-medium leading-relaxed">
                     ${item}
                   </div>
                 </div>
@@ -1322,23 +1303,23 @@ const ITINERARY_DATA = [
             </div>
           </div>
 
-          <!-- 알아두면 재미있는 이야기 (접이식 아코디언, 선 제거) -->
+          <!-- 알아두면 재미있는 이야기 (접이식 아코디언, 넉넉한 글자 크기) -->
           <details class="group bg-slate-50 rounded-2xl overflow-hidden transition-all duration-200">
-            <summary class="flex items-center justify-between px-4 py-3.5 sm:py-4 cursor-pointer list-none select-none hover:bg-slate-100/70 transition">
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-blue-600 shrink-0"></span>
-                <span class="text-base font-bold text-slate-900">알아두면 재미있는 이야기 (${data.stories.length}가지)</span>
+            <summary class="flex items-center justify-between px-4 py-4 sm:px-5 cursor-pointer list-none select-none hover:bg-slate-100/70 transition">
+              <div class="flex items-center gap-2.5">
+                <span class="w-2 h-2 rounded-full bg-slate-900 shrink-0"></span>
+                <span class="text-base sm:text-lg font-bold text-slate-900">알아두면 재미있는 이야기 (${data.stories.length}가지)</span>
               </div>
-              <span class="text-sm font-semibold text-slate-400 group-open:rotate-180 transition-transform duration-200">▼</span>
+              <span class="text-sm sm:text-base font-bold text-slate-500 group-open:rotate-180 transition-transform duration-200">▼</span>
             </summary>
-            <div class="px-4 py-4 sm:px-5 sm:py-5 border-t border-slate-100 space-y-3.5">
+            <div class="px-4 py-4 sm:px-5 sm:py-5 border-t border-slate-100 space-y-4">
               ${data.stories.map((s, idx) => `
                 <div class="space-y-1.5">
-                  <div class="text-base font-bold text-slate-900 flex items-start gap-1.5">
-                    <span class="text-blue-600 font-bold shrink-0">${idx + 1}.</span>
+                  <div class="text-base sm:text-lg font-bold text-slate-900 flex items-start gap-1.5">
+                    <span class="text-slate-900 font-bold shrink-0">${idx + 1}.</span>
                     <span>${s.title}</span>
                   </div>
-                  <p class="text-sm sm:text-base text-slate-700 font-normal leading-relaxed">
+                  <p class="text-base sm:text-lg text-slate-700 font-normal leading-relaxed">
                     ${s.desc}
                   </p>
                 </div>
@@ -1346,14 +1327,14 @@ const ITINERARY_DATA = [
             </div>
           </details>
 
-          <!-- 식사 및 숙소 (면 분할, 선 제거) -->
-          <div class="bg-slate-50 p-4 rounded-2xl space-y-2.5 text-sm sm:text-base">
-            <div class="flex items-start gap-2.5">
-              <span class="font-semibold text-slate-500 shrink-0 w-20">식사</span>
-              <span class="text-slate-800 font-medium">${data.meals}</span>
+          <!-- 식사 및 숙소 -->
+          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl space-y-3 text-base sm:text-lg">
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-slate-600 shrink-0 w-24">식사</span>
+              <span class="text-slate-900 font-medium leading-snug">${data.meals}</span>
             </div>
-            <div class="flex items-start gap-2.5">
-              <span class="font-semibold text-slate-500 shrink-0 w-20">숙소</span>
+            <div class="flex items-start gap-3">
+              <span class="font-bold text-slate-600 shrink-0 w-24">숙소</span>
               ${stayContent}
             </div>
           </div>
@@ -1415,41 +1396,19 @@ const ITINERARY_DATA = [
       // 모든 탭 컨텐츠 숨김
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
 
-      // 모든 하단 버튼 비활성화 (아이콘 및 라벨 슬레이트-400 처리)
+      // 모든 하단 텍스트 버튼 비활성화 (토스/애플 그레이 400 + font-semibold)
       document.querySelectorAll('.bottom-tab-btn').forEach(b => {
-        b.classList.remove('text-slate-900');
-        b.classList.add('text-slate-400');
-        const icon = b.querySelector('.tab-icon');
-        if (icon) {
-          icon.classList.remove('text-slate-900', 'stroke-[2]');
-          icon.classList.add('text-slate-400', 'stroke-[1.8]');
-        }
-        const label = b.querySelector('.tab-label');
-        if (label) {
-          label.classList.remove('font-bold');
-          label.classList.add('font-semibold');
-        }
+        b.className = "bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95";
       });
 
       // 대상 탭 컨텐츠 표시
       const targetPane = document.getElementById('section-' + tabName);
       if (targetPane) targetPane.classList.remove('hidden');
 
-      // 대상 버튼 활성화 (아이콘 및 라벨 슬레이트-900 처리)
+      // 대상 텍스트 버튼 활성화 (토스/애플 블랙 900 + font-bold)
       const targetBtn = document.getElementById('bottom-tab-' + tabName);
       if (targetBtn) {
-        targetBtn.classList.remove('text-slate-400');
-        targetBtn.classList.add('text-slate-900');
-        const icon = targetBtn.querySelector('.tab-icon');
-        if (icon) {
-          icon.classList.remove('text-slate-400', 'stroke-[1.8]');
-          icon.classList.add('text-slate-900', 'stroke-[2]');
-        }
-        const label = targetBtn.querySelector('.tab-label');
-        if (label) {
-          label.classList.remove('font-semibold');
-          label.classList.add('font-bold');
-        }
+        targetBtn.className = "bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-bold text-slate-900 tracking-tight transition active:scale-95";
       }
 
       // iOS 사파리 가로 튕김 버그를 일으키던 targetBtn.scrollIntoView(...) 코드 완전 제거
@@ -1818,7 +1777,7 @@ const ITINERARY_DATA = [
       smoothZoomToDay(selectedMapDay, true);
     }
 
-    // 지도 하단 일차별 도시 이동 요약 카드 렌더링 (폰트 크기 유지, 군더더기 배제, 컴팩트 1줄 레이아웃)
+    // 지도 하단 일차별 도시 이동 요약 카드 렌더링 (시원한 16-18px 볼드 텍스트)
     function renderMapScheduleCard(day) {
       const container = document.getElementById('yn-map-schedule-card');
       if (!container) return;
@@ -1827,13 +1786,13 @@ const ITINERARY_DATA = [
       if (!info) return;
 
       container.innerHTML = `
-        <div onclick="jumpToDayFromMap(${info.jumpDay})" class="px-4 py-3 bg-white rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between gap-3 cursor-pointer hover:border-slate-400 active:scale-[0.99] transition">
+        <div onclick="jumpToDayFromMap(${info.jumpDay})" class="px-5 py-4 bg-white rounded-2xl border border-slate-200/90 shadow-2xs flex items-center justify-between gap-3 cursor-pointer hover:border-slate-400 active:scale-[0.99] transition">
           <div class="min-w-0 flex-1">
-            <div class="text-xs font-bold text-slate-400 mb-0.5">${info.dayLabel} · ${info.subLabel}</div>
-            <div class="text-base font-bold text-slate-900 truncate tracking-tight">${info.cityMove}</div>
+            <div class="text-sm font-bold text-slate-500 mb-1">${info.dayLabel} · ${info.subLabel}</div>
+            <div class="text-base sm:text-lg font-bold text-slate-900 truncate tracking-tight">${info.cityMove}</div>
           </div>
-          <span class="text-xs sm:text-sm font-bold text-slate-400 shrink-0 flex items-center gap-0.5">
-            일정표 <span class="text-slate-300">→</span>
+          <span class="text-sm sm:text-base font-bold text-slate-700 shrink-0 flex items-center gap-1">
+            일정표 <span class="text-slate-400">→</span>
           </span>
         </div>
       `;
@@ -3235,34 +3194,34 @@ const ITINERARY_DATA = [
       // 1) 지식사전 결과 렌더링
       if (matchedWiki.length > 0) {
         html += matchedWiki.map(item => `
-          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-2xs space-y-4">
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-2xs space-y-4">
             <!-- 카드 헤더 -->
-            <div class="flex items-start justify-between gap-3 pb-3 border-b border-slate-100">
+            <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-900 text-white">${item.category}</span>
-                  <span class="text-xs font-semibold text-slate-400">${item.dayLabel}</span>
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span class="text-sm font-bold px-3 py-1 rounded-xl bg-slate-900 text-white">${item.category}</span>
+                  <span class="text-sm font-semibold text-slate-500">${item.dayLabel}</span>
                 </div>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">${item.title}</h3>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">${item.title}</h3>
               </div>
               ${item.jumpDay ? `
-                <button type="button" onclick="jumpToDayFromMap(${item.jumpDay})" class="text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 transition shrink-0">
+                <button type="button" onclick="jumpToDayFromMap(${item.jumpDay})" class="text-sm sm:text-base font-bold text-slate-800 hover:text-slate-900 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shrink-0">
                   일정표 보기 →
                 </button>
               ` : ''}
             </div>
 
             <!-- 핵심 요약 -->
-            <div class="bg-slate-50 rounded-2xl p-3.5 text-sm sm:text-base font-semibold text-slate-800 leading-relaxed border border-slate-100">
+            <div class="bg-slate-50 rounded-2xl p-4 text-base sm:text-lg font-semibold text-slate-900 leading-relaxed border border-slate-100">
               ${item.summary}
             </div>
 
             <!-- 4단 팩트 브리핑 그리드 -->
-            <div class="space-y-3 pt-1">
+            <div class="space-y-3.5 pt-1">
               ${item.items.map(it => `
-                <div class="space-y-0.5">
-                  <span class="text-sm font-bold text-slate-900 block">• ${it.label}</span>
-                  <p class="text-sm sm:text-base font-medium text-slate-600 leading-relaxed pl-3.5">
+                <div class="space-y-1">
+                  <span class="text-base font-bold text-slate-900 block">• ${it.label}</span>
+                  <p class="text-base sm:text-lg font-medium text-slate-700 leading-relaxed pl-3.5">
                     ${it.desc}
                   </p>
                 </div>
@@ -3275,34 +3234,34 @@ const ITINERARY_DATA = [
       // 2) 항공편 통합 카드 (토스/애플 미니멀 슬레이트 스타일)
       if (isFlightQuery) {
         html += `
-          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-2xs space-y-4">
-            <div class="flex items-start justify-between gap-3 pb-3 border-b border-slate-100">
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-2xs space-y-4">
+            <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-900 text-white">항공편</span>
-                  <span class="text-xs font-semibold text-slate-400">대한항공 직항</span>
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span class="text-sm font-bold px-3 py-1 rounded-xl bg-slate-900 text-white">항공편</span>
+                  <span class="text-sm font-semibold text-slate-500">대한항공 직항</span>
                 </div>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">인천 ⇄ 쿤밍 직항 운항 스케줄</h3>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">인천 ⇄ 쿤밍 직항 운항 스케줄</h3>
               </div>
-              <button type="button" onclick="jumpToDayFromMap(1)" class="text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 transition shrink-0">
+              <button type="button" onclick="jumpToDayFromMap(1)" class="text-sm sm:text-base font-bold text-slate-800 hover:text-slate-900 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shrink-0">
                 1일차 보기 →
               </button>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm">
-              <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100 space-y-1">
-                <div class="text-xs font-semibold text-slate-400">출국 (KE885 · 10.04 일)</div>
-                <div class="text-base font-bold text-slate-900">인천 18:40 ➔ 쿤밍 22:30</div>
-                <div class="text-xs text-slate-500">제2여객터미널(T2) · 약 4시간 50분 소요</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-base">
+              <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
+                <div class="text-sm font-bold text-slate-500">출국 (KE885 · 10.04 일)</div>
+                <div class="text-lg font-bold text-slate-900">인천 18:40 ➔ 쿤밍 22:30</div>
+                <div class="text-sm font-medium text-slate-600">제2여객터미널(T2) · 약 4시간 50분 소요</div>
               </div>
-              <div class="bg-slate-50 p-3.5 rounded-2xl border border-slate-100 space-y-1">
-                <div class="text-xs font-semibold text-slate-400">귀국 (KE886 · 10.11 일~12 월)</div>
-                <div class="text-base font-bold text-slate-900">쿤밍 23:55 ➔ 인천 04:50 (+1일)</div>
-                <div class="text-xs text-slate-500">기내 1박 후 10.12(월) 새벽 인천 도착</div>
+              <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
+                <div class="text-sm font-bold text-slate-500">귀국 (KE886 · 10.11 일~12 월)</div>
+                <div class="text-lg font-bold text-slate-900">쿤밍 23:55 ➔ 인천 04:50 (+1일)</div>
+                <div class="text-sm font-medium text-slate-600">기내 1박 후 10.12(월) 새벽 인천 도착</div>
               </div>
             </div>
-            <div class="flex items-center justify-between pt-1 text-xs text-slate-500">
+            <div class="flex items-center justify-between pt-1 text-sm text-slate-600">
               <span>* 중국 전자 입국신고서(온라인) 사전 작성 권장</span>
-              <a href="https://s.nia.gov.cn/ArrivalCardFillingPhone/" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-800 hover:underline">입국신고 포털 ↗</a>
+              <a href="https://s.nia.gov.cn/ArrivalCardFillingPhone/" target="_blank" rel="noopener noreferrer" class="font-bold text-slate-900 hover:underline">입국신고 포털 →</a>
             </div>
           </div>
         `;
@@ -3311,26 +3270,26 @@ const ITINERARY_DATA = [
       // 3) 일정표(일자) 매칭 카드 (토스/애플 미니멀 슬레이트 스타일)
       if (matchedDays.length > 0) {
         html += matchedDays.map(m => `
-          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-2xs space-y-3.5">
-            <div class="flex items-start justify-between gap-3 pb-3 border-b border-slate-100">
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-2xs space-y-4">
+            <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-900 text-white">${m.day.day}일차 일정</span>
-                  <span class="text-xs font-semibold text-slate-400">${m.day.date}</span>
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span class="text-sm font-bold px-3 py-1 rounded-xl bg-slate-900 text-white">${m.day.day}일차 일정</span>
+                  <span class="text-sm font-semibold text-slate-500">${m.day.date}</span>
                 </div>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">${m.day.title}</h3>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">${m.day.title}</h3>
               </div>
-              <button type="button" onclick="jumpToDayFromMap(${m.day.day})" class="text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 transition shrink-0">
+              <button type="button" onclick="jumpToDayFromMap(${m.day.day})" class="text-sm sm:text-base font-bold text-slate-800 hover:text-slate-900 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shrink-0">
                 일정표 보기 →
               </button>
             </div>
-            <div class="bg-slate-50 rounded-2xl p-3.5 text-xs sm:text-sm space-y-1.5 text-slate-600 border border-slate-100">
-              <div><span class="font-bold text-slate-800">위치:</span> ${m.day.location || '운남성'}</div>
-              ${m.day.stay && m.day.stay.name ? `<div><span class="font-bold text-slate-800">숙소:</span> ${m.day.stay.name}</div>` : ''}
-              ${m.day.meals ? `<div><span class="font-bold text-slate-800">식사:</span> ${m.day.meals}</div>` : ''}
-              <div class="pt-1.5 border-t border-slate-200/60 text-xs">
-                <span class="font-bold text-slate-700">검색 매칭:</span>
-                <span class="text-slate-500">${m.reasons.join(' · ')}</span>
+            <div class="bg-slate-50 rounded-2xl p-4 text-base space-y-2 text-slate-700 border border-slate-100">
+              <div><span class="font-bold text-slate-900">위치:</span> ${m.day.location || '운남성'}</div>
+              ${m.day.stay && m.day.stay.name ? `<div><span class="font-bold text-slate-900">숙소:</span> ${m.day.stay.name}</div>` : ''}
+              ${m.day.meals ? `<div><span class="font-bold text-slate-900">식사:</span> ${m.day.meals}</div>` : ''}
+              <div class="pt-2 border-t border-slate-200/60 text-sm font-medium">
+                <span class="font-bold text-slate-800">검색 매칭:</span>
+                <span class="text-slate-600">${m.reasons.join(' · ')}</span>
               </div>
             </div>
           </div>
@@ -3340,24 +3299,24 @@ const ITINERARY_DATA = [
       // 4) 준비물 체크리스트 매칭 카드 (토스/애플 미니멀 슬레이트 스타일)
       if (matchedChecklist.length > 0) {
         html += `
-          <div class="bg-white rounded-3xl p-5 border border-slate-100 shadow-2xs space-y-4">
-            <div class="flex items-start justify-between gap-3 pb-3 border-b border-slate-100">
+          <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-2xs space-y-4">
+            <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100">
               <div>
-                <div class="flex items-center gap-2 mb-1">
-                  <span class="text-xs font-bold px-2 py-0.5 rounded-md bg-slate-900 text-white">체크리스트</span>
-                  <span class="text-xs font-semibold text-slate-400">여행 필수품</span>
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span class="text-sm font-bold px-3 py-1 rounded-xl bg-slate-900 text-white">체크리스트</span>
+                  <span class="text-sm font-semibold text-slate-500">여행 필수품</span>
                 </div>
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">관련 준비물 확인</h3>
+                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">관련 준비물 확인</h3>
               </div>
-              <button type="button" onclick="switchMainTab('checklist')" class="text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-xl bg-slate-50 hover:bg-slate-100 border border-slate-200/80 transition shrink-0">
+              <button type="button" onclick="switchMainTab('checklist')" class="text-sm sm:text-base font-bold text-slate-800 hover:text-slate-900 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shrink-0">
                 체크리스트 보기 →
               </button>
             </div>
             <div class="space-y-2">
               ${matchedChecklist.map(c => `
-                <div class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-100 text-sm">
-                  <span class="font-bold text-slate-800">• ${c.kw}</span>
-                  <span class="text-xs sm:text-sm font-medium text-slate-500">${c.desc}</span>
+                <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 border border-slate-100 text-base">
+                  <span class="font-bold text-slate-900">• ${c.kw}</span>
+                  <span class="text-sm sm:text-base font-medium text-slate-600">${c.desc}</span>
                 </div>
               `).join('')}
             </div>
