@@ -786,9 +786,9 @@ const ITINERARY_DATA = [
           "공항 6번 출구 앞 [허텐샤 / GO투어] 피켓 가이드 미팅",
           "준5성 호텔로 이동 후 체크인 및 휴식"
         ],
-        meals: "조식 불포함 · 중식 불포함 · 석식 기내식",
+        meals: "조·중식 불포함 · 석식 기내식",
         stay: {
-          name: "중 후앙 호텔 (준5성)",
+          name: "중 후앙 호텔",
           link: "https://kr.trip.com/hotels/detail/?cityEnName=Kunming&cityId=34&hotelId=425862"
         },
         weather: {
@@ -826,9 +826,9 @@ const ITINERARY_DATA = [
           "천년 고도 대리고성 성곽 및 골목길 탐방",
           "저녁식사 후 대리고성 4성 호텔 체크인 및 휴식"
         ],
-        meals: "조식 호텔식 · 중식 현지식 · 석식 현지식",
+        meals: "조식 호텔식 · 중·석식 현지식",
         stay: {
-          name: "따리 하이두 호텔 (4성)",
+          name: "따리 하이두 호텔",
           link: "https://kr.trip.com/hotels/detail/?cityEnName=Dali+City&cityId=36&hotelId=75223529"
         },
         weather: {
@@ -866,7 +866,7 @@ const ITINERARY_DATA = [
           "리장 4성 전통 특색 객잔 체크인",
           "저녁식사 후 붉은 홍등이 켜진 리장고성 밤 산책"
         ],
-        meals: "조식 호텔식 · 중식 현지식 · 석식 현지식",
+        meals: "조식 호텔식 · 중·석식 현지식",
         stay: {
           name: "리장 톈유 부티크 호텔",
           link: "https://kr.trip.com/hotels/detail/?cityEnName=Lijiang&cityId=37&hotelId=879244"
@@ -905,7 +905,7 @@ const ITINERARY_DATA = [
           "차마객잔 도착 및 테라스 옥룡설산 만년설 조망",
           "저녁식사 (토종닭 백숙 특식) 후 밤하늘 별빛 감상 및 산장 숙박"
         ],
-        meals: "조식 객잔식 · 중식 현지식 · 석식 백숙특식",
+        meals: "조식 객잔식 · 중식 · 석식 백숙특식",
         stay: {
           name: "호도협 차마객잔",
           link: "https://kr.trip.com/hotels/detail/?cityEnName=Shangri-La&cityId=660&hotelId=2106783"
@@ -944,7 +944,7 @@ const ITINERARY_DATA = [
           "샹그릴라 고성(두커종) 거대 마니차 탐방 및 저녁식사 (티베트식)",
           "산소 공급 4성 호텔 체크인 및 휴식"
         ],
-        meals: "조식 객잔식 · 중식 현지식 · 석식 티베트특식",
+        meals: "조식 객잔식 · 중식 · 석식 티베트특식",
         stay: {
           name: "5th 메테오라이트 그레이스 호텔",
           link: "https://kr.trip.com/hotels/detail/?cityEnName=Shangri-La&cityId=660&hotelId=23817695"
@@ -984,7 +984,7 @@ const ITINERARY_DATA = [
           "차마고도 마방들의 옛 마을 '수허고성' 산책",
           "저녁식사 후 수허고성 4성 특색 객잔 체크인 및 휴식"
         ],
-        meals: "조식 호텔식 · 중식 현지식 · 석식 현지식",
+        meals: "조식 호텔식 · 중·석식 현지식",
         stay: {
           name: "리장 신 후이펑 리조트 호텔",
           link: "https://kr.trip.com/hotels/detail/?cityEnName=Lijiang&cityId=37&hotelId=7018623"
@@ -1024,7 +1024,7 @@ const ITINERARY_DATA = [
           "리장 복귀 후 버섯전골 만찬 & 리장고성 화려한 야경 탐방",
           "수허고성 객잔 귀환 후 휴식 (연박)"
         ],
-        meals: "조식 호텔식 · 중식 현지식 · 석식 운남 버섯전골",
+        meals: "조식 호텔식 · 중식 · 석식 운남 버섯전골",
         stay: {
           name: "리장 신 후이펑 리조트 호텔",
           link: "https://kr.trip.com/hotels/detail/?cityEnName=Lijiang&cityId=37&hotelId=7018623"
@@ -1066,7 +1066,7 @@ const ITINERARY_DATA = [
         ],
         meals: "조식 호텔식 · 중식 현지식 · 석식 기내식",
         stay: {
-          name: "기내 숙박 (대한항공 KE886)",
+          name: "기내 숙박 (대한항공)",
           link: ""
         },
         weather: {
@@ -1252,15 +1252,15 @@ const ITINERARY_DATA = [
         indicator.textContent = `${dayNum}일차 보는 중`;
       }
 
-      // 숙소 1줄 렌더링 (간단한 아이콘 링크 포함)
+      // 숙소 1줄 렌더링 (간단한 아이콘 링크 포함, 16px 볼드)
       let stayContent = '';
       if (typeof data.stay === 'object' && data.stay !== null) {
         stayContent = `
-          <div class="flex items-center gap-2">
-            <span class="text-slate-900 font-bold">${data.stay.name}</span>
+          <div class="flex items-center gap-2 min-w-0">
+            <span class="text-base sm:text-lg font-bold text-slate-900 truncate">${data.stay.name}</span>
             ${data.stay.link ? `
               <a href="${data.stay.link}" target="_blank" rel="noopener noreferrer" 
-                 class="inline-flex items-center justify-center p-1 rounded-md text-blue-600 hover:text-blue-800 hover:bg-blue-50 transition" 
+                 class="inline-flex items-center justify-center p-1 rounded-md text-blue-600 hover:text-blue-800 hover:bg-blue-50 transition shrink-0" 
                  title="트립닷컴에서 보기">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
               </a>
@@ -1268,7 +1268,7 @@ const ITINERARY_DATA = [
           </div>
         `;
       } else {
-        stayContent = `<span class="text-slate-900 font-bold">${data.stay}</span>`;
+        stayContent = `<span class="text-base sm:text-lg font-bold text-slate-900 truncate">${data.stay}</span>`;
       }
 
       const container = document.getElementById('day-card-container');
@@ -1376,17 +1376,13 @@ const ITINERARY_DATA = [
             </div>
           </details>
 
-          <!-- 식사 및 숙소 (토스·애플 미니멀 단일 카드) -->
-          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-100/90 space-y-3">
-            <div>
-              <span class="text-xs font-bold text-slate-400 block mb-1">오늘의 식사</span>
-              <div class="text-sm sm:text-base font-bold text-slate-900 leading-snug">${data.meals}</div>
+          <!-- 식사 및 숙소 (오늘의 식사/숙소 라벨 제거, 1줄씩 시원한 16px 볼드 표시) -->
+          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-100/90 space-y-2.5 select-none">
+            <div class="text-base sm:text-lg font-bold text-slate-900 truncate">
+              ${data.meals}
             </div>
-            <div class="border-t border-slate-200/50 pt-3">
-              <span class="text-xs font-bold text-slate-400 block mb-1">오늘의 숙소</span>
-              <div class="text-sm sm:text-base font-bold text-slate-900 leading-snug">
-                ${stayContent}
-              </div>
+            <div class="border-t border-slate-200/60 pt-2.5">
+              ${stayContent}
             </div>
           </div>
 
