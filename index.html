@@ -1318,15 +1318,15 @@ const ITINERARY_DATA = [
             </div>
           </div>
 
-          <!-- 지역 및 이동 수단 (토스 스타일 2분할 키-밸류 카드) -->
-          <div class="grid grid-cols-2 gap-2.5">
-            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+          <!-- 지역 및 이동 수단 (토스·애플 미니멀 단일 카드: 2열 분할 제거 및 가로 폭 100% 활용) -->
+          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-100/90 space-y-3">
+            <div>
               <span class="text-xs font-bold text-slate-400 block mb-1">방문 지역</span>
-              <span class="font-extrabold text-slate-900 text-base sm:text-lg block leading-snug">${data.location}</span>
+              <div class="text-base sm:text-lg font-bold text-slate-900 leading-snug">${data.location}</div>
             </div>
-            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+            <div class="border-t border-slate-200/50 pt-3">
               <span class="text-xs font-bold text-slate-400 block mb-1">이동 수단</span>
-              <span class="font-extrabold text-slate-900 text-base sm:text-lg block leading-snug">${data.transit}</span>
+              <div class="text-base sm:text-lg font-bold text-slate-900 leading-snug">${data.transit}</div>
             </div>
           </div>
 
@@ -1396,15 +1396,15 @@ const ITINERARY_DATA = [
             </div>
           </details>
 
-          <!-- 식사 및 숙소 (토스 스타일 분할 키-밸류 카드) -->
-          <div class="space-y-2.5">
-            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex items-start justify-between gap-3">
-              <span class="text-xs font-bold text-slate-400 shrink-0 pt-0.5">식사</span>
-              <span class="text-slate-900 font-bold text-base sm:text-lg text-right flex-1 leading-snug">${data.meals}</span>
+          <!-- 식사 및 숙소 (토스·애플 미니멀 단일 카드) -->
+          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-100/90 space-y-3">
+            <div>
+              <span class="text-xs font-bold text-slate-400 block mb-1">오늘의 식사</span>
+              <div class="text-base sm:text-lg font-bold text-slate-900 leading-snug">${data.meals}</div>
             </div>
-            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex items-start justify-between gap-3">
-              <span class="text-xs font-bold text-slate-400 shrink-0 pt-0.5">숙소</span>
-              <div class="text-slate-900 font-bold text-base sm:text-lg text-right flex-1 leading-snug">
+            <div class="border-t border-slate-200/50 pt-3">
+              <span class="text-xs font-bold text-slate-400 block mb-1">오늘의 숙소</span>
+              <div class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
                 ${stayContent}
               </div>
             </div>
