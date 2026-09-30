@@ -819,7 +819,7 @@ const ITINERARY_DATA = [
         title: "석림 카르스트 & 대리고성 탐방",
         transit: "전용 차량 (석림 40분 / 대리 3시간)",
         schedule: [
-          "08:00 호텔 조식 후 석림(石林)으로 이동 (차량 40분)",
+          "호텔 조식 후 석림(石林)으로 이동 (차량 40분)",
           "세계 최대 카르스트 삼림 '대석림·소석림' 관람 (해발 2,000m)",
           "석림 인근 현지 특식 점심식사",
           "소수민족 백족의 고도 '따리(대리)' 이동 (차량 3시간)",
@@ -859,7 +859,7 @@ const ITINERARY_DATA = [
         title: "얼하이 호수 관람 & 리장 이동",
         transit: "전용 차량 (대리~리장 약 2시간 30분)",
         schedule: [
-          "08:30 호텔 조식 후 얼하이 호수로 이동",
+          "호텔 조식 후 얼하이 호수로 이동",
           "얼하이 동쪽 롄화취 해안 & 멍스취 어촌마을 탐방",
           "남조풍정도 호수 조망 및 점심식사",
           "나시족의 고도 '리장' 이동 (전용차량 2시간 30분)",
@@ -899,7 +899,7 @@ const ITINERARY_DATA = [
         title: "호도협 28밴드 트레킹 & 차마객잔",
         transit: "전용 차량 + 말 트레킹 또는 빵차 (전액 포함)",
         schedule: [
-          "08:30 리장 출발하여 호도협 입구 차오토우 도착",
+          "리장 출발하여 호도협 입구 차오토우 도착",
           "캐리어는 전용 차량 보관 (차마객잔 1박 짐만 배낭 휴대)",
           "호도협 28밴드 말 트레킹 (체력에 맞춰 차량 등반 택1, 전액 포함)",
           "차마객잔 도착 및 테라스 옥룡설산 만년설 조망",
@@ -977,7 +977,7 @@ const ITINERARY_DATA = [
         title: "송찬림사 관람 & 리장 수허고성 복귀",
         transit: "전용 차량 (샹그릴라~리장 약 3시간)",
         schedule: [
-          "09:00 호텔 조식 후 샹그릴라 송찬림사로 이동",
+          "호텔 조식 후 샹그릴라 송찬림사로 이동",
           "운남성 최대 티베트 사원 황금빛 '송찬림사' 투어",
           "점심식사 후 샹그릴라 초원 풍경 조망",
           "전용 차량 타고 리장 복귀 (약 3시간)",
@@ -1017,7 +1017,7 @@ const ITINERARY_DATA = [
         title: "옥룡설산 빙천공원 & 인상리장 관람",
         transit: "전용 차량 + 옥룡설산 대형 케이블카",
         schedule: [
-          "08:30 옥룡설산 국립공원 이동 (개인 외투 필수 지참, 방한복 대여 불가)",
+          "옥룡설산 국립공원 이동 (개인 외투 필수 지참, 방한복 대여 불가)",
           "장예모 감독 연출 500인 대형 야외 가무극 [인상리장] 관람",
           "케이블카 탑승하여 해발 4,680m 빙천공원 만년설 감상 (산소통 지참)",
           "에메랄드빛 계곡 '람월곡' 전기차 관람",
@@ -1057,12 +1057,12 @@ const ITINERARY_DATA = [
         title: "수허고성 산책 & 쿤밍 고속열차 귀국",
         transit: "고속열차 (약 4시간) + 대한항공 직항 귀국",
         schedule: [
-          "09:00 호텔 조식 후 수허고성 물길 산책",
+          "호텔 조식 후 수허고성 물길 산책",
           "점심식사 후 리장역으로 이동하여 고속열차 탑승",
           "고속열차로 쿤밍 이동 (약 4시간, 쾌적하고 편안한 좌석)",
           "쿤밍 도착 후 전용차량 공항 이동 및 출국 수속",
-          "23:30 대한항공 KE886편 쿤밍 출발 (기내 1박 숙면)",
-          "10월 12일(월) 04:50 인천공항 제2여객터미널 도착"
+          "대한항공 KE886편 쿤밍 출발 (23:30 직항 · 기내 1박 숙면)",
+          "인천공항 제2여객터미널 도착 (04:50 도착 및 귀가)"
         ],
         meals: "조식 호텔식 · 중식 현지식 · 석식 기내식",
         stay: {
@@ -1313,37 +1313,53 @@ const ITINERARY_DATA = [
             ${data.transit}
           </div>
 
-          <!-- 세부 일정 (시간과 내용이 명확히 분리된 애플 캘린더 스타일 타임라인) -->
+          <!-- 세부 일정 (1일차는 시간 컬럼 유지, 2~8일차는 시간 제외 및 왼쪽 정렬 17~19px 확대) -->
           <div class="space-y-3 pt-1">
-            <span class="text-lg font-bold text-slate-900 block">세부 일정</span>
+            <span class="text-lg sm:text-xl font-bold text-slate-900 block">세부 일정</span>
             <div class="space-y-0">
               ${data.schedule.map((item, idx, arr) => {
-                const timeMatch = item.match(/^(\d{1,2}:\d{2})\s*(.*)$/);
-                if (timeMatch) {
+                if (data.day === 1) {
+                  const timeMatch = item.match(/^(\d{1,2}:\d{2})\s*(.*)$/);
+                  if (timeMatch) {
+                    return `
+                      <div class="flex items-start gap-3 pb-3.5 last:pb-1">
+                        <div class="w-13 sm:w-14 shrink-0 text-left pt-0.5">
+                          <span class="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">${timeMatch[1]}</span>
+                        </div>
+                        <div class="flex flex-col items-center shrink-0 w-2.5 pt-2">
+                          <div class="w-2 h-2 rounded-full bg-slate-900"></div>
+                          ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[24px]"></div>' : ''}
+                        </div>
+                        <div class="flex-1 text-base sm:text-lg text-slate-900 font-medium leading-snug">
+                          ${timeMatch[2]}
+                        </div>
+                      </div>
+                    `;
+                  }
                   return `
-                    <div class="flex items-start gap-3 pb-3.5">
-                      <div class="w-14 shrink-0 text-left pt-0.5">
-                        <span class="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">${timeMatch[1]}</span>
+                    <div class="flex items-start gap-3 pb-3.5 last:pb-1">
+                      <div class="w-13 sm:w-14 shrink-0 text-left pt-0.5"></div>
+                      <div class="flex flex-col items-center shrink-0 w-2.5 pt-2">
+                        <div class="w-2 h-2 rounded-full bg-slate-400"></div>
+                        ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[24px]"></div>' : ''}
                       </div>
-                      <div class="flex flex-col items-center shrink-0 w-2 pt-2">
-                        <div class="w-2 h-2 rounded-full bg-slate-900"></div>
-                        ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[22px]"></div>' : ''}
-                      </div>
-                      <div class="flex-1 text-base sm:text-lg text-slate-800 font-medium leading-snug">
-                        ${timeMatch[2]}
+                      <div class="flex-1 text-base sm:text-lg text-slate-900 font-medium leading-snug">
+                        ${item}
                       </div>
                     </div>
                   `;
                 }
+
+                // 2일차~8일차: 시간 제외, 좌측 여백 완전 제거, 시원한 17~19px 볼드 타이포그래피
+                const cleanItem = item.replace(/^(\d{1,2}:\d{2})\s*/, '');
                 return `
-                  <div class="flex items-start gap-3 pb-3.5">
-                    <div class="w-14 shrink-0 text-left pt-0.5"></div>
-                    <div class="flex flex-col items-center shrink-0 w-2 pt-2">
-                      <div class="w-2 h-2 rounded-full bg-slate-400"></div>
-                      ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[22px]"></div>' : ''}
+                  <div class="flex items-start gap-3.5 pb-4 last:pb-1">
+                    <div class="flex flex-col items-center shrink-0 w-3 pt-2">
+                      <div class="w-2.5 h-2.5 rounded-full bg-slate-900"></div>
+                      ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1.5 min-h-[28px]"></div>' : ''}
                     </div>
-                    <div class="flex-1 text-base sm:text-lg text-slate-800 font-medium leading-snug">
-                      ${item}
+                    <div class="flex-1 text-[17px] sm:text-[19px] text-slate-900 font-medium leading-relaxed">
+                      ${cleanItem}
                     </div>
                   </div>
                 `;
