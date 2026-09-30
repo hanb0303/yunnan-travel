@@ -600,96 +600,90 @@
       </section>
 
 
-      <!-- ================= 4. 전체 지도 탭 (타이틀 제거, 일차 탭 최상단 + 슬림 모드 스위치 + 대형 지도 핏팅) ================= -->
-      <section id="section-map" class="tab-pane hidden space-y-2 sm:space-y-2.5">
+      <!-- ================= 4. 전체 지도 탭 (시니어 16px 볼드 최적화 + 스크롤 없는 한 화면 핏팅) ================= -->
+      <section id="section-map" class="tab-pane hidden space-y-2">
         
-        <!-- 1. 일차 선택 바 (토스·애플 스타일 미니멀 가로 슬라이드 알약 칩, 회색 외곽 박스 제거) -->
-        <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar scroll-smooth py-1 px-0.5 select-none" id="common-map-day-tabs">
-          <button type="button" onclick="selectCommonMapDay(0)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold transition shrink-0 whitespace-nowrap bg-slate-900 text-white shadow-xs" data-day="0">전체 여정</button>
-          <button type="button" onclick="selectCommonMapDay(1)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200" data-day="1">1일차</button>
-          <button type="button" onclick="selectCommonMapDay(2)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200" data-day="2">2일차</button>
-          <button type="button" onclick="selectCommonMapDay(3)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200" data-day="3">3일차</button>
-          <button type="button" onclick="selectCommonMapDay(4)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200" data-day="4">4일차</button>
-          <button type="button" onclick="selectCommonMapDay(5)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200" data-day="5">5일차</button>
-          <button type="button" onclick="selectCommonMapDay(6)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200" data-day="6">6일차</button>
-          <button type="button" onclick="selectCommonMapDay(7)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200" data-day="7">7일차</button>
-          <button type="button" onclick="selectCommonMapDay(8)" class="common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200" data-day="8">8일차</button>
+        <!-- 1. 서브탭 세그먼트 (노선도 vs 구글 지도) - 시니어 전용 16px 큼직하고 시원한 버튼 -->
+        <div class="grid grid-cols-2 p-1 bg-slate-100 rounded-xl text-center select-none">
+          <button type="button" onclick="switchMapSubTab('route')" id="map-subtab-route" class="py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition">
+            여정 노선도
+          </button>
+          <button type="button" onclick="switchMapSubTab('google')" id="map-subtab-google" class="py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-bold text-slate-500 hover:text-slate-900 transition">
+            구글 지도
+          </button>
         </div>
 
-        <!-- 2. 지도 상단 툴바: 좌측 현재 여정 명칭 + 우측 [노선도 | 구글 지도] 슬림 스위치 -->
-        <div class="flex items-center justify-between px-1 py-0.5 select-none">
-          <div class="flex items-center gap-1.5 min-w-0">
-            <span class="w-2 h-2 rounded-full bg-slate-900 shrink-0"></span>
-            <span id="map-toolbar-status" class="text-xs sm:text-sm font-bold text-slate-800 truncate">운남성 전체 여정 동선</span>
-          </div>
-          <div class="inline-flex p-0.5 bg-slate-100 rounded-xl shrink-0">
-            <button type="button" onclick="switchMapSubTab('route')" id="map-subtab-route" class="px-2.5 py-1 rounded-lg text-xs sm:text-sm font-bold bg-white text-slate-900 shadow-2xs transition">
-              여정 노선도
-            </button>
-            <button type="button" onclick="switchMapSubTab('google')" id="map-subtab-google" class="px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-900 transition">
-              구글 지도
-            </button>
-          </div>
+        <!-- 2. 공통 일차 선택 바 (시니어 전용 16px 큼직한 알약 탭) -->
+        <div class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-0.5 select-none" id="common-map-day-tabs">
+          <button type="button" onclick="selectCommonMapDay(0)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-900 text-white shadow-xs" data-day="0">전체 여정</button>
+          <button type="button" onclick="selectCommonMapDay(1)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="1">1일차</button>
+          <button type="button" onclick="selectCommonMapDay(2)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="2">2일차</button>
+          <button type="button" onclick="selectCommonMapDay(3)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="3">3일차</button>
+          <button type="button" onclick="selectCommonMapDay(4)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="4">4일차</button>
+          <button type="button" onclick="selectCommonMapDay(5)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="5">5일차</button>
+          <button type="button" onclick="selectCommonMapDay(6)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="6">6일차</button>
+          <button type="button" onclick="selectCommonMapDay(7)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="7">7일차</button>
+          <button type="button" onclick="selectCommonMapDay(8)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="8">8일차</button>
         </div>
 
         <!-- 1. 여정 노선도 뷰 -->
-        <div id="map-view-route" class="space-y-2">
-          <!-- 메인 인터랙티브 지도 캔버스 (시원하고 넓게 480~580px 확대) -->
-          <div class="relative w-full h-[480px] min-[390px]:h-[520px] sm:h-[580px] rounded-2xl overflow-hidden border border-slate-200 bg-[#edf3ed] select-none touch-manipulation">
-            <!-- 지도 상단 오버레이 인디케이터 -->
+        <div id="map-view-route" class="space-y-1.5">
+          <!-- 메인 인터랙티브 지도 캔버스 (화면 스크롤 없는 핏팅을 위해 375~450px) -->
+          <div class="relative w-full h-[375px] min-[390px]:h-[400px] sm:h-[450px] rounded-2xl overflow-hidden border border-slate-200 bg-[#edf3ed] select-none touch-manipulation">
+            <!-- 지도 상단 오버레이 인디케이터 (14~16px 또렷한 글씨) -->
             <div class="absolute top-2.5 left-2.5 z-10 pointer-events-none">
-              <span id="yn-map-badge" class="px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-xs text-xs sm:text-sm font-bold text-slate-900 border border-slate-200/90 shadow-2xs">
+              <span id="yn-map-badge" class="px-3 py-1 rounded-lg bg-white/95 backdrop-blur-xs text-sm sm:text-base font-black text-slate-900 border border-slate-200/90 shadow-2xs">
                 전체 여정
               </span>
             </div>
 
             <!-- 우측 상단 미니 줌 컨트롤러 -->
-            <div class="absolute top-2.5 right-2.5 z-10 flex flex-col gap-1 pointer-events-auto">
-              <button type="button" onclick="zoomMapBy(1.3)" class="w-7 h-7 rounded-lg bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs flex items-center justify-center font-bold text-slate-800 hover:bg-slate-50 active:scale-95 text-base transition leading-none" title="확대" aria-label="확대">+</button>
-              <button type="button" onclick="zoomMapBy(0.77)" class="w-7 h-7 rounded-lg bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs flex items-center justify-center font-bold text-slate-800 hover:bg-slate-50 active:scale-95 text-base transition leading-none" title="축소" aria-label="축소">−</button>
-              <button type="button" onclick="resetMapZoom()" class="w-7 h-7 rounded-lg bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs flex items-center justify-center font-bold text-slate-600 hover:bg-slate-50 active:scale-95 text-xs transition leading-none" title="원래 배율" aria-label="원래 배율">⟲</button>
+            <div class="absolute top-2.5 right-2.5 z-10 flex flex-col gap-1.5 pointer-events-auto">
+              <button type="button" onclick="zoomMapBy(1.3)" class="w-8 h-8 rounded-lg bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs flex items-center justify-center font-black text-slate-900 hover:bg-slate-50 active:scale-95 text-lg transition leading-none" title="확대" aria-label="확대">+</button>
+              <button type="button" onclick="zoomMapBy(0.77)" class="w-8 h-8 rounded-lg bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs flex items-center justify-center font-black text-slate-900 hover:bg-slate-50 active:scale-95 text-lg transition leading-none" title="축소" aria-label="축소">−</button>
+              <button type="button" onclick="resetMapZoom()" class="w-8 h-8 rounded-lg bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs flex items-center justify-center font-black text-slate-700 hover:bg-slate-50 active:scale-95 text-sm transition leading-none" title="원래 배율" aria-label="원래 배율">⟲</button>
             </div>
 
             <!-- D3 SVG 지도 -->
             <svg id="yn-interactive-svg" class="w-full h-full block cursor-grab active:cursor-grabbing" role="img" aria-label="운남성 여행 경로 지도"></svg>
 
-            <!-- 좌측 하단 미니멀 범례 -->
-            <div class="absolute left-2.5 bottom-2.5 z-10 flex items-center gap-2.5 px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs text-[11px] sm:text-xs font-bold text-slate-700 pointer-events-none">
-              <span class="flex items-center gap-1">
-                <span class="w-3 h-1 bg-[#2563eb] rounded-full"></span>
+            <!-- 좌측 하단 범례 (시니어 전용 13~14px 확대) -->
+            <div class="absolute left-2.5 bottom-2.5 z-10 flex items-center gap-3 px-3 py-1.5 rounded-lg bg-white/95 backdrop-blur-xs border border-slate-200/90 shadow-2xs text-xs sm:text-sm font-bold text-slate-800 pointer-events-none">
+              <span class="flex items-center gap-1.5">
+                <span class="w-3.5 h-1.5 bg-[#2563eb] rounded-full"></span>
                 차량
               </span>
-              <span class="flex items-center gap-1">
-                <span class="w-3 h-0.5 border-t-2 border-dashed border-[#0284c7]"></span>
+              <span class="flex items-center gap-1.5">
+                <span class="w-3.5 h-0.5 border-t-2 border-dashed border-[#0284c7]"></span>
                 고속철
               </span>
-              <span class="flex items-center gap-1">
-                <span class="w-3 h-0.5 border-t-2 border-dotted border-[#16a34a]"></span>
+              <span class="flex items-center gap-1.5">
+                <span class="w-3.5 h-0.5 border-t-2 border-dotted border-[#16a34a]"></span>
                 트레킹
               </span>
             </div>
           </div>
 
-          <!-- 하단 일차별 슬림 브리핑 바 -->
+          <!-- 하단 일차별 슬림 브리핑 바 (시니어 15~16px 확대) -->
           <div id="yn-map-schedule-card">
             <!-- 동적 렌더링 -->
           </div>
         </div>
 
         <!-- 2. 구글 지도 뷰 (인앱 임베드) -->
-        <div id="map-view-google" class="hidden space-y-2">
-          <!-- 인앱 구글 지도 컨테이너 (노선도와 동일하게 480~580px 확대) -->
-          <div class="relative w-full h-[480px] min-[390px]:h-[520px] sm:h-[580px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-2xs">
+        <div id="map-view-google" class="hidden space-y-1.5">
+          <!-- 인앱 구글 지도 컨테이너 (노선도와 동일한 높이) -->
+          <div class="relative w-full h-[375px] min-[390px]:h-[400px] sm:h-[450px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-2xs">
             <iframe id="google-map-iframe" class="w-full h-full border-0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Yunnan,%20China&t=&z=7&ie=UTF8&iwloc=&output=embed"></iframe>
           </div>
 
-          <!-- 선택된 일차 목적지 슬림 브리핑 바 -->
-          <div id="google-map-info-card" onclick="jumpToDayFromMap(commonMapDay || 1)" class="px-4 py-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-center justify-between gap-2 cursor-pointer hover:bg-slate-100/70 transition">
+          <!-- 선택된 일차 목적지 슬림 브리핑 바 (글자 크기 확대) -->
+          <div id="google-map-info-card" onclick="jumpToDayFromMap(commonMapDay || 1)" class="px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between gap-2 cursor-pointer hover:bg-slate-100 active:scale-[0.99] transition shadow-2xs">
             <div class="min-w-0 flex-1">
-              <span id="google-map-target-title" class="font-bold text-slate-900 text-sm sm:text-base mr-1">운남성 전체 여정</span>
-              <span id="google-map-target-desc" class="text-xs sm:text-sm text-slate-500 truncate block sm:inline">쿤밍 · 따리 · 호도협 · 샹그릴라 · 리장</span>
+              <div id="google-map-target-title" class="font-bold text-slate-900 text-sm sm:text-base">운남성 전체 여정</div>
+              <div id="google-map-target-desc" class="text-xs sm:text-sm font-medium text-slate-600 truncate mt-0.5">쿤밍 · 따리 · 호도협 · 샹그릴라 · 리장</div>
             </div>
-            <span class="text-xs sm:text-sm font-bold text-slate-700 shrink-0">일정표 →</span>
+            <span class="text-sm sm:text-base font-extrabold text-blue-600 shrink-0 flex items-center gap-1">일정표 <span class="text-blue-400">→</span></span>
           </div>
         </div>
 
@@ -1546,7 +1540,7 @@ const ITINERARY_DATA = [
     let currentMapSubTab = 'route';
     let commonMapDay = 0;
 
-    // 공통 일차 선택 바 (토스·애플 미니멀 알약 칩 스타일 동기화 & 중앙 자동 스크롤)
+    // 공통 일차 선택 바 (시니어 전용 16px 알약 탭 스타일 동기화 & 중앙 자동 스크롤)
     function selectCommonMapDay(day) {
       commonMapDay = Number(day);
 
@@ -1554,21 +1548,15 @@ const ITINERARY_DATA = [
       document.querySelectorAll('.common-map-day-btn').forEach(btn => {
         const d = Number(btn.dataset.day);
         if (d === commonMapDay) {
-          btn.className = "common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-bold transition shrink-0 whitespace-nowrap bg-slate-900 text-white shadow-xs";
+          btn.className = "common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-900 text-white shadow-xs";
           activeBtn = btn;
         } else {
-          btn.className = "common-map-day-btn px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-semibold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-600 hover:text-slate-900 hover:bg-slate-200";
+          btn.className = "common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70";
         }
       });
 
       if (activeBtn) {
         activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-      }
-
-      // 지도 상단 툴바 상태 텍스트 갱신
-      const toolbarStatus = document.getElementById('map-toolbar-status');
-      if (toolbarStatus) {
-        toolbarStatus.textContent = commonMapDay === 0 ? '운남성 전체 여정 동선' : `${commonMapDay}일차 여정 동선`;
       }
 
       if (currentMapSubTab === 'route') {
@@ -1578,7 +1566,7 @@ const ITINERARY_DATA = [
       }
     }
 
-    // 지도 탭 내부 서브탭 전환: [여정 노선도] vs [구글 지도] (슬림 툴바 스위치)
+    // 지도 탭 내부 서브탭 전환: [여정 노선도] vs [구글 지도] (시니어 전용 16px 볼드 세그먼트)
     function switchMapSubTab(subTab) {
       currentMapSubTab = subTab;
       const routeView = document.getElementById('map-view-route');
@@ -1591,8 +1579,8 @@ const ITINERARY_DATA = [
       if (subTab === 'route') {
         routeView.classList.remove('hidden');
         googleView.classList.add('hidden');
-        btnRoute.className = "px-2.5 py-1 rounded-lg text-xs sm:text-sm font-bold bg-white text-slate-900 shadow-2xs transition";
-        btnGoogle.className = "px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-900 transition";
+        btnRoute.className = "py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition";
+        btnGoogle.className = "py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-bold text-slate-500 hover:text-slate-900 transition";
         setTimeout(() => {
           selectMapDay(commonMapDay);
           drawYunnanInteractiveMap();
@@ -1600,8 +1588,8 @@ const ITINERARY_DATA = [
       } else {
         routeView.classList.add('hidden');
         googleView.classList.remove('hidden');
-        btnRoute.className = "px-2.5 py-1 rounded-lg text-xs sm:text-sm font-semibold text-slate-500 hover:text-slate-900 transition";
-        btnGoogle.className = "px-2.5 py-1 rounded-lg text-xs sm:text-sm font-bold bg-white text-slate-900 shadow-2xs transition";
+        btnRoute.className = "py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-bold text-slate-500 hover:text-slate-900 transition";
+        btnGoogle.className = "py-2 sm:py-2.5 rounded-lg text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition";
         selectGoogleMapDay(commonMapDay);
       }
     }
@@ -1927,13 +1915,13 @@ const ITINERARY_DATA = [
       if (!info) return;
 
       container.innerHTML = `
-        <div onclick="jumpToDayFromMap(${info.jumpDay})" class="px-4 py-2.5 bg-slate-50 rounded-xl border border-slate-200/80 flex items-center justify-between gap-2 cursor-pointer hover:bg-slate-100/70 active:scale-[0.99] transition">
-          <div class="min-w-0 flex-1">
-            <span class="text-xs font-bold text-slate-500 mr-1.5">${info.dayLabel}</span>
-            <span class="text-xs sm:text-sm font-bold text-slate-900 tracking-tight">${info.cityMove}</span>
+        <div onclick="jumpToDayFromMap(${info.jumpDay})" class="px-4 py-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between gap-2 cursor-pointer hover:bg-slate-100 active:scale-[0.99] transition shadow-2xs">
+          <div class="min-w-0 flex-1 flex items-center gap-2">
+            <span class="px-2 py-0.5 rounded-md bg-slate-200 text-slate-900 text-xs sm:text-sm font-black shrink-0">${info.dayLabel}</span>
+            <span class="text-sm sm:text-base font-bold text-slate-900 truncate">${info.cityMove}</span>
           </div>
-          <span class="text-xs sm:text-sm font-bold text-slate-700 shrink-0 flex items-center gap-1">
-            일정표 <span class="text-slate-400">→</span>
+          <span class="text-sm sm:text-base font-extrabold text-blue-600 shrink-0 flex items-center gap-1">
+            일정표 <span class="text-blue-400">→</span>
           </span>
         </div>
       `;
