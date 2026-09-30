@@ -122,8 +122,8 @@
     </header>
 
 
-    <!-- 메인 컨텐츠 영역 (하단 탭바 64px + 16px = pb-20 일원화) -->
-    <main class="flex-1 px-5 pt-3.5 pb-20">
+    <!-- 메인 컨텐츠 영역 (하단 탭바 + iOS Safe Area 여백 충분히 확보) -->
+    <main class="flex-1 px-5 pt-3.5 pb-32 sm:pb-36">
 
       <!-- ================= 1. 일정 탭 (1~8일차 4열 2행 고정 그리드 + 좌우 이동 버튼) ================= -->
       <section id="section-itinerary" class="tab-pane space-y-4">
@@ -173,13 +173,25 @@
       </section>
 
 
-      <!-- ================= 2. 준비물 체크리스트 탭 ================= -->
+      <!-- ================= 2. 여행준비 탭 (준비물 체크리스트 + 항공권 통합) ================= -->
       <section id="section-checklist" class="tab-pane hidden space-y-4">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-          <div>
-            <h2 class="text-xl font-bold text-slate-900 tracking-tight">여행 필수 준비물</h2>
-            <p class="text-sm font-medium text-slate-500 mt-0.5">터치하면 체크되며 자동 저장됩니다</p>
-          </div>
+        <!-- 상단 서브 세그먼트 스위처 (체크리스트 vs 대한항공 항공편) -->
+        <div class="grid grid-cols-2 p-1.5 bg-slate-100 rounded-2xl text-center select-none">
+          <button type="button" onclick="switchPrepSegment('check')" id="prep-subtab-check" class="py-2.5 rounded-xl text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition">
+            준비물 체크리스트
+          </button>
+          <button type="button" onclick="switchPrepSegment('flight')" id="prep-subtab-flight" class="py-2.5 rounded-xl text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-900 transition">
+            대한항공 항공편
+          </button>
+        </div>
+
+        <!-- 2-1. 준비물 체크리스트 뷰 -->
+        <div id="prep-view-check" class="space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 tracking-tight">여행 필수 준비물</h2>
+              <p class="text-sm font-medium text-slate-500 mt-0.5">터치하면 체크되며 자동 저장됩니다</p>
+            </div>
           <button type="button" onclick="resetChecklist()" class="text-sm font-semibold text-slate-400 hover:text-slate-800 transition py-1">
             초기화
           </button>
@@ -393,17 +405,16 @@
             </button>
           </div>
         </div>
-      </section>
+        <!-- 2-1. 준비물 체크리스트 뷰 끝 -->
 
-
-      <!-- ================= 3. 항공권 정보 탭 (시니어 최적화 여유롭고 선명한 미니멀 티켓) ================= -->
-      <section id="section-flight" class="tab-pane hidden space-y-3">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-100">
-          <div>
-            <h2 class="text-xl font-bold text-slate-900 tracking-tight">대한항공 왕복 항공편</h2>
-            <p class="text-sm font-medium text-slate-500 mt-0.5">인천(ICN) ↔ 쿤밍(KMG) · 직항 왕복</p>
+        <!-- 2-2. 대한항공 항공편 상세 뷰 (여행준비 탭 통합) -->
+        <div id="prep-view-flight" class="hidden space-y-3">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+            <div>
+              <h2 class="text-xl font-bold text-slate-900 tracking-tight">대한항공 왕복 항공편</h2>
+              <p class="text-sm font-medium text-slate-500 mt-0.5">인천(ICN) ↔ 쿤밍(KMG) · 직항 왕복</p>
+            </div>
           </div>
-        </div>
 
         <!-- 1. 출국편 카드 (가는 날) -->
         <div class="border border-slate-100 rounded-3xl bg-white overflow-hidden shadow-2xs">
@@ -514,6 +525,8 @@
             <span class="text-slate-400">↗</span>
           </a>
         </div>
+        </div>
+        <!-- 2-2. 대한항공 항공편 상세 뷰 끝 -->
       </section>
 
 
@@ -686,24 +699,42 @@
 
     </main>
 
-    <!-- 하단 고정 내비게이션 바 (토스/애플 스타일 미니멀 5분할 텍스트 바) -->
-    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200">
-      <div id="bottom-tabs-container" class="max-w-lg mx-auto grid grid-cols-5 h-16 text-center select-none">
-        <button onclick="switchMainTab('itinerary')" id="bottom-tab-itinerary" class="bottom-tab-btn flex items-center justify-center h-full text-xs min-[375px]:text-sm sm:text-base font-bold text-slate-900 transition">
-          일정표
+    <!-- 하단 고정 내비게이션 바 (아이폰 Safe Area + 4분할 와이드 터치 영역 + 미니멀 SVG 아이콘) -->
+    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200" style="padding-bottom: env(safe-area-inset-bottom, 14px);">
+      <div id="bottom-tabs-container" class="max-w-lg mx-auto grid grid-cols-4 h-16 text-center select-none">
+        
+        <!-- 1. 일정표 -->
+        <button type="button" onclick="switchMainTab('itinerary')" id="bottom-tab-itinerary" class="bottom-tab-btn flex flex-col items-center justify-center h-full py-1 text-slate-900 transition group" data-tab="itinerary">
+          <svg class="tab-icon w-6 h-6 mb-1 text-slate-900 stroke-[2] transition-transform group-active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+          </svg>
+          <span class="tab-label text-xs sm:text-sm font-bold">일정표</span>
         </button>
-        <button onclick="switchMainTab('checklist')" id="bottom-tab-checklist" class="bottom-tab-btn flex items-center justify-center h-full text-xs min-[375px]:text-sm sm:text-base font-semibold text-slate-400 hover:text-slate-700 transition">
-          준비물
+
+        <!-- 2. 여정지도 -->
+        <button type="button" onclick="switchMainTab('map')" id="bottom-tab-map" class="bottom-tab-btn flex flex-col items-center justify-center h-full py-1 text-slate-400 hover:text-slate-600 transition group" data-tab="map">
+          <svg class="tab-icon w-6 h-6 mb-1 text-slate-400 stroke-[1.8] transition-transform group-active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+          </svg>
+          <span class="tab-label text-xs sm:text-sm font-semibold">여정지도</span>
         </button>
-        <button onclick="switchMainTab('flight')" id="bottom-tab-flight" class="bottom-tab-btn flex items-center justify-center h-full text-xs min-[375px]:text-sm sm:text-base font-semibold text-slate-400 hover:text-slate-700 transition">
-          항공권
+
+        <!-- 3. AI 검색 (우측 끝 오터치 방지를 위해 중앙 배치) -->
+        <button type="button" onclick="switchMainTab('ai')" id="bottom-tab-ai" class="bottom-tab-btn flex flex-col items-center justify-center h-full py-1 text-slate-400 hover:text-slate-600 transition group" data-tab="ai">
+          <svg class="tab-icon w-6 h-6 mb-1 text-slate-400 stroke-[1.8] transition-transform group-active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+          <span class="tab-label text-xs sm:text-sm font-semibold">AI 검색</span>
         </button>
-        <button onclick="switchMainTab('map')" id="bottom-tab-map" class="bottom-tab-btn flex items-center justify-center h-full text-xs min-[375px]:text-sm sm:text-base font-semibold text-slate-400 hover:text-slate-700 transition">
-          전체지도
+
+        <!-- 4. 여행준비 (준비물 체크리스트 + 항공권) -->
+        <button type="button" onclick="switchMainTab('checklist')" id="bottom-tab-checklist" class="bottom-tab-btn flex flex-col items-center justify-center h-full py-1 text-slate-400 hover:text-slate-600 transition group" data-tab="checklist">
+          <svg class="tab-icon w-6 h-6 mb-1 text-slate-400 stroke-[1.8] transition-transform group-active:scale-95" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+          </svg>
+          <span class="tab-label text-xs sm:text-sm font-semibold">여행준비</span>
         </button>
-        <button onclick="switchMainTab('ai')" id="bottom-tab-ai" class="bottom-tab-btn flex items-center justify-center h-full text-xs min-[375px]:text-sm sm:text-base font-semibold text-slate-400 hover:text-slate-700 transition">
-          AI검색
-        </button>
+
       </div>
     </nav>
 
@@ -1350,22 +1381,78 @@ const ITINERARY_DATA = [
       }
     }
 
-    // 메인 탭 전환: [일정표] [준비물] [항공권] [전체지도] [AI검색]
+    // 여행준비 탭 내부 서브 세그먼트 전환: [체크리스트] vs [대한항공 항공편]
+    function switchPrepSegment(seg) {
+      const viewCheck = document.getElementById('prep-view-check');
+      const viewFlight = document.getElementById('prep-view-flight');
+      const btnCheck = document.getElementById('prep-subtab-check');
+      const btnFlight = document.getElementById('prep-subtab-flight');
+
+      if (!viewCheck || !viewFlight) return;
+
+      if (seg === 'flight') {
+        viewCheck.classList.add('hidden');
+        viewFlight.classList.remove('hidden');
+        if (btnFlight) btnFlight.className = "py-2.5 rounded-xl text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition text-center";
+        if (btnCheck) btnCheck.className = "py-2.5 rounded-xl text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-900 transition text-center";
+      } else {
+        viewCheck.classList.remove('hidden');
+        viewFlight.classList.add('hidden');
+        if (btnCheck) btnCheck.className = "py-2.5 rounded-xl text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition text-center";
+        if (btnFlight) btnFlight.className = "py-2.5 rounded-xl text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-900 transition text-center";
+      }
+    }
+
+    // 메인 탭 전환: [일정표] [여정지도] [AI검색] [여행준비]
     function switchMainTab(tabName) {
+      // 항공권 호출 시 여행준비 탭 내부 항공편 뷰로 자동 연동
+      if (tabName === 'flight') {
+        switchMainTab('checklist');
+        switchPrepSegment('flight');
+        return;
+      }
+
+      // 모든 탭 컨텐츠 숨김
       document.querySelectorAll('.tab-pane').forEach(p => p.classList.add('hidden'));
+
+      // 모든 하단 버튼 비활성화 (아이콘 및 라벨 슬레이트-400 처리)
       document.querySelectorAll('.bottom-tab-btn').forEach(b => {
-        b.className = "bottom-tab-btn flex items-center justify-center h-full text-xs min-[375px]:text-sm sm:text-base font-semibold text-slate-400 hover:text-slate-700 transition";
+        b.classList.remove('text-slate-900');
+        b.classList.add('text-slate-400');
+        const icon = b.querySelector('.tab-icon');
+        if (icon) {
+          icon.classList.remove('text-slate-900', 'stroke-[2]');
+          icon.classList.add('text-slate-400', 'stroke-[1.8]');
+        }
+        const label = b.querySelector('.tab-label');
+        if (label) {
+          label.classList.remove('font-bold');
+          label.classList.add('font-semibold');
+        }
       });
 
+      // 대상 탭 컨텐츠 표시
       const targetPane = document.getElementById('section-' + tabName);
       if (targetPane) targetPane.classList.remove('hidden');
 
+      // 대상 버튼 활성화 (아이콘 및 라벨 슬레이트-900 처리)
       const targetBtn = document.getElementById('bottom-tab-' + tabName);
       if (targetBtn) {
-        targetBtn.className = "bottom-tab-btn flex items-center justify-center h-full text-xs min-[375px]:text-sm sm:text-base font-bold text-slate-900 transition";
-        // 터치 시 하단 바 내에서 자동 중앙 정렬
-        targetBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        targetBtn.classList.remove('text-slate-400');
+        targetBtn.classList.add('text-slate-900');
+        const icon = targetBtn.querySelector('.tab-icon');
+        if (icon) {
+          icon.classList.remove('text-slate-400', 'stroke-[1.8]');
+          icon.classList.add('text-slate-900', 'stroke-[2]');
+        }
+        const label = targetBtn.querySelector('.tab-label');
+        if (label) {
+          label.classList.remove('font-semibold');
+          label.classList.add('font-bold');
+        }
       }
+
+      // iOS 사파리 가로 튕김 버그를 일으키던 targetBtn.scrollIntoView(...) 코드 완전 제거
 
       if (tabName === 'map') {
         setTimeout(drawYunnanInteractiveMap, 50);
@@ -1373,7 +1460,8 @@ const ITINERARY_DATA = [
         renderAiSearchResults(document.getElementById('ai-search-input')?.value || '');
       }
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // 상단으로 덜컹거림 없이 즉시 스크롤
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
 
     // 지도 핀/카드 터치 시 해당 일차로 이동
