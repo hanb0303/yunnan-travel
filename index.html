@@ -458,103 +458,68 @@
           </div>
 
         <!-- 1. 출국편 카드 (가는 날) -->
-        <div class="border border-slate-100 rounded-3xl bg-white overflow-hidden shadow-2xs">
-          <!-- 상단 헤더 바 -->
-          <div class="bg-slate-50 border-b border-slate-100 px-5 py-3 flex items-center justify-between">
-            <span class="text-lg font-bold text-slate-900">출국 · 10월 4일 (일)</span>
-            <span class="text-base font-bold text-slate-800">KE885 · 4시간 50분</span>
+        <div class="border border-slate-200/90 rounded-3xl bg-white overflow-hidden shadow-2xs p-5 space-y-4">
+          <!-- 상단: 라벨 & 편명 -->
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 text-xs sm:text-sm font-bold">출국 직항 · 10월 4일 (일)</span>
+            <span class="text-sm sm:text-base font-bold text-slate-500">대한항공 KE885</span>
           </div>
 
-          <!-- 메인 비행 시간 & 공항 -->
-          <div class="px-5 py-4">
-            <div class="flex items-center justify-between">
-              <!-- 출발 (인천) -->
-              <div class="text-left">
-                <span class="text-base font-semibold text-slate-600 block">출발 · 인천</span>
-                <span class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight block mt-0.5">18:40</span>
-                <span class="inline-block mt-1.5 text-sm sm:text-base font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800">제2터미널</span>
-              </div>
-
-              <!-- 중앙 경로 화살표 & 비행 시간 -->
-              <div class="flex-1 flex flex-col items-center justify-center px-2">
-                <span class="text-sm sm:text-base font-bold text-slate-800 mb-1">4시간 50분</span>
-                <div class="w-full max-w-[120px] flex items-center justify-center">
-                  <div class="h-0.5 flex-1 bg-slate-300"></div>
-                  <span class="text-slate-400 font-bold text-sm px-2">직항</span>
-                  <div class="h-0.5 flex-1 bg-slate-300"></div>
-                </div>
-                <span class="text-sm font-semibold text-slate-500 mt-1">대한항공</span>
-              </div>
-
-              <!-- 도착 (쿤밍) -->
-              <div class="text-right">
-                <span class="text-base font-semibold text-slate-600 block">도착 · 쿤밍</span>
-                <span class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight block mt-0.5">22:30</span>
-                <span class="inline-block mt-1.5 text-sm sm:text-base font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800">창수이공항</span>
-              </div>
+          <!-- 메인: 출발시각 ➔ 도착시각 & 도시 (시선이 0.1초만에 꽂히는 초대형 볼드) -->
+          <div class="flex items-center justify-between py-1">
+            <div class="text-left">
+              <span class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight block">18:40</span>
+              <span class="text-sm sm:text-base font-bold text-slate-600 mt-1 block">인천공항 T2</span>
+            </div>
+            <div class="flex flex-col items-center justify-center px-3 text-slate-400">
+              <span class="text-xs font-semibold mb-1">4시간 50분</span>
+              <span class="text-base font-bold">→</span>
+            </div>
+            <div class="text-right">
+              <span class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight block">22:30</span>
+              <span class="text-sm sm:text-base font-bold text-slate-600 mt-1 block">쿤밍 공항</span>
             </div>
           </div>
 
-          <!-- 하단 핵심 정보 -->
-          <div class="border-t border-slate-100 bg-slate-50/70 px-5 py-3 flex items-center justify-between text-base sm:text-lg">
-            <div>
-              <span class="font-medium text-slate-500">공항 집결:</span>
-              <span class="font-bold text-slate-900 ml-1">15:40까지 (T2 3층)</span>
+          <!-- 부모님 필수 행동: 집결 시각 & 장소 (토스 스타일 소프트 강조 박스) -->
+          <div class="bg-slate-50 rounded-2xl p-4 flex items-center justify-between gap-3 border border-slate-100">
+            <div class="min-w-0">
+              <span class="text-xs font-bold text-slate-400 block mb-0.5">공항 미팅 안내</span>
+              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">15:40까지 인천공항 제2터미널 3층 집결</span>
             </div>
-            <div>
-              <span class="font-medium text-slate-500">기내 식사:</span>
-              <span class="font-bold text-slate-900 ml-1">석식 1회 무료</span>
-            </div>
+            <span class="text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg bg-slate-900 text-white shrink-0">필수</span>
           </div>
         </div>
 
         <!-- 2. 귀국편 카드 (오는 날) -->
-        <div class="border border-slate-100 rounded-3xl bg-white overflow-hidden shadow-2xs">
-          <!-- 상단 헤더 바 -->
-          <div class="bg-slate-50 border-b border-slate-100 px-5 py-3 flex items-center justify-between">
-            <span class="text-lg font-bold text-slate-900">귀국 · 10월 11일 (일)</span>
-            <span class="text-base font-bold text-slate-800">KE886 · 4시간 20분</span>
+        <div class="border border-slate-200/90 rounded-3xl bg-white overflow-hidden shadow-2xs p-5 space-y-4">
+          <!-- 상단: 라벨 & 편명 -->
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-700 text-xs sm:text-sm font-bold">귀국 직항 · 10월 11일 (일)</span>
+            <span class="text-sm sm:text-base font-bold text-slate-500">대한항공 KE886</span>
           </div>
 
-          <!-- 메인 비행 시간 & 공항 -->
-          <div class="px-5 py-4">
-            <div class="flex items-center justify-between">
-              <!-- 출발 (쿤밍) -->
-              <div class="text-left">
-                <span class="text-base font-semibold text-slate-600 block">출발 · 쿤밍</span>
-                <span class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight block mt-0.5">23:30</span>
-                <span class="inline-block mt-1.5 text-sm sm:text-base font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800">창수이공항</span>
-              </div>
-
-              <!-- 중앙 경로 화살표 & 비행 시간 -->
-              <div class="flex-1 flex flex-col items-center justify-center px-2">
-                <span class="text-sm sm:text-base font-bold text-slate-800 mb-1">4시간 20분</span>
-                <div class="w-full max-w-[120px] flex items-center justify-center">
-                  <div class="h-0.5 flex-1 bg-slate-300"></div>
-                  <span class="text-slate-400 font-bold text-sm px-2">직항</span>
-                  <div class="h-0.5 flex-1 bg-slate-300"></div>
-                </div>
-                <span class="text-sm font-semibold text-slate-500 mt-1">기내 1박 숙면</span>
-              </div>
-
-              <!-- 도착 (인천) -->
-              <div class="text-right">
-                <span class="text-base font-semibold text-slate-600 block">도착 · 인천</span>
-                <span class="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight block mt-0.5">04:50</span>
-                <span class="inline-block mt-1.5 text-sm sm:text-base font-semibold px-2.5 py-1 rounded-lg bg-slate-100 text-slate-800">10.12(월) T2</span>
-              </div>
+          <!-- 메인: 출발시각 ➔ 도착시각 & 도시 -->
+          <div class="flex items-center justify-between py-1">
+            <div class="text-left">
+              <span class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight block">23:30</span>
+              <span class="text-sm sm:text-base font-bold text-slate-600 mt-1 block">쿤밍 공항</span>
+            </div>
+            <div class="flex flex-col items-center justify-center px-3 text-slate-400">
+              <span class="text-xs font-semibold mb-1">4시간 20분</span>
+              <span class="text-base font-bold">→</span>
+            </div>
+            <div class="text-right">
+              <span class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight block">04:50</span>
+              <span class="text-sm sm:text-base font-bold text-slate-600 mt-1 block">10.12(월) 인천 T2</span>
             </div>
           </div>
 
-          <!-- 하단 핵심 정보 -->
-          <div class="border-t border-slate-100 bg-slate-50/70 px-5 py-3 flex items-center justify-between text-base sm:text-lg">
-            <div>
-              <span class="font-medium text-slate-500">공항 이동:</span>
-              <span class="font-bold text-slate-900 ml-1">리장 → 쿤밍 고속철</span>
-            </div>
-            <div>
-              <span class="font-medium text-slate-500">인천 도착:</span>
-              <span class="font-bold text-slate-900 ml-1">10.12(월) 04:50</span>
+          <!-- 부모님 필수 안내 (기내 1박 및 도착) -->
+          <div class="bg-slate-50 rounded-2xl p-4 flex items-center justify-between gap-3 border border-slate-100">
+            <div class="min-w-0">
+              <span class="text-xs font-bold text-slate-400 block mb-0.5">귀국 여정 안내</span>
+              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">기내 1박 숙면 후 10월 12일(월) 새벽 04:50 인천 도착</span>
             </div>
           </div>
         </div>
@@ -750,35 +715,41 @@
           </button>
         </div>
 
-        <!-- 추천 검색어 칩 목록 (시원한 14-15px 볼드 버튼) -->
-        <div class="space-y-2">
-          <div class="text-sm font-bold text-slate-500 px-1">추천 키워드</div>
+        <!-- 자주 묻는 핵심 질문 TOP 4 (토스 스타일 2열 퀵 카드) -->
+        <div class="space-y-2.5">
+          <span class="text-xs font-bold text-slate-400 block px-1">자주 묻는 핵심 질문</span>
+          <div class="grid grid-cols-2 gap-2.5">
+            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-left transition active:scale-[0.98]" data-keyword="고산병">
+              <span class="text-xs font-bold text-rose-500 block mb-1">건강·안전</span>
+              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">고산병약 · 산소통</span>
+            </button>
+            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-left transition active:scale-[0.98]" data-keyword="10월 날씨">
+              <span class="text-xs font-bold text-blue-500 block mb-1">복장 가이드</span>
+              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">10월 날씨 · 옷차림</span>
+            </button>
+            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-left transition active:scale-[0.98]" data-keyword="화장실">
+              <span class="text-xs font-bold text-amber-500 block mb-1">현지 꿀팁</span>
+              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">화장실 · 휴지 팁</span>
+            </button>
+            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-left transition active:scale-[0.98]" data-keyword="환전">
+              <span class="text-xs font-bold text-emerald-500 block mb-1">현지 결제</span>
+              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">환전 · 알리페이</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- 주요 명소 바로가기 (간결한 1줄 칩) -->
+        <div class="space-y-1.5 pt-1">
+          <span class="text-xs font-bold text-slate-400 block px-1">주요 명소 · 음식</span>
           <div id="ai-chips-scroll" class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar scroll-smooth">
-            <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="옥룡설산">옥룡설산</button>
-            <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="람월곡">람월곡</button>
-            <button type="button" onclick="quickAiSearch('케이블카', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="케이블카">케이블카</button>
-            <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="호도협">호도협</button>
-            <button type="button" onclick="quickAiSearch('말타기', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="말타기">호도협 말/빵차</button>
-            <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="리장 고성">리장 고성</button>
-            <button type="button" onclick="quickAiSearch('물레방아', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="물레방아">고성 길찾기</button>
-            <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="송찬림사">송찬림사</button>
-            <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="따리 고성">따리 고성</button>
-            <button type="button" onclick="quickAiSearch('생태회랑', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="생태회랑">얼하이 생태회랑</button>
-            <button type="button" onclick="quickAiSearch('고수', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="고수">고수 빼주세요</button>
-            <button type="button" onclick="quickAiSearch('장미빵', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="장미빵">장미빵</button>
-            <button type="button" onclick="quickAiSearch('과교미선', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="과교미선">과교미선</button>
-            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="야생 버섯 전골">버섯전골</button>
-            <button type="button" onclick="quickAiSearch('야크 고기 훠궈', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="야크 고기 훠궈">야크훠궈</button>
-            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="화장실">화장실/휴지</button>
-            <button type="button" onclick="quickAiSearch('샤워', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="샤워">고산 첫날 샤워금기</button>
-            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="고산병">고산병약/다이아목스</button>
-            <button type="button" onclick="quickAiSearch('자외선', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="자외선">자외선/선크림</button>
-            <button type="button" onclick="quickAiSearch('쇼핑', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="쇼핑">선물/쇼핑팁</button>
-            <button type="button" onclick="quickAiSearch('사진', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="사진">인생샷 포토존</button>
-            <button type="button" onclick="quickAiSearch('호텔', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="호텔">호텔/숙소</button>
-            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="10월 날씨">10월 날씨</button>
-            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="환전">환전/알리페이</button>
-            <button type="button" onclick="quickAiSearch('eSIM', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="eSIM">eSIM/로밍</button>
+            <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="옥룡설산">옥룡설산</button>
+            <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="람월곡">람월곡</button>
+            <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="호도협">호도협</button>
+            <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="리장 고성">리장 고성</button>
+            <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="송찬림사">송찬림사</button>
+            <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="따리 고성">따리 고성</button>
+            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="야생 버섯 전골">버섯전골</button>
+            <button type="button" onclick="quickAiSearch('야크 고기 훠궈', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="야크 고기 훠궈">야크훠궈</button>
           </div>
         </div>
 
@@ -1366,34 +1337,56 @@ const ITINERARY_DATA = [
             </div>
           </div>
 
-          <!-- 지역 및 이동 수단 (선명한 라벨과 또렷한 텍스트) -->
-          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl space-y-3 text-base sm:text-lg">
-            <div class="flex items-start gap-3">
-              <span class="font-bold text-slate-600 shrink-0 w-24">방문 지역</span>
-              <span class="font-bold text-slate-900 leading-snug">${data.location}</span>
+          <!-- 지역 및 이동 수단 (토스 스타일 2분할 키-밸류 카드) -->
+          <div class="grid grid-cols-2 gap-2.5">
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+              <span class="text-xs font-bold text-slate-400 block mb-1">방문 지역</span>
+              <span class="font-extrabold text-slate-900 text-base sm:text-lg block leading-snug">${data.location}</span>
             </div>
-            <div class="flex items-start gap-3">
-              <span class="font-bold text-slate-600 shrink-0 w-24">이동 수단</span>
-              <span class="font-medium text-slate-800 leading-relaxed">${data.transit}</span>
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100">
+              <span class="text-xs font-bold text-slate-400 block mb-1">이동 수단</span>
+              <span class="font-extrabold text-slate-900 text-base sm:text-lg block leading-snug">${data.transit}</span>
             </div>
           </div>
 
 
-          <!-- 세부 일정 (토스 스타일 미니멀 타임라인 + 큰 글씨) -->
+          <!-- 세부 일정 (시간과 내용이 명확히 분리된 애플 캘린더 스타일 타임라인) -->
           <div class="space-y-3 pt-1">
             <span class="text-lg font-bold text-slate-900 block">세부 일정</span>
             <div class="space-y-0">
-              ${data.schedule.map((item, idx, arr) => `
-                <div class="flex items-stretch gap-3.5">
-                  <div class="flex flex-col items-center shrink-0 w-2.5 pt-2.5">
-                    <div class="w-2.5 h-2.5 rounded-full bg-slate-900"></div>
-                    ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1"></div>' : ''}
+              ${data.schedule.map((item, idx, arr) => {
+                const timeMatch = item.match(/^(\d{1,2}:\d{2})\s*(.*)$/);
+                if (timeMatch) {
+                  return `
+                    <div class="flex items-start gap-3 pb-3.5">
+                      <div class="w-14 shrink-0 text-left pt-0.5">
+                        <span class="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">${timeMatch[1]}</span>
+                      </div>
+                      <div class="flex flex-col items-center shrink-0 w-2 pt-2">
+                        <div class="w-2 h-2 rounded-full bg-slate-900"></div>
+                        ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[22px]"></div>' : ''}
+                      </div>
+                      <div class="flex-1 text-base sm:text-lg text-slate-800 font-medium leading-snug">
+                        ${timeMatch[2]}
+                      </div>
+                    </div>
+                  `;
+                }
+                return `
+                  <div class="flex items-start gap-3 pb-3.5">
+                    <div class="w-14 shrink-0 text-left pt-0.5">
+                      <span class="text-xs font-bold text-slate-400">일정</span>
+                    </div>
+                    <div class="flex flex-col items-center shrink-0 w-2 pt-2">
+                      <div class="w-2 h-2 rounded-full bg-slate-400"></div>
+                      ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[22px]"></div>' : ''}
+                    </div>
+                    <div class="flex-1 text-base sm:text-lg text-slate-800 font-medium leading-snug">
+                      ${item}
+                    </div>
                   </div>
-                  <div class="pb-4 flex-1 text-base sm:text-lg text-slate-900 font-medium leading-relaxed">
-                    ${item}
-                  </div>
-                </div>
-              `).join('')}
+                `;
+              }).join('')}
             </div>
           </div>
 
@@ -1422,15 +1415,17 @@ const ITINERARY_DATA = [
             </div>
           </details>
 
-          <!-- 식사 및 숙소 -->
-          <div class="bg-slate-50 p-4 sm:p-5 rounded-2xl space-y-3 text-base sm:text-lg">
-            <div class="flex items-start gap-3">
-              <span class="font-bold text-slate-600 shrink-0 w-24">식사</span>
-              <span class="text-slate-900 font-medium leading-snug">${data.meals}</span>
+          <!-- 식사 및 숙소 (토스 스타일 분할 키-밸류 카드) -->
+          <div class="space-y-2.5">
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex items-start justify-between gap-3">
+              <span class="text-xs font-bold text-slate-400 shrink-0 pt-0.5">식사</span>
+              <span class="text-slate-900 font-bold text-base sm:text-lg text-right flex-1 leading-snug">${data.meals}</span>
             </div>
-            <div class="flex items-start gap-3">
-              <span class="font-bold text-slate-600 shrink-0 w-24">숙소</span>
-              ${stayContent}
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 flex items-start justify-between gap-3">
+              <span class="text-xs font-bold text-slate-400 shrink-0 pt-0.5">숙소</span>
+              <div class="text-slate-900 font-bold text-base sm:text-lg text-right flex-1 leading-snug">
+                ${stayContent}
+              </div>
             </div>
           </div>
 
