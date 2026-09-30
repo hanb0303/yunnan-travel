@@ -45,6 +45,12 @@
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+    summary::-webkit-details-marker {
+      display: none !important;
+    }
+    summary {
+      list-style: none !important;
+    }
 
     /* D3 인터랙티브 벡터 지도 전용 스타일 */
     .yn-province {
@@ -1382,23 +1388,24 @@ const ITINERARY_DATA = [
             </div>
           </div>
 
-          <!-- 알아두면 재미있는 이야기 (접이식 아코디언, 넉넉하고 쾌적한 좌우 여백) -->
-          <details class="group bg-slate-50 rounded-2xl overflow-hidden transition-all duration-200">
-            <summary class="flex items-center justify-between px-6 py-4.5 cursor-pointer list-none select-none hover:bg-slate-100/70 transition">
-              <div class="flex items-center gap-2.5">
-                <span class="w-2 h-2 rounded-full bg-slate-900 shrink-0"></span>
-                <span class="text-base sm:text-lg font-bold text-slate-900">알아두면 재미있는 이야기 (${data.stories.length}가지)</span>
+          <!-- 알아두면 재미있는 이야기 (토스·애플 미니멀 아코디언 리뉴얼: 뷸렛 제거, 세련된 카운트 태그 및 SVG 화살표) -->
+          <details class="group bg-slate-50 rounded-2xl border border-slate-200/70 overflow-hidden transition-all duration-200">
+            <summary class="flex items-center justify-between p-4 sm:p-5 cursor-pointer list-none select-none hover:bg-slate-100/60 active:scale-[0.99] transition">
+              <div class="flex items-center gap-2">
+                <span class="text-base sm:text-lg font-bold text-slate-900 tracking-tight">알아두면 재미있는 이야기</span>
+                <span class="text-xs sm:text-sm font-bold px-2 py-0.5 rounded-md bg-slate-200/80 text-slate-700">${data.stories.length}</span>
               </div>
-              <span class="text-sm sm:text-base font-bold text-slate-500 group-open:rotate-180 transition-transform duration-200">▼</span>
+              <svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform duration-200 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
             </summary>
-            <div class="px-6 py-5 border-t border-slate-200/80 space-y-4">
+            <div class="px-5 pb-5 pt-1 divide-y divide-slate-200/60 space-y-4">
               ${data.stories.map((s, idx) => `
-                <div class="space-y-1.5 pl-1">
-                  <div class="text-base sm:text-lg font-bold text-slate-900 flex items-start gap-2">
-                    <span class="text-slate-900 font-bold shrink-0">${idx + 1}.</span>
-                    <span>${s.title}</span>
-                  </div>
-                  <p class="text-base sm:text-lg text-slate-700 font-normal leading-relaxed pl-5">
+                <div class="${idx > 0 ? 'pt-4' : ''} space-y-1.5">
+                  <h4 class="text-base sm:text-lg font-bold text-slate-900 leading-snug">
+                    ${idx + 1}. ${s.title}
+                  </h4>
+                  <p class="text-base text-slate-600 font-normal leading-relaxed">
                     ${s.desc}
                   </p>
                 </div>
