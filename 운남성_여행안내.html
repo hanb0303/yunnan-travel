@@ -661,8 +661,8 @@
 
         <!-- 1. 여정 노선도 뷰 -->
         <div id="map-view-route" class="space-y-2">
-          <!-- 메인 인터랙티브 지도 캔버스 (한 화면 핏팅을 위해 270~310px 최적화) -->
-          <div class="relative w-full h-[270px] min-[390px]:h-[300px] sm:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-[#edf3ed] select-none touch-manipulation">
+          <!-- 메인 인터랙티브 지도 캔버스 (한 화면 핏팅을 위해 370~450px 최적화) -->
+          <div class="relative w-full h-[370px] min-[390px]:h-[410px] sm:h-[450px] rounded-2xl overflow-hidden border border-slate-200 bg-[#edf3ed] select-none touch-manipulation">
             <!-- 지도 상단 오버레이 인디케이터 -->
             <div class="absolute top-2.5 left-2.5 z-10 pointer-events-none">
               <span id="yn-map-badge" class="px-2.5 py-1 rounded-lg bg-white/95 backdrop-blur-xs text-xs sm:text-sm font-bold text-slate-900 border border-slate-200/90 shadow-2xs">
@@ -706,7 +706,7 @@
         <!-- 2. 구글 지도 뷰 (인앱 임베드) -->
         <div id="map-view-google" class="hidden space-y-2">
           <!-- 인앱 구글 지도 컨테이너 (노선도와 정확히 동일한 높이로 흔들림 0%) -->
-          <div class="relative w-full h-[270px] min-[390px]:h-[300px] sm:h-[340px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-2xs">
+          <div class="relative w-full h-[370px] min-[390px]:h-[410px] sm:h-[450px] rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-2xs">
             <iframe id="google-map-iframe" class="w-full h-full border-0" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=Yunnan,%20China&t=&z=7&ie=UTF8&iwloc=&output=embed"></iframe>
           </div>
 
@@ -1370,6 +1370,20 @@ const ITINERARY_DATA = [
             </div>
           </div>
 
+          ${(data.day === 1 || data.day === 8) ? `
+          <!-- 대한항공 항공편 바로가기 배너 (토스·애플 미니멀 다크 배너) -->
+          <div onclick="switchMainTab('flight')" class="p-4 sm:p-5 bg-slate-900 text-white rounded-2xl cursor-pointer flex items-center justify-between gap-3 hover:bg-slate-800 active:scale-[0.99] transition shadow-2xs">
+            <div class="min-w-0 flex-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs sm:text-sm font-bold px-2 py-0.5 rounded-md bg-white/20 text-white">${data.day === 1 ? '출국 직항' : '귀국 직항'}</span>
+                <span class="text-base sm:text-lg font-bold tracking-tight">${data.day === 1 ? '대한항공 KE885 (인천➔쿤밍)' : '대한항공 KE886 (쿤밍➔인천)'}</span>
+              </div>
+              <p class="text-sm sm:text-base text-slate-300 mt-1 font-medium">${data.day === 1 ? '비행 4시간 50분 · T2 터미널 · 수하물 & 호텔 주소 복사' : '비행 4시간 20분 · 쿤밍 창수이공항 23:30 출발 · 기내 1박'}</p>
+            </div>
+            <span class="text-sm sm:text-base font-bold text-white shrink-0">항공편 상세 →</span>
+          </div>
+          ` : ''}
+
           <!-- 세부 일정 (토스 스타일 미니멀 타임라인 + 큰 글씨) -->
           <div class="space-y-3 pt-1">
             <span class="text-lg font-bold text-slate-900 block">세부 일정</span>
@@ -1502,13 +1516,13 @@ const ITINERARY_DATA = [
       if (seg === 'flight') {
         viewCheck.classList.add('hidden');
         viewFlight.classList.remove('hidden');
-        if (btnFlight) btnFlight.className = "py-2.5 rounded-xl text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition text-center";
-        if (btnCheck) btnCheck.className = "py-2.5 rounded-xl text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-900 transition text-center";
+        if (btnFlight) btnFlight.className = "py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition text-center";
+        if (btnCheck) btnCheck.className = "py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition text-center";
       } else {
         viewCheck.classList.remove('hidden');
         viewFlight.classList.add('hidden');
-        if (btnCheck) btnCheck.className = "py-2.5 rounded-xl text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition text-center";
-        if (btnFlight) btnFlight.className = "py-2.5 rounded-xl text-sm sm:text-base font-semibold text-slate-500 hover:text-slate-900 transition text-center";
+        if (btnCheck) btnCheck.className = "py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition text-center";
+        if (btnFlight) btnFlight.className = "py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition text-center";
       }
     }
 
@@ -1950,7 +1964,7 @@ const ITINERARY_DATA = [
 
       const rect = container.getBoundingClientRect();
       const width = Math.max(300, rect.width || container.clientWidth || 360);
-      const height = Math.max(260, rect.height || container.clientHeight || 300);
+      const height = Math.max(360, rect.height || container.clientHeight || 410);
 
       const sizeChanged = Math.abs(width - cachedMapSize.width) >= 1 || Math.abs(height - cachedMapSize.height) >= 1;
 
@@ -1978,7 +1992,7 @@ const ITINERARY_DATA = [
         geometry: { type: 'MultiPoint', coordinates: Object.values(YUNNAN_PLACES).map(d => d.coord) }
       };
 
-      const projection = d3.geoMercator().fitExtent([[24, 45], [width - 24, height - 20]], tripExtent);
+      const projection = d3.geoMercator().fitExtent([[20, 35], [width - 20, height - 20]], tripExtent);
       mapBaseProjection = projection;
       const pathGenerator = d3.geoPath(projection);
 
