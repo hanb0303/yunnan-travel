@@ -205,13 +205,13 @@
         <!-- 카테고리 서브 탭 (서류·통신 / 의약품 / 복장·잡화) -->
         <div class="grid grid-cols-3 gap-1.5 p-1.5 bg-slate-100 rounded-xl">
           <button onclick="switchChecklistTab('docs')" id="check-tab-docs" class="check-subtab-btn py-3 px-1 rounded-lg text-sm sm:text-base font-bold bg-white text-slate-900 shadow-2xs transition text-center">
-            서류·통신 (<span id="count-docs">0/7</span>)
+            서류·통신 (<span id="count-docs">0/9</span>)
           </button>
           <button onclick="switchChecklistTab('meds')" id="check-tab-meds" class="check-subtab-btn py-3 px-1 rounded-lg text-sm sm:text-base font-bold text-slate-600 hover:text-slate-900 transition text-center">
-            의약품 (<span id="count-meds">0/6</span>)
+            의약품 (<span id="count-meds">0/7</span>)
           </button>
           <button onclick="switchChecklistTab('clothes')" id="check-tab-clothes" class="check-subtab-btn py-3 px-1 rounded-lg text-sm sm:text-base font-bold text-slate-600 hover:text-slate-900 transition text-center">
-            복장·잡화 (<span id="count-clothes">0/7</span>)
+            복장·잡화 (<span id="count-clothes">0/9</span>)
           </button>
         </div>
 
@@ -229,6 +229,18 @@
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">중국 전용 eSIM 또는 로밍 신청</span>
+              </div>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
+            </label>
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
+              <div class="flex items-center gap-3.5">
+                <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
+                <div>
+                  <span class="label-text text-base sm:text-lg font-bold text-slate-900 block">입국신고서용 호텔 주소 메모 (기내용)</span>
+                  <button type="button" onclick="event.stopPropagation(); switchPrepSegment('flight')" class="text-xs sm:text-sm font-semibold text-slate-500 underline hover:text-slate-900 mt-0.5">
+                    공식 호텔 한자 주소 보기 →
+                  </button>
+                </div>
               </div>
               <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
@@ -256,6 +268,13 @@
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-800">전자 입국신고 QR코드 저장</span>
               </div>
+            </label>
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
+              <div class="flex items-center gap-3.5">
+                <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
+                <span class="label-text text-base sm:text-lg font-bold text-slate-800">여권 사본 1부 (분실 대비 분리 보관)</span>
+              </div>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 shrink-0">추천</span>
             </label>
             <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
@@ -293,6 +312,13 @@
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">개인 정기 복용약 (혈압·당뇨약 등)</span>
+              </div>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
+            </label>
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
+              <div class="flex items-center gap-3.5">
+                <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
+                <span class="label-text text-base sm:text-lg font-bold text-slate-900">소독·비데 물티슈 & 휴대용 화장지</span>
               </div>
               <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
             </label>
@@ -349,6 +375,13 @@
             <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
+                <span class="label-text text-base sm:text-lg font-bold text-slate-900">호도협 1박용 배낭 (캐리어 차량 보관)</span>
+              </div>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
+            </label>
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
+              <div class="flex items-center gap-3.5">
+                <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">경량 패딩 + 방풍 재킷 (기온차 대비)</span>
               </div>
               <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
@@ -359,6 +392,13 @@
                 <span class="label-text text-base sm:text-lg font-bold text-slate-900">보조배터리 (기내 가방에 휴대)</span>
               </div>
               <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0">필수</span>
+            </label>
+            <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
+              <div class="flex items-center gap-3.5">
+                <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
+                <span class="label-text text-base sm:text-lg font-bold text-slate-900">말타기용 장갑 (28밴드 고삐 쓸림 방지)</span>
+              </div>
+              <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 shrink-0">추천</span>
             </label>
             <label class="check-item flex items-center justify-between p-3.5 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
@@ -508,6 +548,63 @@
             <div>
               <span class="font-medium text-slate-500">인천 도착:</span>
               <span class="font-bold text-slate-900 ml-1">10.12(월) 04:50</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 중국 입국신고서 기재용 공식 호텔 정보 (기내 종이 신고서 또는 전자신고 시 필수) -->
+        <div class="bg-slate-50 rounded-3xl p-5 sm:p-6 border border-slate-100 space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-200/80">
+            <div>
+              <span class="text-lg font-bold text-slate-900 block">입국신고서 작성용 호텔 정보</span>
+              <span class="text-sm font-medium text-slate-500">기내 종이 신고서나 온라인 전자신고 시 그대로 적으세요</span>
+            </div>
+            <span class="text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg bg-slate-900 text-white shrink-0">필수 메모</span>
+          </div>
+
+          <div class="space-y-3">
+            <!-- 1. 호텔명 -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex items-center justify-between gap-3 shadow-2xs">
+              <div class="min-w-0">
+                <span class="text-xs sm:text-sm font-bold text-slate-400 block mb-0.5">호텔 이름 (한자 / 영문)</span>
+                <span class="font-bold text-slate-900 text-base sm:text-lg block">新回峰度假酒店 (Xinhuifeng)</span>
+              </div>
+              <button type="button" onclick="copyTextToClipboard('新回峰度假酒店', this)" class="shrink-0 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-sm sm:text-base font-bold text-slate-800 transition">
+                복사
+              </button>
+            </div>
+
+            <!-- 2. 호텔 주소 (한자) -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex items-center justify-between gap-3 shadow-2xs">
+              <div class="min-w-0">
+                <span class="text-xs sm:text-sm font-bold text-slate-400 block mb-0.5">호텔 주소 (한자)</span>
+                <span class="font-bold text-slate-900 text-base sm:text-lg block leading-snug">云南省丽江市古城区束河古镇中和村32号</span>
+              </div>
+              <button type="button" onclick="copyTextToClipboard('云南省丽江市古城区束河古镇中和村32号', this)" class="shrink-0 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-sm sm:text-base font-bold text-slate-800 transition">
+                복사
+              </button>
+            </div>
+
+            <!-- 3. 호텔 주소 (영문) -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex items-center justify-between gap-3 shadow-2xs">
+              <div class="min-w-0">
+                <span class="text-xs sm:text-sm font-bold text-slate-400 block mb-0.5">호텔 주소 (영문)</span>
+                <span class="font-semibold text-slate-800 text-sm sm:text-base block leading-snug">Yunnan Lijiang Guchengqu Shuhe Zhonghechun 32hao</span>
+              </div>
+              <button type="button" onclick="copyTextToClipboard('Yunnan Lijiang Guchengqu Shuhe Zhonghechun 32hao', this)" class="shrink-0 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-sm sm:text-base font-bold text-slate-800 transition">
+                복사
+              </button>
+            </div>
+
+            <!-- 4. 현지 연락처 -->
+            <div class="bg-white p-4 rounded-2xl border border-slate-200/80 flex items-center justify-between gap-3 shadow-2xs">
+              <div class="min-w-0">
+                <span class="text-xs sm:text-sm font-bold text-slate-400 block mb-0.5">호텔 전화번호</span>
+                <span class="font-bold text-slate-900 text-base sm:text-lg block">133-2662-0310</span>
+              </div>
+              <button type="button" onclick="copyTextToClipboard('133-2662-0310', this)" class="shrink-0 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-sm sm:text-base font-bold text-slate-800 transition">
+                복사
+              </button>
             </div>
           </div>
         </div>
@@ -732,10 +829,11 @@ const ITINERARY_DATA = [
         location: "쿤밍 (해발 약 1,890m)",
         transit: "대한항공 KE885 직항 (약 4시간 50분) + 전용 차량",
         schedule: [
-          "15:40 인천국제공항 제2여객터미널 집결 및 탑승 수속",
+          "11:50 이천터미널 공항버스 출발 (공항 여유 시간 확보)",
+          "15:40 인천국제공항 제2여객터미널 집결 (환전·로밍·스마트패스)",
           "18:40 대한항공 KE885편 인천 출발 (기내식 석식)",
           "22:30 쿤밍 창수이 공항 도착 및 입국 심사",
-          "공항 6번 출구 앞 [GO투어] 피켓 가이드 미팅",
+          "공항 6번 출구 앞 [허텐샤 / GO투어] 피켓 가이드 미팅",
           "준5성 호텔로 이동 후 체크인 및 휴식"
         ],
         meals: "조식: 불포함 / 중식: 불포함 / 석식: 기내식(대한항공)",
@@ -855,7 +953,8 @@ const ITINERARY_DATA = [
         transit: "전용 차량 + 말 트레킹 또는 차량 등반 (고투어 특전 1인당 택1 전액 포함)",
         schedule: [
           "08:30 리장 출발하여 호도협 입구 차오토우 도착",
-          "호도협 28밴드 말 트레킹 (체력에 맞춰 차량 등반 선택 가능, 전액 포함)",
+          "캐리어는 전용 차량 보관 (차마객잔 1박 짐만 배낭 휴대)",
+          "호도협 28밴드 말 트레킹 (체력에 맞춰 차량 등반 택1, 전액 포함)",
           "차마객잔 도착 및 테라스 옥룡설산 만년설 조망",
           "저녁식사 (토종닭 백숙 특식) 후 밤하늘 별빛 감상 및 산장 숙박"
         ],
@@ -974,9 +1073,9 @@ const ITINERARY_DATA = [
         location: "리장 옥룡설산 (해발 3,100m ~ 4,680m)",
         transit: "전용 차량 및 대형 케이블카 탑승 (일체 비용 전액 포함)",
         schedule: [
-          "08:30 나시족 성산 '옥룡설산 국립공원' 전용차량 이동",
-          "장예모 감독 연출 대형 야외 가무극 '인상리장' 관람",
-          "케이블카 탑승하여 해발 4,680m 빙천공원 만년설 감상",
+          "08:30 옥룡설산 국립공원 이동 (개인 외투 필수 지참, 방한복 대여 불가)",
+          "장예모 감독 연출 500인 대형 야외 가무극 [인상리장] 관람",
+          "케이블카 탑승하여 해발 4,680m 빙천공원 만년설 감상 (산소통 지참)",
           "에메랄드빛 계곡 '람월곡' 전기차 관람",
           "리장 복귀 후 버섯전골 만찬 & 리장고성 화려한 야경 탐방",
           "수허고성 객잔 귀환 후 휴식 (연박)"
@@ -1360,6 +1459,48 @@ const ITINERARY_DATA = [
       if (currentDay < 8) {
         selectDay(currentDay + 1);
       }
+    }
+
+    // 텍스트 클립보드 복사 함수 (토스 스타일 원터치 복사)
+    function copyTextToClipboard(text, btn) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showCopySuccess(btn);
+        }).catch(() => {
+          fallbackCopyText(text, btn);
+        });
+      } else {
+        fallbackCopyText(text, btn);
+      }
+    }
+
+    function fallbackCopyText(text, btn) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.left = "-999999px";
+      textArea.style.top = "-999999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showCopySuccess(btn);
+      } catch (err) {}
+      document.body.removeChild(textArea);
+    }
+
+    function showCopySuccess(btn) {
+      if (!btn) return;
+      const originalText = btn.textContent;
+      btn.textContent = '완료!';
+      btn.classList.add('bg-slate-900', 'text-white');
+      btn.classList.remove('bg-slate-100', 'text-slate-800');
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.classList.remove('bg-slate-900', 'text-white');
+        btn.classList.add('bg-slate-100', 'text-slate-800');
+      }, 1500);
     }
 
     // 여행준비 탭 내부 서브 세그먼트 전환: [체크리스트] vs [대한항공 항공편]
@@ -1960,7 +2101,7 @@ const ITINERARY_DATA = [
     }
 
     // 체크리스트 로컬스토리지 관리
-    const STORAGE_KEY = 'yunnan_trip_checklist_koreanair_v5';
+    const STORAGE_KEY = 'yunnan_trip_checklist_koreanair_v6';
     const CUSTOM_STORAGE_KEY = 'yunnan_trip_custom_checklist_v1';
     let customChecklistItems = [];
 
@@ -2148,8 +2289,8 @@ const ITINERARY_DATA = [
         id: 'yulong',
         title: '옥룡설산 (玉龙雪山 · 위룽쉐산)',
         category: '명소',
-        dayLabel: '6일차 방문',
-        jumpDay: 6,
+        dayLabel: '7일차 방문',
+        jumpDay: 7,
         summary: '북반구 최남단 해발 5,596m 만년설산맥 · 나시족의 수호신이 깃든 영산',
         aliases: ['옥룡설산', '위룽쉐산', '설산', '빙하', '선자두', '빙천공원', '케이블카'],
         items: [
@@ -2163,8 +2304,8 @@ const ITINERARY_DATA = [
         id: 'baishui_blue_moon',
         title: '백수하 & 람월곡 (白水河 & 蓝月谷)',
         category: '명소',
-        dayLabel: '6일차 방문',
-        jumpDay: 6,
+        dayLabel: '7일차 방문',
+        jumpDay: 7,
         summary: '옥룡설산 만년설이 녹아 흐르는 신비로운 코발트블루빛 석회암 호수',
         aliases: ['백수하', '람월곡', '바이수이허', '란웨구', '블루문밸리', '에메랄드호수', '석회암연못'],
         items: [
@@ -2178,8 +2319,8 @@ const ITINERARY_DATA = [
         id: 'tiger_gorge',
         title: '호도협 (虎跳峡 · 후탸오샤)',
         category: '명소',
-        dayLabel: '3·4일차 방문',
-        jumpDay: 3,
+        dayLabel: '4·5일차 방문',
+        jumpDay: 4,
         summary: '세계 3대 깊은 협곡 · 금사강 급류와 천길 낭떠러지의 장대한 파노라마',
         aliases: ['호도협', '후탸오샤', '금사강', '호도석', '28밴드', '차마객잔', '중도객잔', '협곡트레킹'],
         items: [
@@ -2617,15 +2758,15 @@ const ITINERARY_DATA = [
         id: 'impression_lijiang',
         title: '인상리장 (印象丽江 · 장예모 감독 실경공연)',
         category: '문화·역사',
-        dayLabel: '6일차 공연',
-        jumpDay: 6,
+        dayLabel: '7일차 공연',
+        jumpDay: 7,
         summary: '해발 3,100m 옥룡설산을 배경으로 펼쳐지는 500명 원주민의 웅장한 대서사시',
         aliases: ['인상리장', '장예모', '실경공연', '설산실경공연', '나시족공연', '붉은극장'],
         items: [
           { label: '무대의 규모', desc: '거장 장예모(장이머우) 감독이 연출한 세계에서 가장 높은 곳에 위치한 야외 원형 극장으로, 순백의 옥룡설산 암벽이 거대한 천연 배경막이 됩니다.' },
           { label: '실제 농민들의 연기', desc: '전문 배우가 아닌 리장 주변 16개 소수민족 마을 주민 500여 명이 말을 타고 직접 출연하여 꾸밈없는 날것의 에너지를 뿜어냅니다.' },
           { label: '테마와 구성', desc: '설산과 차마고도 마방의 애환, 소수민족의 사랑과 이별, 자연과 하늘을 향한 경건한 기도를 6개 장으로 나누어 장엄하게 그립니다.' },
-          { label: '감동 포인트', desc: '붉은 황토벽 원형 무대 위로 흙먼지를 일으키며 질주하는 말들과 설산을 울리는 원주민들의 우렁찬 함성은 깊은 전율을 선사합니다.' }
+          { label: '관람 특전 (VIP석)', desc: '투어 특전으로 VIP 좌석 관람이 포함되어 있어 가장 좋은 시야에서 흙먼지를 일으키며 질주하는 말들과 500인 합창의 전율을 감상하실 수 있습니다.' }
         ]
       },
 
@@ -2720,20 +2861,51 @@ const ITINERARY_DATA = [
           { label: '어메니티 및 전기', desc: '샴푸, 바디워시, 수건, 헤어드라이어, 전기포트가 구비되어 있습니다. 단, 칫솔·치약은 친환경 정책으로 미제공되는 경우가 있으니 개인 지참을 권장합니다.' }
         ]
       },
+      {
+        id: 'hotel_arrival_card',
+        title: '중국 입국신고서 작성용 호텔 주소',
+        category: '여행 상식',
+        dayLabel: '기내 작성 필수',
+        jumpDay: null,
+        summary: '기내 종이 신고서 또는 모바일 전자신고 시 기재할 공식 호텔 한자·영문 주소',
+        aliases: ['입국신고서', '호텔주소', '주소', '신고서', '호텔명', '한자주소', '영문주소', '연락처', '도착카드', 'arrival card'],
+        items: [
+          { label: '호텔 이름 (한자/영문)', desc: '新回峰度假酒店 (Xinhuifeng Resort Hotel)' },
+          { label: '호텔 주소 (한자)', desc: '云南省丽江市古城区束河古镇中和村32号' },
+          { label: '호텔 주소 (영문)', desc: 'Yunnan Lijiang Guchengqu Shuhe Zhonghechun 32hao' },
+          { label: '호텔 전화번호', desc: '133-2662-0310' },
+          { label: '작성 요령', desc: '비행기 안에서 승무원이 나누어주는 노란색 입국신고서의 [체류지 호텔명 및 주소] 란에 위 한자 또는 영문 주소를 그대로 기재하시면 됩니다.' }
+        ]
+      },
+      {
+        id: 'tiger_gorge_luggage',
+        title: '호도협 트레킹 짐 보관 & 1박 배낭 수칙',
+        category: '여행 상식',
+        dayLabel: '4일차 필수',
+        jumpDay: 4,
+        summary: '대형 캐리어는 전용 차량 보관 · 차마객잔 1박 시 필요한 짐만 배낭 휴대',
+        aliases: ['캐리어', '짐보관', '배낭', '호도협짐', '차마객잔숙박', '말트레킹', '28밴드'],
+        items: [
+          { label: '캐리어 차량 보관', desc: '무거운 대형 캐리어는 호도협 등반 동안 전용 차량 트렁크에 안전하게 보관되므로 산으로 들고 올라가지 않습니다.' },
+          { label: '1박 배낭 챙기기', desc: '차마객잔에서 하룻밤 묵을 때 필요한 1박치 세면도구, 갈아입을 얇은 옷, 휴대폰 충전기, 상비약만 작은 배낭에 챙겨서 오릅니다.' },
+          { label: '말 트레킹 특전', desc: '28밴드 가파른 오르막은 투어 특전으로 말 트레킹 또는 빵차 이동 비용이 전액 포함되어 있어 체력 부담 없이 편안하게 오를 수 있습니다.' },
+          { label: '장갑 착용 추천', desc: '말을 탈 때 고삐를 쥐는 손이 쓸리지 않도록 얇은 장갑(골프장갑이나 등산장갑)을 착용하시면 좋습니다.' }
+        ]
+      },
 
       // 5. 부모님 맞춤 실전 가이드 & 여행자 빈출 검색 지식베이스 (18개)
       {
         id: 'yulong_cableway',
         title: '옥룡설산 빙천공원 케이블카 (大索道 · 대삭도)',
         category: '명소',
-        dayLabel: '6일차 탑승',
-        jumpDay: 6,
+        dayLabel: '7일차 탑승',
+        jumpDay: 7,
         summary: '해발 3,356m에서 4,506m까지 15분 만에 오르는 세계 최고도 곤돌라',
         aliases: ['케이블카', '대삭도', '빙천공원', '곤돌라', '4506', '4680', '설산케이블카'],
         items: [
           { label: '케이블카 운행 정보', desc: '하부 승강장(3,356m)에서 빙천공원 상부 전망대(4,506m)까지 수직 고도차 1,150m를 약 10~15분 만에 초고속으로 연결합니다.' },
           { label: '정상 데크 계단(4,680m)', desc: '케이블카에서 내리면 해발 4,680m 기념비까지 목재 데크 계단이 이어집니다. 부모님은 무리해서 계단을 오르지 마시고 4,506m 승강장 전망대에서 만년설을 조망하시는 것만으로도 충분합니다.' },
-          { label: '산소통 및 방한복', desc: '케이블카 탑승 전 1인 1캔 산소통을 미리 준비하고, 기온이 영하로 내려가고 강풍이 불므로 두꺼운 롱패딩(현지 대여 가능)과 장갑을 반드시 착용해야 합니다.' },
+          { label: '산소통 및 방한복 주의', desc: '케이블카 탑승 전 1인 1캔 산소통을 지참하세요. 현지 방한복 대여가 불가하므로 개인 경량패딩이나 도톰한 외투, 장갑을 반드시 준비해야 합니다.' },
           { label: '기상 변수', desc: '설산 정상의 강풍이나 폭설로 인해 케이블카 운행이 일시 중단될 수 있으며, 이때는 안전을 위해 운삼평이나 모우평 코스로 대체 운영됩니다.' }
         ]
       },
