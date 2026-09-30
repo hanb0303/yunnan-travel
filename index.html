@@ -619,17 +619,17 @@
           </button>
         </div>
 
-        <!-- 공통 일차 선택 바 (서브탭 전환 시에도 위치가 1픽셀도 흔들리지 않는 완전 고정 바!) -->
-        <div class="grid grid-cols-[1.1fr_repeat(8,1fr)] gap-0.5 sm:gap-1 p-1 bg-slate-100 rounded-xl text-center select-none" id="common-map-day-tabs">
-          <button type="button" onclick="selectCommonMapDay(0)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-bold transition bg-slate-900 text-white shadow-2xs" data-day="0">전체</button>
-          <button type="button" onclick="selectCommonMapDay(1)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900" data-day="1">1일</button>
-          <button type="button" onclick="selectCommonMapDay(2)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900" data-day="2">2일</button>
-          <button type="button" onclick="selectCommonMapDay(3)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900" data-day="3">3일</button>
-          <button type="button" onclick="selectCommonMapDay(4)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900" data-day="4">4일</button>
-          <button type="button" onclick="selectCommonMapDay(5)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900" data-day="5">5일</button>
-          <button type="button" onclick="selectCommonMapDay(6)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900" data-day="6">6일</button>
-          <button type="button" onclick="selectCommonMapDay(7)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900" data-day="7">7일</button>
-          <button type="button" onclick="selectCommonMapDay(8)" class="common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900" data-day="8">8일</button>
+        <!-- 공통 일차 선택 바 (대안 A: 토스·애플 스타일 큼직한 가로 슬라이드 알약 탭) -->
+        <div class="flex items-center gap-1.5 p-1.5 bg-slate-100 rounded-2xl select-none overflow-x-auto no-scrollbar scroll-smooth" id="common-map-day-tabs">
+          <button type="button" onclick="selectCommonMapDay(0)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-900 text-white shadow-xs" data-day="0">전체 여정</button>
+          <button type="button" onclick="selectCommonMapDay(1)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs" data-day="1">1일차</button>
+          <button type="button" onclick="selectCommonMapDay(2)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs" data-day="2">2일차</button>
+          <button type="button" onclick="selectCommonMapDay(3)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs" data-day="3">3일차</button>
+          <button type="button" onclick="selectCommonMapDay(4)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs" data-day="4">4일차</button>
+          <button type="button" onclick="selectCommonMapDay(5)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs" data-day="5">5일차</button>
+          <button type="button" onclick="selectCommonMapDay(6)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs" data-day="6">6일차</button>
+          <button type="button" onclick="selectCommonMapDay(7)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs" data-day="7">7일차</button>
+          <button type="button" onclick="selectCommonMapDay(8)" class="common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs" data-day="8">8일차</button>
         </div>
 
         <!-- 1. 여정 노선도 뷰 -->
@@ -1310,50 +1310,53 @@ const ITINERARY_DATA = [
             </div>
           </div>
 
-          <!-- 이동 수단 (방문지역 제외 및 높이 최소화 슬림 1줄 바) -->
-          <div class="px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2.5 text-xs sm:text-sm">
-            <span class="font-bold text-slate-400 shrink-0">이동 수단</span>
-            <span class="font-semibold text-slate-800 truncate">${data.transit}</span>
+          <!-- 이동 수단 (라벨 삭제, 본문 14px(text-[14px]) 볼드 단독 표시) -->
+          <div class="px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-100 text-[14px] sm:text-base font-bold text-slate-700 truncate">
+            ${data.transit}
           </div>
-
 
           <!-- 세부 일정 (시간과 내용이 명확히 분리된 애플 캘린더 스타일 타임라인) -->
           <div class="space-y-3 pt-1">
             <span class="text-lg font-bold text-slate-900 block">세부 일정</span>
             <div class="space-y-0">
-              ${data.schedule.map((item, idx, arr) => {
-                const timeMatch = item.match(/^(\d{1,2}:\d{2})\s*(.*)$/);
-                if (timeMatch) {
+              ${(() => {
+                let firstScheduleLabelShown = false;
+                return data.schedule.map((item, idx, arr) => {
+                  const timeMatch = item.match(/^(\d{1,2}:\d{2})\s*(.*)$/);
+                  if (timeMatch) {
+                    return `
+                      <div class="flex items-start gap-3 pb-3.5">
+                        <div class="w-14 shrink-0 text-left pt-0.5">
+                          <span class="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">${timeMatch[1]}</span>
+                        </div>
+                        <div class="flex flex-col items-center shrink-0 w-2 pt-2">
+                          <div class="w-2 h-2 rounded-full bg-slate-900"></div>
+                          ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[22px]"></div>' : ''}
+                        </div>
+                        <div class="flex-1 text-base sm:text-lg text-slate-800 font-medium leading-snug">
+                          ${timeMatch[2]}
+                        </div>
+                      </div>
+                    `;
+                  }
+                  const showLabel = !firstScheduleLabelShown;
+                  if (showLabel) firstScheduleLabelShown = true;
                   return `
                     <div class="flex items-start gap-3 pb-3.5">
                       <div class="w-14 shrink-0 text-left pt-0.5">
-                        <span class="text-sm sm:text-base font-extrabold text-slate-900 tracking-tight">${timeMatch[1]}</span>
+                        ${showLabel ? '<span class="text-xs font-bold text-slate-400">일정</span>' : ''}
                       </div>
                       <div class="flex flex-col items-center shrink-0 w-2 pt-2">
-                        <div class="w-2 h-2 rounded-full bg-slate-900"></div>
+                        <div class="w-2 h-2 rounded-full bg-slate-400"></div>
                         ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[22px]"></div>' : ''}
                       </div>
                       <div class="flex-1 text-base sm:text-lg text-slate-800 font-medium leading-snug">
-                        ${timeMatch[2]}
+                        ${item}
                       </div>
                     </div>
                   `;
-                }
-                return `
-                  <div class="flex items-start gap-3 pb-3.5">
-                    <div class="w-14 shrink-0 text-left pt-0.5">
-                      <span class="text-xs font-bold text-slate-400">일정</span>
-                    </div>
-                    <div class="flex flex-col items-center shrink-0 w-2 pt-2">
-                      <div class="w-2 h-2 rounded-full bg-slate-400"></div>
-                      ${idx < arr.length - 1 ? '<div class="w-0.5 bg-slate-200 flex-1 my-1 min-h-[22px]"></div>' : ''}
-                    </div>
-                    <div class="flex-1 text-base sm:text-lg text-slate-800 font-medium leading-snug">
-                      ${item}
-                    </div>
-                  </div>
-                `;
-              }).join('')}
+                }).join('');
+              })()}
             </div>
           </div>
 
@@ -1543,19 +1546,24 @@ const ITINERARY_DATA = [
     let currentMapSubTab = 'route';
     let commonMapDay = 0;
 
-    // 공통 일차 선택 바 (여정노선도 & 구글지도 완전 통합, 덜그럭거림 0% 고정 제어)
+    // 공통 일차 선택 바 (토스·애플 가로 슬라이드 알약 탭 스타일 동기화 & 중앙 자동 스크롤)
     function selectCommonMapDay(day) {
       commonMapDay = Number(day);
 
-      // 공통 일차 버튼 스타일 동기화
+      let activeBtn = null;
       document.querySelectorAll('.common-map-day-btn').forEach(btn => {
         const d = Number(btn.dataset.day);
         if (d === commonMapDay) {
-          btn.className = "common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-black transition bg-slate-900 text-white shadow-2xs";
+          btn.className = "common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-slate-900 text-white shadow-xs";
+          activeBtn = btn;
         } else {
-          btn.className = "common-map-day-btn py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-500 hover:text-slate-900";
+          btn.className = "common-map-day-btn px-4 py-2 rounded-xl text-sm sm:text-base font-bold transition shrink-0 whitespace-nowrap bg-white text-slate-600 hover:text-slate-900 shadow-2xs";
         }
       });
+
+      if (activeBtn) {
+        activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
 
       if (currentMapSubTab === 'route') {
         selectMapDay(commonMapDay);
