@@ -715,41 +715,22 @@
           </button>
         </div>
 
-        <!-- 자주 묻는 핵심 질문 TOP 4 (토스 스타일 2열 퀵 카드) -->
-        <div class="space-y-2.5">
-          <span class="text-xs font-bold text-slate-400 block px-1">자주 묻는 핵심 질문</span>
-          <div class="grid grid-cols-2 gap-2.5">
-            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-left transition active:scale-[0.98]" data-keyword="고산병">
-              <span class="text-xs font-bold text-rose-500 block mb-1">건강·안전</span>
-              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">고산병약 · 산소통</span>
-            </button>
-            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-left transition active:scale-[0.98]" data-keyword="10월 날씨">
-              <span class="text-xs font-bold text-blue-500 block mb-1">복장 가이드</span>
-              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">10월 날씨 · 옷차림</span>
-            </button>
-            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-left transition active:scale-[0.98]" data-keyword="화장실">
-              <span class="text-xs font-bold text-amber-500 block mb-1">현지 꿀팁</span>
-              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">화장실 · 휴지 팁</span>
-            </button>
-            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn p-4 rounded-2xl bg-slate-50 hover:bg-slate-100 border border-slate-100 text-left transition active:scale-[0.98]" data-keyword="환전">
-              <span class="text-xs font-bold text-emerald-500 block mb-1">현지 결제</span>
-              <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">환전 · 알리페이</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- 주요 명소 바로가기 (간결한 1줄 칩) -->
-        <div class="space-y-1.5 pt-1">
-          <span class="text-xs font-bold text-slate-400 block px-1">주요 명소 · 음식</span>
-          <div id="ai-chips-scroll" class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar scroll-smooth">
-            <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="옥룡설산">옥룡설산</button>
-            <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="람월곡">람월곡</button>
-            <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="호도협">호도협</button>
-            <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="리장 고성">리장 고성</button>
-            <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="송찬림사">송찬림사</button>
-            <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="따리 고성">따리 고성</button>
-            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="야생 버섯 전골">버섯전골</button>
-            <button type="button" onclick="quickAiSearch('야크 고기 훠궈', this)" class="ai-chip-btn px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 shrink-0 transition" data-keyword="야크 고기 훠궈">야크훠궈</button>
+        <!-- 추천 검색어 (토스·애플 미니멀 모노톤 칩스) -->
+        <div class="space-y-2 pt-1">
+          <span class="text-xs font-bold text-slate-400 block px-1">추천 검색어</span>
+          <div id="ai-chips-container" class="flex flex-wrap gap-2">
+            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="고산병">고산병약 · 산소통</button>
+            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="10월 날씨">10월 날씨 · 옷차림</button>
+            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="화장실">화장실 · 휴지 팁</button>
+            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="환전">환전 · 알리페이</button>
+            <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="옥룡설산">옥룡설산</button>
+            <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="람월곡">람월곡</button>
+            <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="호도협">호도협</button>
+            <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="리장 고성">리장 고성</button>
+            <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="송찬림사">송찬림사</button>
+            <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="따리 고성">따리 고성</button>
+            <button type="button" onclick="quickAiSearch('과교미선', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="과교미선">과교미선</button>
+            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="야생 버섯 전골">버섯전골</button>
           </div>
         </div>
 
@@ -3198,7 +3179,7 @@ const ITINERARY_DATA = [
       renderAiSearchResults(query);
     }
 
-    // 추천 키워드 빠른 검색 및 자동 중앙화
+    // 추천 키워드 빠른 검색 및 스타일 활성화
     function quickAiSearch(keyword, btnEl) {
       const input = document.getElementById('ai-search-input');
       if (input) {
@@ -3206,13 +3187,12 @@ const ITINERARY_DATA = [
         handleAiSearch(keyword);
       }
 
-      // 추천 칩 자동 중앙화 및 스타일 활성화
+      // 추천 칩 스타일 활성화
       document.querySelectorAll('.ai-chip-btn').forEach(b => {
         if (b.getAttribute('data-keyword') === keyword || b === btnEl) {
-          b.className = "ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-900 text-white shadow-2xs text-xs sm:text-sm font-bold shrink-0 transition";
-          b.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+          b.className = "ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-900 text-white shadow-2xs text-sm sm:text-base font-bold transition active:scale-95";
         } else {
-          b.className = "ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-bold shrink-0 transition";
+          b.className = "ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm sm:text-base font-bold transition active:scale-95";
         }
       });
     }
@@ -3226,7 +3206,7 @@ const ITINERARY_DATA = [
         handleAiSearch('');
       }
       document.querySelectorAll('.ai-chip-btn').forEach(b => {
-        b.className = "ai-chip-btn px-3.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs sm:text-sm font-bold shrink-0 transition";
+        b.className = "ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm sm:text-base font-bold transition active:scale-95";
       });
     }
 
