@@ -164,12 +164,6 @@
 
         <!-- 단일 포커스 카드 컨테이너 (JS 동적 렌더링) -->
         <div id="day-card-container"></div>
-
-        <!-- 전체 루트 요약 (선명하고 큼직한 텍스트, 토스 면 분할) -->
-        <div class="px-4 py-3.5 bg-slate-50 rounded-2xl flex items-center gap-2.5 mt-2 text-sm sm:text-base overflow-x-auto no-scrollbar">
-          <span class="font-bold text-slate-900 shrink-0 bg-slate-200/80 px-2 py-0.5 rounded-md text-sm font-bold">전체 여정</span>
-          <span class="text-slate-800 font-semibold tracking-tight whitespace-nowrap">인천 → 쿤밍 → 따리 → 호도협 → 샹그릴라 → 리장 → 쿤밍 → 인천</span>
-        </div>
       </section>
 
 
@@ -1255,15 +1249,21 @@ const ITINERARY_DATA = [
             </h3>
           </div>
 
-          <!-- 실시간 날씨 위젯 (아이콘 완전 배제, 토스·애플 미니멀 텍스트 카드) -->
+          <!-- 실시간 날씨 위젯 (애플 날씨 스타일: 선명한 날씨 아이콘 + 큼직한 기온) -->
           <div class="bg-slate-50 rounded-2xl p-4 sm:p-5 flex items-center justify-between gap-3">
-            <div class="min-w-0">
-              <div class="flex items-baseline gap-2.5">
-                <span id="weather-temp-${data.day}" class="text-3xl font-bold text-slate-900 leading-none">--℃</span>
-                <span id="weather-cond-${data.day}" class="text-lg font-bold text-slate-800 truncate">확인 중</span>
+            <div class="flex items-center gap-3.5 min-w-0">
+              <!-- 날씨 상태 SVG 아이콘 박스 -->
+              <div id="weather-icon-box-${data.day}" class="w-12 h-12 rounded-2xl bg-white flex items-center justify-center shrink-0 shadow-2xs border border-slate-200/80">
+                ${getWeatherIconSvg(0)}
               </div>
-              <div class="text-base font-medium text-slate-600 mt-1 whitespace-nowrap" id="weather-range-${data.day}">
-                최저 --℃ / 최고 --℃
+              <div class="min-w-0">
+                <div class="flex items-baseline gap-2.5">
+                  <span id="weather-temp-${data.day}" class="text-3xl font-bold text-slate-900 leading-none">--℃</span>
+                  <span id="weather-cond-${data.day}" class="text-lg font-bold text-slate-800 truncate">확인 중</span>
+                </div>
+                <div class="text-base font-medium text-slate-600 mt-1 whitespace-nowrap" id="weather-range-${data.day}">
+                  최저 --℃ / 최고 --℃
+                </div>
               </div>
             </div>
             <div class="flex items-center shrink-0">
