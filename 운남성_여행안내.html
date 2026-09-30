@@ -445,6 +445,7 @@
             </button>
           </div>
         </div>
+        </div>
         <!-- 2-1. 준비물 체크리스트 뷰 끝 -->
 
         <!-- 2-2. 대한항공 항공편 상세 뷰 (여행준비 탭 통합) -->
@@ -1370,19 +1371,6 @@ const ITINERARY_DATA = [
             </div>
           </div>
 
-          ${(data.day === 1 || data.day === 8) ? `
-          <!-- 대한항공 항공편 바로가기 배너 (토스·애플 미니멀 다크 배너) -->
-          <div onclick="switchMainTab('flight')" class="p-4 sm:p-5 bg-slate-900 text-white rounded-2xl cursor-pointer flex items-center justify-between gap-3 hover:bg-slate-800 active:scale-[0.99] transition shadow-2xs">
-            <div class="min-w-0 flex-1">
-              <div class="flex items-center gap-2">
-                <span class="text-xs sm:text-sm font-bold px-2 py-0.5 rounded-md bg-white/20 text-white">${data.day === 1 ? '출국 직항' : '귀국 직항'}</span>
-                <span class="text-base sm:text-lg font-bold tracking-tight">${data.day === 1 ? '대한항공 KE885 (인천➔쿤밍)' : '대한항공 KE886 (쿤밍➔인천)'}</span>
-              </div>
-              <p class="text-sm sm:text-base text-slate-300 mt-1 font-medium">${data.day === 1 ? '비행 4시간 50분 · T2 터미널 · 수하물 & 호텔 주소 복사' : '비행 4시간 20분 · 쿤밍 창수이공항 23:30 출발 · 기내 1박'}</p>
-            </div>
-            <span class="text-sm sm:text-base font-bold text-white shrink-0">항공편 상세 →</span>
-          </div>
-          ` : ''}
 
           <!-- 세부 일정 (토스 스타일 미니멀 타임라인 + 큰 글씨) -->
           <div class="space-y-3 pt-1">
