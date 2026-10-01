@@ -4,6 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>운남성 7박 8일 여행 안내</title>
+  <!-- PWA & Mobile Web App Meta Tags -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="운남성여행">
+  <link rel="apple-touch-icon" href="icon.svg">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- D3.js v7 CDN (실제 지형 벡터 지도 렌더링용) -->
@@ -132,7 +139,7 @@
     <main class="flex-1 px-5 pt-3.5 pb-40 sm:pb-44">
 
       <!-- ================= 1. 일정 탭 (1~8일차 4열 2행 고정 그리드 + 좌우 이동 버튼) ================= -->
-      <section id="section-itinerary" class="tab-pane space-y-4">
+      <section id="section-itinerary" role="tabpanel" aria-labelledby="bottom-tab-itinerary" class="tab-pane space-y-4">
         
         <!-- 1일차~8일차 1행 가로 탭 (스크롤바 없이 깔끔, 터치 시 자동 중앙 정렬) -->
         <div class="space-y-2">
@@ -177,7 +184,7 @@
 
 
       <!-- ================= 2. 여행준비 탭 (준비물 체크리스트 + 항공권 통합) ================= -->
-      <section id="section-checklist" class="tab-pane hidden space-y-4 touch-pan-y">
+      <section id="section-checklist" role="tabpanel" aria-labelledby="bottom-tab-checklist" class="tab-pane hidden space-y-4 touch-pan-y">
         <!-- 상단 서브 세그먼트 스위처 (체크리스트 vs 대한항공 항공편) -->
         <div class="space-y-1.5">
           <div class="flex items-center justify-between px-1 text-xs font-semibold text-slate-400">
@@ -610,7 +617,7 @@
 
 
       <!-- ================= 4. 전체 지도 탭 (시니어 16px 볼드 최적화 + 스크롤 없는 한 화면 핏팅) ================= -->
-      <section id="section-map" class="tab-pane hidden space-y-2">
+      <section id="section-map" role="tabpanel" aria-labelledby="bottom-tab-map" class="tab-pane hidden space-y-2">
         
         <!-- 1. 서브탭 세그먼트 (노선도 vs 구글 지도) - 준비물 탭과 완벽히 동일한 사이즈와 디자인 -->
         <div class="grid grid-cols-2 p-1.5 bg-slate-100 rounded-2xl text-center select-none">
@@ -703,7 +710,7 @@
       </section>
 
       <!-- ================= 5. AI 검색 탭 (인앱 스마트 여행 백과) ================= -->
-      <section id="section-ai" class="tab-pane hidden space-y-4">
+      <section id="section-ai" role="tabpanel" aria-labelledby="bottom-tab-ai" class="tab-pane hidden space-y-4">
         
         <!-- 통일된 상단 헤더 -->
         <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
@@ -754,26 +761,26 @@
     </main>
 
     <!-- 하단 고정 내비게이션 바 (토스·애플 미니멀 텍스트 탭바: 아이콘 완전 배제, 시원한 16-17px 볼드 타이포그래피) -->
-    <nav class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200" style="padding-bottom: calc(env(safe-area-inset-bottom, 16px) + 16px);">
-      <div id="bottom-tabs-container" class="max-w-lg mx-auto grid grid-cols-4 h-14 min-[390px]:h-16 text-center select-none pt-1">
+    <nav aria-label="하단 메인 내비게이션" class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200" style="padding-bottom: calc(env(safe-area-inset-bottom, 16px) + 16px);">
+      <div id="bottom-tabs-container" role="tablist" aria-label="메인 메뉴" class="max-w-lg mx-auto grid grid-cols-4 h-14 min-[390px]:h-16 text-center select-none pt-1">
         
         <!-- 1. 일정표 -->
-        <button type="button" onclick="switchMainTab('itinerary')" id="bottom-tab-itinerary" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-bold text-slate-900 tracking-tight transition active:scale-95" data-tab="itinerary">
+        <button type="button" role="tab" aria-selected="true" aria-controls="section-itinerary" onclick="switchMainTab('itinerary')" id="bottom-tab-itinerary" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-bold text-slate-900 tracking-tight transition active:scale-95" data-tab="itinerary">
           일정표
         </button>
 
         <!-- 2. 여정지도 -->
-        <button type="button" onclick="switchMainTab('map')" id="bottom-tab-map" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="map">
+        <button type="button" role="tab" aria-selected="false" aria-controls="section-map" onclick="switchMainTab('map')" id="bottom-tab-map" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="map">
           여정지도
         </button>
 
         <!-- 3. AI 검색 (우측 끝 오터치 방지를 위한 중앙 배치) -->
-        <button type="button" onclick="switchMainTab('ai')" id="bottom-tab-ai" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="ai">
+        <button type="button" role="tab" aria-selected="false" aria-controls="section-ai" onclick="switchMainTab('ai')" id="bottom-tab-ai" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="ai">
           AI 검색
         </button>
 
         <!-- 4. 여행준비 (체크리스트 + 항공권) -->
-        <button type="button" onclick="switchMainTab('checklist')" id="bottom-tab-checklist" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="checklist">
+        <button type="button" role="tab" aria-selected="false" aria-controls="section-checklist" onclick="switchMainTab('checklist')" id="bottom-tab-checklist" class="bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95" data-tab="checklist">
           여행준비
         </button>
 
@@ -1763,6 +1770,7 @@ const ITINERARY_DATA = [
       // 모든 하단 텍스트 버튼 비활성화 (토스/애플 그레이 400 + font-semibold)
       document.querySelectorAll('.bottom-tab-btn').forEach(b => {
         b.className = "bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-semibold text-slate-400 hover:text-slate-700 tracking-tight transition active:scale-95";
+        b.setAttribute('aria-selected', 'false');
       });
 
       // 대상 탭 컨텐츠 표시
@@ -1773,6 +1781,7 @@ const ITINERARY_DATA = [
       const targetBtn = document.getElementById('bottom-tab-' + tabName);
       if (targetBtn) {
         targetBtn.className = "bottom-tab-btn flex items-center justify-center h-full text-base min-[390px]:text-[17px] font-bold text-slate-900 tracking-tight transition active:scale-95";
+        targetBtn.setAttribute('aria-selected', 'true');
       }
 
       // iOS 사파리 가로 튕김 버그를 일으키던 targetBtn.scrollIntoView(...) 코드 완전 제거
@@ -2363,15 +2372,19 @@ const ITINERARY_DATA = [
     }
 
     function saveChecklist() {
-      const cbs = document.querySelectorAll('#check-pane-docs input[type="checkbox"], #check-pane-meds input[type="checkbox"], #check-pane-clothes input[type="checkbox"]');
-      const state = Array.from(cbs).map(cb => cb.checked);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      try {
+        const cbs = document.querySelectorAll('#check-pane-docs input[type="checkbox"], #check-pane-meds input[type="checkbox"], #check-pane-clothes input[type="checkbox"]');
+        const state = Array.from(cbs).map(cb => cb.checked);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      } catch (err) {
+        console.warn('LocalStorage saveChecklist failed (Private mode or quota exceeded):', err);
+      }
     }
 
     function loadChecklist() {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        try {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
           const state = JSON.parse(saved);
           const cbs = document.querySelectorAll('#check-pane-docs input[type="checkbox"], #check-pane-meds input[type="checkbox"], #check-pane-clothes input[type="checkbox"]');
           cbs.forEach((cb, idx) => {
@@ -2385,7 +2398,9 @@ const ITINERARY_DATA = [
               }
             }
           });
-        } catch(e) {}
+        }
+      } catch(e) {
+        console.warn('LocalStorage loadChecklist failed:', e);
       }
       loadCustomChecklist();
       updateProgress();
@@ -2393,19 +2408,23 @@ const ITINERARY_DATA = [
 
     // 사용자가 직접 추가하는 커스텀 준비물 관리
     function loadCustomChecklist() {
-      const saved = localStorage.getItem(CUSTOM_STORAGE_KEY);
-      if (saved) {
-        try {
+      try {
+        const saved = localStorage.getItem(CUSTOM_STORAGE_KEY);
+        if (saved) {
           customChecklistItems = JSON.parse(saved);
-        } catch(e) {
-          customChecklistItems = [];
         }
+      } catch(e) {
+        customChecklistItems = [];
       }
       renderCustomChecklist();
     }
 
     function saveCustomChecklist() {
-      localStorage.setItem(CUSTOM_STORAGE_KEY, JSON.stringify(customChecklistItems));
+      try {
+        localStorage.setItem(CUSTOM_STORAGE_KEY, JSON.stringify(customChecklistItems));
+      } catch (err) {
+        console.warn('LocalStorage saveCustomChecklist failed:', err);
+      }
     }
 
     function renderCustomChecklist() {
@@ -3760,6 +3779,15 @@ const ITINERARY_DATA = [
           cachedMapSize = { width: 0, height: 0 };
           drawYunnanInteractiveMap();
         }).observe(mapSvg.parentElement);
+      }
+
+      // PWA 오프라인 지원 Service Worker 등록
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./sw.js')
+            .then(reg => console.log('PWA ServiceWorker registered with scope:', reg.scope))
+            .catch(err => console.warn('PWA ServiceWorker registration failed:', err));
+        });
       }
     });
   </script>

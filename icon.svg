@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="snow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="mountain" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0284c7"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  
+  <!-- Outer Ring / Accent -->
+  <rect x="16" y="16" width="480" height="480" rx="96" fill="none" stroke="#38bdf8" stroke-width="4" stroke-opacity="0.3"/>
+
+  <!-- Mountain Peak 1 (Jade Dragon Snow Mountain style) -->
+  <polygon points="120,380 256,150 392,380" fill="url(#mountain)"/>
+  <polygon points="256,150 205,235 235,225 256,250 277,225 307,235" fill="url(#snow)"/>
+
+  <!-- Mountain Peak 2 (Foreground Left) -->
+  <polygon points="60,380 160,220 270,380" fill="#0369a1" fill-opacity="0.85"/>
+  <polygon points="160,220 125,275 145,268 160,285 175,268 195,275" fill="url(#snow)"/>
+
+  <!-- Sun / Compass Gold Point -->
+  <circle cx="370" cy="150" r="36" fill="#f59e0b"/>
+  <circle cx="370" cy="150" r="44" fill="none" stroke="#fbbf24" stroke-width="3" stroke-opacity="0.4"/>
+
+  <!-- Text / Title -->
+  <text x="256" y="440" font-family="-apple-system, BlinkMacSystemFont, 'Pretendard', sans-serif" font-size="34" font-weight="800" fill="#f8fafc" text-anchor="middle" letter-spacing="2">운남성 여행</text>
+</svg>

@@ -1,0 +1,19 @@
+{
+  "name": "운남성 여행 안내 (7박 8일)",
+  "short_name": "운남성여행",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#0f172a",
+  "description": "쿤밍-따리-리장-호도협-샹그릴라 7박 8일 일정, 체크리스트, 여정지도 및 현지 여행 도우미",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
