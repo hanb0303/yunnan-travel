@@ -177,15 +177,21 @@
 
 
       <!-- ================= 2. 여행준비 탭 (준비물 체크리스트 + 항공권 통합) ================= -->
-      <section id="section-checklist" class="tab-pane hidden space-y-4">
+      <section id="section-checklist" class="tab-pane hidden space-y-4 touch-pan-y">
         <!-- 상단 서브 세그먼트 스위처 (체크리스트 vs 대한항공 항공편) -->
-        <div class="grid grid-cols-2 p-1.5 bg-slate-100 rounded-2xl text-center select-none">
-          <button type="button" onclick="switchPrepSegment('check')" id="prep-subtab-check" class="py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition">
-            준비물 체크리스트
-          </button>
-          <button type="button" onclick="switchPrepSegment('flight')" id="prep-subtab-flight" class="py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition">
-            대한항공 항공편
-          </button>
+        <div class="space-y-1.5">
+          <div class="flex items-center justify-between px-1 text-xs font-semibold text-slate-400">
+            <span>여행준비 메뉴</span>
+            <span>· 좌우 스와이프 전환 가능</span>
+          </div>
+          <div class="grid grid-cols-2 p-1.5 bg-slate-100 rounded-2xl text-center select-none">
+            <button type="button" onclick="switchPrepSegment('check')" id="prep-subtab-check" class="py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition">
+              준비물 체크리스트
+            </button>
+            <button type="button" onclick="switchPrepSegment('flight')" id="prep-subtab-flight" class="py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition">
+              대한항공 항공편
+            </button>
+          </div>
         </div>
 
         <!-- 2-1. 준비물 체크리스트 뷰 -->
@@ -405,7 +411,7 @@
             <label class="check-item flex items-center justify-between p-4 cursor-pointer select-none">
               <div class="flex items-center gap-3.5">
                 <input type="checkbox" onchange="toggleCheck(this)" class="w-6 h-6 rounded text-slate-900 focus:ring-slate-900 border-slate-300">
-                <span class="label-text text-base sm:text-lg font-bold text-slate-900">말타기용 장갑 (28밴드 고삐 쓸림 방지)</span>
+                <span class="label-text text-base sm:text-lg font-bold text-slate-900">말타기용 장갑</span>
               </div>
               <span class="text-sm font-bold px-2.5 py-1 rounded-lg bg-blue-100 text-blue-800 shrink-0">추천</span>
             </label>
@@ -1579,25 +1585,155 @@ const ITINERARY_DATA = [
     }
 
     // 여행준비 탭 내부 서브 세그먼트 전환: [체크리스트] vs [대한항공 항공편]
+    let currentPrepSegment = 'check';
+    let isTransitioningPrep = false;
+
     function switchPrepSegment(seg) {
+      if (seg === currentPrepSegment) return;
+      const direction = seg === 'flight' ? 'next' : 'prev';
+      switchPrepSegmentWithSlide(seg, direction);
+    }
+
+    // 슬라이드 애니메이션과 함께 여행준비 서브 뷰 전환
+    function switchPrepSegmentWithSlide(seg, direction) {
+      if (isTransitioningPrep) return;
+      if (seg === currentPrepSegment) return;
+      isTransitioningPrep = true;
+
       const viewCheck = document.getElementById('prep-view-check');
       const viewFlight = document.getElementById('prep-view-flight');
       const btnCheck = document.getElementById('prep-subtab-check');
       const btnFlight = document.getElementById('prep-subtab-flight');
 
-      if (!viewCheck || !viewFlight) return;
-
-      if (seg === 'flight') {
-        viewCheck.classList.add('hidden');
-        viewFlight.classList.remove('hidden');
-        if (btnFlight) btnFlight.className = "py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition text-center";
-        if (btnCheck) btnCheck.className = "py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition text-center";
-      } else {
-        viewCheck.classList.remove('hidden');
-        viewFlight.classList.add('hidden');
-        if (btnCheck) btnCheck.className = "py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition text-center";
-        if (btnFlight) btnFlight.className = "py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition text-center";
+      if (!viewCheck || !viewFlight) {
+        isTransitioningPrep = false;
+        return;
       }
+
+      const currentView = currentPrepSegment === 'check' ? viewCheck : viewFlight;
+      const nextView = seg === 'flight' ? viewFlight : viewCheck;
+
+      // 1. 현재 뷰 slide out & fade out (좌: -30px, 우: 30px)
+      const outTranslate = direction === 'next' ? '-30px' : '30px';
+      currentView.style.transition = 'transform 0.15s ease-out, opacity 0.15s ease-out';
+      currentView.style.transform = `translateX(${outTranslate})`;
+      currentView.style.opacity = '0';
+
+      setTimeout(() => {
+        // 2. 뷰 전환 및 버튼 스타일 갱신
+        currentView.classList.add('hidden');
+        currentView.style.transform = '';
+        currentView.style.opacity = '';
+        currentView.style.transition = '';
+
+        nextView.classList.remove('hidden');
+        currentPrepSegment = seg;
+
+        if (seg === 'flight') {
+          if (btnFlight) btnFlight.className = "py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition text-center";
+          if (btnCheck) btnCheck.className = "py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition text-center";
+        } else {
+          if (btnCheck) btnCheck.className = "py-3 rounded-xl text-base sm:text-lg font-bold bg-white text-slate-900 shadow-2xs transition text-center";
+          if (btnFlight) btnFlight.className = "py-3 rounded-xl text-base sm:text-lg font-semibold text-slate-500 hover:text-slate-900 transition text-center";
+        }
+
+        // 3. 새 뷰 slide in & fade in
+        const inTranslate = direction === 'next' ? '30px' : '-30px';
+        nextView.style.transform = `translateX(${inTranslate})`;
+        nextView.style.opacity = '0';
+        nextView.style.transition = 'none';
+
+        void nextView.offsetWidth; // 강제 리플로우
+
+        nextView.style.transition = 'transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s ease-out';
+        nextView.style.transform = 'translateX(0)';
+        nextView.style.opacity = '1';
+
+        setTimeout(() => {
+          nextView.style.transition = '';
+          nextView.style.transform = '';
+          nextView.style.opacity = '';
+          isTransitioningPrep = false;
+        }, 180);
+      }, 150);
+    }
+
+    // 여행준비 탭 양 끝단 바운스 효과
+    function bouncePrepSegment(endType) {
+      const activeView = currentPrepSegment === 'check' 
+        ? document.getElementById('prep-view-check') 
+        : document.getElementById('prep-view-flight');
+      if (!activeView || activeView.dataset.bouncing) return;
+
+      activeView.dataset.bouncing = 'true';
+      const offset = endType === 'left-end' ? '18px' : '-18px';
+      activeView.style.transition = 'transform 0.12s ease-out';
+      activeView.style.transform = `translateX(${offset})`;
+
+      setTimeout(() => {
+        activeView.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        activeView.style.transform = 'translateX(0)';
+        setTimeout(() => {
+          delete activeView.dataset.bouncing;
+          activeView.style.transition = '';
+          activeView.style.transform = '';
+        }, 200);
+      }, 120);
+    }
+
+    // 여행준비 탭 스와이프 제스처 리스너 초기화
+    function initPrepSwipe() {
+      const section = document.getElementById('section-checklist');
+      if (!section) return;
+
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchStartTime = 0;
+      let isTracking = false;
+
+      section.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        // 텍스트 입력창이나 슬라이더, 복사 버튼 터치 시 방해하지 않음
+        if (e.target.closest('input[type="text"], textarea')) return;
+
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+        isTracking = true;
+      }, { passive: true });
+
+      section.addEventListener('touchend', (e) => {
+        if (!isTracking) return;
+        isTracking = false;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        const elapsedTime = Date.now() - touchStartTime;
+
+        // 스와이프 조건:
+        // 1) 500ms 이내 빠른 튕김
+        // 2) 수평 이동 최소 45px 이상
+        // 3) 각도 잠금: |diffX| > |diffY| * 1.4 (세로 스크롤 보호)
+        if (elapsedTime < 500 && Math.abs(diffX) >= 45 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
+          if (diffX < 0) {
+            // 오른쪽 -> 왼쪽 스와이프: 체크리스트면 항공편으로, 항공편이면 바운스
+            if (currentPrepSegment === 'check') {
+              switchPrepSegmentWithSlide('flight', 'next');
+            } else {
+              bouncePrepSegment('right-end');
+            }
+          } else {
+            // 왼쪽 -> 오른쪽 스와이프: 항공편이면 체크리스트로, 체크리스트면 바운스
+            if (currentPrepSegment === 'flight') {
+              switchPrepSegmentWithSlide('check', 'prev');
+            } else {
+              bouncePrepSegment('left-end');
+            }
+          }
+        }
+      }, { passive: true });
     }
 
     // 입국신고서 호텔 주소 아코디언 원터치 열기 및 스크롤
@@ -3615,6 +3751,7 @@ const ITINERARY_DATA = [
       loadChecklist();
       renderAiSearchResults('');
       initItinerarySwipe();
+      initPrepSwipe();
 
       // 지도 컨테이너 반응형 리사이즈 감지
       const mapSvg = document.getElementById('yn-interactive-svg');
