@@ -144,10 +144,7 @@
         <!-- 1일차~8일차 1행 가로 탭 (스크롤바 없이 깔끔, 터치 시 자동 중앙 정렬) -->
         <div class="space-y-2">
           <div class="flex items-center justify-between text-base font-bold text-slate-700 px-1">
-            <div class="flex items-center gap-1.5">
-              <span>일차 선택</span>
-              <span class="text-xs font-semibold text-slate-400">· 좌우 스와이프 넘기기 가능</span>
-            </div>
+            <span>일차 선택</span>
             <span id="current-day-indicator" class="text-lg font-bold text-slate-900">1일차 보는 중</span>
           </div>
           <div id="day-tabs-row" class="flex items-center gap-2 overflow-x-auto py-1 scroll-smooth no-scrollbar select-none">
@@ -491,13 +488,12 @@
             </div>
           </div>
 
-          <!-- 부모님 필수 행동: 집결 시각 & 장소 (토스 스타일 소프트 강조 박스) -->
-          <div class="bg-slate-50 rounded-2xl p-4 flex items-center justify-between gap-3 border border-slate-100">
+          <!-- 공항 미팅 안내 (토스 스타일 소프트 박스) -->
+          <div class="bg-slate-50 rounded-2xl p-4 border border-slate-100">
             <div class="min-w-0">
               <span class="text-xs font-bold text-slate-400 block mb-0.5">공항 미팅 안내</span>
               <span class="text-base sm:text-lg font-bold text-slate-900 block leading-tight">15:40까지 인천공항 제2터미널 3층 집결</span>
             </div>
-            <span class="text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg bg-slate-900 text-white shrink-0">필수</span>
           </div>
         </div>
 
