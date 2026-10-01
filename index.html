@@ -621,8 +621,8 @@
 
         <!-- 2. 공통 일차 선택 바 (시니어 16~18px 큼직한 알약 탭) -->
         <div class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-0.5 select-none" id="common-map-day-tabs">
-          <button type="button" onclick="selectCommonMapDay(0)" class="common-map-day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold transition shrink-0 whitespace-nowrap bg-slate-900 text-white shadow-xs" data-day="0">전체 여정</button>
-          <button type="button" onclick="selectCommonMapDay(1)" class="common-map-day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="1">1일차</button>
+          <button type="button" onclick="selectCommonMapDay(0)" class="common-map-day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="0">전체 여정</button>
+          <button type="button" onclick="selectCommonMapDay(1)" class="common-map-day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold transition shrink-0 whitespace-nowrap bg-slate-900 text-white shadow-xs" data-day="1">1일차</button>
           <button type="button" onclick="selectCommonMapDay(2)" class="common-map-day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="2">2일차</button>
           <button type="button" onclick="selectCommonMapDay(3)" class="common-map-day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="3">3일차</button>
           <button type="button" onclick="selectCommonMapDay(4)" class="common-map-day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold transition shrink-0 whitespace-nowrap bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200/70" data-day="4">4일차</button>
@@ -639,7 +639,7 @@
             <!-- 지도 상단 오버레이 인디케이터 (14~16px 또렷한 글씨) -->
             <div class="absolute top-2.5 left-2.5 z-10 pointer-events-none">
               <span id="yn-map-badge" class="px-3 py-1 rounded-lg bg-white/95 backdrop-blur-xs text-sm sm:text-base font-black text-slate-900 border border-slate-200/90 shadow-2xs">
-                전체 여정
+                1일차 · 쿤밍 도착
               </span>
             </div>
 
@@ -1794,8 +1794,26 @@ const ITINERARY_DATA = [
       selectDay(dayNum);
     }
 
+    // 현재 접속 날짜(기기/현지 시간) 기준 오늘의 여행 일차 자동 판별
+    // 10.04(1일차) ~ 10.11(8일차) 자동 계산, 그 외 기간은 1일차 기본값 반환
+    function getInitialTripDay() {
+      try {
+        const now = new Date();
+        const month = now.getMonth() + 1; // 1~12
+        const date = now.getDate(); // 1~31
+
+        if (month === 10 && date >= 4 && date <= 11) {
+          return date - 3; // 4일->1, 5일->2, ..., 11일->8
+        }
+        return 1;
+      } catch (err) {
+        console.warn('Initial trip day calculation failed, fallback to 1:', err);
+        return 1;
+      }
+    }
+
     let currentMapSubTab = 'route';
-    let commonMapDay = 0;
+    let commonMapDay = 1;
 
     // 공통 일차 선택 바 (시니어 16~18px 큼직한 알약 탭 스타일 동기화 & 중앙 자동 스크롤)
     function selectCommonMapDay(day) {
@@ -1995,7 +2013,7 @@ const ITINERARY_DATA = [
       }
     };
 
-    let selectedMapDay = 0;
+    let selectedMapDay = 1;
     let cachedMapSize = { width: 0, height: 0 };
     let mapBaseProjection = null;
     let mapZoomBehavior = null;
@@ -3758,7 +3776,9 @@ const ITINERARY_DATA = [
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      renderDayCard(1);
+      const todayDay = getInitialTripDay();
+      renderDayCard(todayDay);
+      selectCommonMapDay(todayDay);
       loadChecklist();
       renderAiSearchResults('');
       initItinerarySwipe();
