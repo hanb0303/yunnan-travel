@@ -137,10 +137,13 @@
         <!-- 1일차~8일차 1행 가로 탭 (스크롤바 없이 깔끔, 터치 시 자동 중앙 정렬) -->
         <div class="space-y-2">
           <div class="flex items-center justify-between text-base font-bold text-slate-700 px-1">
-            <span>일차 선택</span>
+            <div class="flex items-center gap-1.5">
+              <span>일차 선택</span>
+              <span class="text-xs font-semibold text-slate-400">· 좌우 스와이프 넘기기 가능</span>
+            </div>
             <span id="current-day-indicator" class="text-lg font-bold text-slate-900">1일차 보는 중</span>
           </div>
-          <div id="day-tabs-row" class="flex items-center gap-2 overflow-x-auto py-1 scroll-smooth no-scrollbar">
+          <div id="day-tabs-row" class="flex items-center gap-2 overflow-x-auto py-1 scroll-smooth no-scrollbar select-none">
             <button onclick="selectDay(1)" id="day-btn-1" class="day-btn px-4 py-2.5 rounded-xl text-base sm:text-lg font-bold bg-slate-900 text-white shrink-0 transition shadow-xs">
               1일차
             </button>
@@ -168,8 +171,8 @@
           </div>
         </div>
 
-        <!-- 단일 포커스 카드 컨테이너 (JS 동적 렌더링) -->
-        <div id="day-card-container"></div>
+        <!-- 단일 포커스 카드 컨테이너 (좌우 스와이프 제스처 및 슬라이드 트랜지션 지원) -->
+        <div id="day-card-container" class="overflow-hidden touch-pan-y select-none relative"></div>
       </section>
 
 
@@ -1390,20 +1393,147 @@ const ITINERARY_DATA = [
       fetchWeatherForDay(dayNum);
     }
 
-        function selectDay(num) {
-      renderDayCard(num);
+    let isTransitioningDay = false;
+
+    // 슬라이드 애니메이션과 함께 일차 전환 (방향: 'next' | 'prev')
+    function transitionDayCard(targetDay, direction) {
+      if (isTransitioningDay || targetDay < 1 || targetDay > 8 || targetDay === currentDay) return;
+      isTransitioningDay = true;
+
+      const container = document.getElementById('day-card-container');
+      const card = container ? container.firstElementChild : null;
+
+      if (!card) {
+        renderDayCard(targetDay);
+        isTransitioningDay = false;
+        return;
+      }
+
+      // 1. 현재 카드를 방향에 따라 slide out & fade out (좌: -30px, 우: 30px)
+      const outTranslate = direction === 'next' ? '-30px' : '30px';
+      card.style.transition = 'transform 0.15s ease-out, opacity 0.15s ease-out';
+      card.style.transform = `translateX(${outTranslate})`;
+      card.style.opacity = '0';
+
+      setTimeout(() => {
+        // 2. 새 일차 렌더링
+        renderDayCard(targetDay);
+
+        const newCard = container.firstElementChild;
+        if (newCard) {
+          // 3. 새 카드는 반대편에서 대기 (우: 30px, 좌: -30px)
+          const inTranslate = direction === 'next' ? '30px' : '-30px';
+          newCard.style.transform = `translateX(${inTranslate})`;
+          newCard.style.opacity = '0';
+          newCard.style.transition = 'none';
+
+          // 강제 리플로우
+          void newCard.offsetWidth;
+
+          // 4. 원래 위치로 부드럽게 slide in & fade in
+          newCard.style.transition = 'transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.18s ease-out';
+          newCard.style.transform = 'translateX(0)';
+          newCard.style.opacity = '1';
+        }
+        isTransitioningDay = false;
+      }, 150);
+    }
+
+    // 1일차 이전 or 8일차 이후 스와이프 시 튕김 탄성 애니메이션 (바운스)
+    function bounceDayCard(endType) {
+      const container = document.getElementById('day-card-container');
+      const card = container ? container.firstElementChild : null;
+      if (!card || card.dataset.bouncing) return;
+
+      card.dataset.bouncing = 'true';
+      const offset = endType === 'left-end' ? '18px' : '-18px';
+      card.style.transition = 'transform 0.12s ease-out';
+      card.style.transform = `translateX(${offset})`;
+
+      setTimeout(() => {
+        card.style.transition = 'transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+        card.style.transform = 'translateX(0)';
+        setTimeout(() => {
+          delete card.dataset.bouncing;
+          card.style.transition = '';
+          card.style.transform = '';
+        }, 200);
+      }, 120);
+    }
+
+    // 스와이프: 다음 날 (오른쪽 -> 왼쪽)
+    function handleSwipeNext() {
+      if (currentDay < 8) {
+        transitionDayCard(currentDay + 1, 'next');
+      } else {
+        bounceDayCard('right-end');
+      }
+    }
+
+    // 스와이프: 이전 날 (왼쪽 -> 오른쪽)
+    function handleSwipePrev() {
+      if (currentDay > 1) {
+        transitionDayCard(currentDay - 1, 'prev');
+      } else {
+        bounceDayCard('left-end');
+      }
+    }
+
+    function selectDay(num) {
+      num = Number(num);
+      if (num === currentDay) return;
+      const direction = num > currentDay ? 'next' : 'prev';
+      transitionDayCard(num, direction);
     }
 
     function prevDay() {
-      if (currentDay > 1) {
-        selectDay(currentDay - 1);
-      }
+      handleSwipePrev();
     }
 
     function nextDay() {
-      if (currentDay < 8) {
-        selectDay(currentDay + 1);
-      }
+      handleSwipeNext();
+    }
+
+    // 일정표 카드 좌우 스와이프 제스처 리스너 초기화 (정밀 각도 잠금)
+    function initItinerarySwipe() {
+      const container = document.getElementById('day-card-container');
+      if (!container) return;
+
+      let touchStartX = 0;
+      let touchStartY = 0;
+      let touchStartTime = 0;
+      let isTracking = false;
+
+      container.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        touchStartTime = Date.now();
+        isTracking = true;
+      }, { passive: true });
+
+      container.addEventListener('touchend', (e) => {
+        if (!isTracking) return;
+        isTracking = false;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+        const elapsedTime = Date.now() - touchStartTime;
+
+        // 스와이프 조건 검사:
+        // 1) 500ms 이내 빠른 튕김 제스처
+        // 2) 가로 이동량 최소 45px 이상
+        // 3) 세로 스크롤 의도 배제 (수평 각도 잠금: |diffX| > |diffY| * 1.4)
+        if (elapsedTime < 500 && Math.abs(diffX) >= 45 && Math.abs(diffX) > Math.abs(diffY) * 1.4) {
+          if (diffX < 0) {
+            handleSwipeNext();
+          } else {
+            handleSwipePrev();
+          }
+        }
+      }, { passive: true });
     }
 
     // 텍스트 클립보드 복사 함수 (토스 스타일 원터치 복사)
@@ -3484,6 +3614,7 @@ const ITINERARY_DATA = [
       renderDayCard(1);
       loadChecklist();
       renderAiSearchResults('');
+      initItinerarySwipe();
 
       // 지도 컨테이너 반응형 리사이즈 감지
       const mapSvg = document.getElementById('yn-interactive-svg');
