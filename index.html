@@ -713,22 +713,25 @@
           </button>
         </div>
 
-        <!-- 추천 검색어 (토스·애플 미니멀 모노톤 칩스) -->
-        <div class="space-y-2 pt-1">
-          <span class="text-xs font-bold text-slate-400 block px-1">추천 검색어</span>
-          <div id="ai-chips-container" class="flex flex-wrap gap-2">
-            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="고산병">고산병약 · 산소통</button>
-            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="10월 날씨">10월 날씨 · 옷차림</button>
-            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="화장실">화장실 · 휴지 팁</button>
-            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="환전">환전 · 알리페이</button>
-            <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="옥룡설산">옥룡설산</button>
-            <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="람월곡">람월곡</button>
-            <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="호도협">호도협</button>
-            <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="리장 고성">리장 고성</button>
-            <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="송찬림사">송찬림사</button>
-            <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="따리 고성">따리 고성</button>
-            <button type="button" onclick="quickAiSearch('과교미선', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="과교미선">과교미선</button>
-            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-sm sm:text-base font-bold text-slate-800 transition active:scale-95" data-keyword="야생 버섯 전골">버섯전골</button>
+        <!-- 추천 검색어 (1줄 가로 스크롤 캐러셀 - 화면 공간 80% 절약) -->
+        <div class="space-y-1.5 pt-1">
+          <div class="flex items-center justify-between px-1">
+            <span class="text-xs font-bold text-slate-400">추천 검색어</span>
+            <span class="text-[11px] font-medium text-slate-400">좌우로 밀어서 탐색 →</span>
+          </div>
+          <div id="ai-chips-container" class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 -mx-1 px-1">
+            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="고산병">고산병약 · 산소통</button>
+            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="10월 날씨">10월 날씨 · 옷차림</button>
+            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="화장실">화장실 · 휴지 팁</button>
+            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="환전">환전 · 알리페이</button>
+            <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="옥룡설산">옥룡설산</button>
+            <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="람월곡">람월곡</button>
+            <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="호도협">호도협</button>
+            <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="리장 고성">리장 고성</button>
+            <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="송찬림사">송찬림사</button>
+            <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="따리 고성">따리 고성</button>
+            <button type="button" onclick="quickAiSearch('과교미선', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="과교미선">과교미선</button>
+            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="야생 버섯 전골">버섯전골</button>
           </div>
         </div>
 
@@ -2258,7 +2261,7 @@ const ITINERARY_DATA = [
       // 1. 명소 (20개)
       {
         id: 'yulong',
-        title: '옥룡설산 (玉龙雪山 · 위룽쉐산)',
+        title: '옥룡설산 (玉龙雪山)',
         category: '명소',
         dayLabel: '7일차 방문',
         jumpDay: 7,
@@ -2273,7 +2276,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'baishui_blue_moon',
-        title: '백수하 & 람월곡 (白水河 & 蓝月谷)',
+        title: '백수하 & 람월곡',
         category: '명소',
         dayLabel: '7일차 방문',
         jumpDay: 7,
@@ -2288,7 +2291,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'tiger_gorge',
-        title: '호도협 (虎跳峡 · 후탸오샤)',
+        title: '호도협 협곡 (虎跳峡)',
         category: '명소',
         dayLabel: '4·5일차 방문',
         jumpDay: 4,
@@ -2303,7 +2306,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'lijiang_old',
-        title: '리장 고성 (丽江古城 · 다옌진)',
+        title: '리장 고성 (丽江古城)',
         category: '명소',
         dayLabel: '4·5일차 방문',
         jumpDay: 4,
@@ -2318,7 +2321,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'black_dragon_pond',
-        title: '흑룡담 공원 (黑龙潭公园 · 헤이룽탄)',
+        title: '흑룡담 공원 (黑龙潭)',
         category: '명소',
         dayLabel: '5일차 방문',
         jumpDay: 5,
@@ -2333,7 +2336,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'shuhe_old',
-        title: '수하 고성 (束河古镇 · 수허구전)',
+        title: '수하 고성 (束河古镇)',
         category: '명소',
         dayLabel: '5일차 방문',
         jumpDay: 5,
@@ -2348,7 +2351,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'dukzhong_old',
-        title: '독극종 고성 (独克宗古城 · 샹그릴라 고성)',
+        title: '독극종 고성 (独克宗)',
         category: '명소',
         dayLabel: '4일차 방문',
         jumpDay: 4,
@@ -2363,7 +2366,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'stone_forest',
-        title: '석림 (石林 · 스린)',
+        title: '석림 풍경구 (石林)',
         category: '명소',
         dayLabel: '2일차 방문',
         jumpDay: 2,
@@ -2378,7 +2381,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'dali_old',
-        title: '따리 고성 (大理古城 · 다리고성)',
+        title: '따리 고성 (大理古城)',
         category: '명소',
         dayLabel: '2·3일차 방문',
         jumpDay: 2,
@@ -2393,7 +2396,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'erhai',
-        title: '얼하이호 (洱海 · 이해)',
+        title: '얼하이호 (洱海)',
         category: '명소',
         dayLabel: '3일차 방문',
         jumpDay: 3,
@@ -2408,7 +2411,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'cangshan',
-        title: '창산 (苍山 · 창산 19봉)',
+        title: '창산 (苍山)',
         category: '명소',
         dayLabel: '2·3일차 조망',
         jumpDay: 3,
@@ -2423,7 +2426,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'songzanlin',
-        title: '송찬림사 (松赞林寺 · 쑹짠린쓰)',
+        title: '송찬림사 (松赞林寺)',
         category: '명소',
         dayLabel: '4일차 방문',
         jumpDay: 4,
@@ -2438,7 +2441,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'napa_lake',
-        title: '나파해 (纳帕海 · 이란초원)',
+        title: '나파해 초원 (纳帕海)',
         category: '명소',
         dayLabel: '4일차 방문',
         jumpDay: 4,
@@ -2453,7 +2456,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'three_pagodas',
-        title: '숭성사 삼탑 (崇圣寺三塔)',
+        title: '숭성사 삼탑 (崇圣寺)',
         category: '명소',
         dayLabel: '3일차 방문',
         jumpDay: 3,
@@ -2468,7 +2471,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'xishan_longmen',
-        title: '서산 용문 (西山龙门 · 시산룽먼)',
+        title: '서산 용문 (西山龙门)',
         category: '명소',
         dayLabel: '2일차 방문',
         jumpDay: 2,
@@ -2483,7 +2486,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'cuihu_park',
-        title: '취호 공원 (翠湖公园 · 추이후)',
+        title: '취호 공원 (翠湖公园)',
         category: '명소',
         dayLabel: '2일차 방문',
         jumpDay: 2,
@@ -2498,7 +2501,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'mufu_palace',
-        title: '목부 (木府 · 무푸)',
+        title: '목부 (木府)',
         category: '명소',
         dayLabel: '5일차 방문',
         jumpDay: 5,
@@ -2513,7 +2516,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'wangu_tower',
-        title: '만고루 (万古楼 · 완구러우)',
+        title: '만고루 (万古楼)',
         category: '명소',
         dayLabel: '5일차 방문',
         jumpDay: 5,
@@ -2528,7 +2531,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'guishan_park',
-        title: '귀산공원 대전경통 (龟山公园 大转经筒)',
+        title: '귀산공원 대전경통',
         category: '명소',
         dayLabel: '4일차 방문',
         jumpDay: 4,
@@ -2543,7 +2546,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'tea_horse_guesthouse',
-        title: '차마객잔 & 중도객잔 (茶马客栈 & 中途客栈)',
+        title: '차마객잔 & 중도객잔',
         category: '명소',
         dayLabel: '3일차 일정',
         jumpDay: 3,
@@ -2560,7 +2563,7 @@ const ITINERARY_DATA = [
       // 2. 음식 (7개)
       {
         id: 'guoqiao_mixian',
-        title: '과교미선 (过桥米线 · 다리를 건넌 쌀국수)',
+        title: '과교미선 (过桥米线)',
         category: '음식',
         dayLabel: '1일차 석식 추천',
         jumpDay: 1,
@@ -2620,7 +2623,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'bai_rushan',
-        title: '바이족 유선 (乳扇 · 뤄샨/우유치즈 구이)',
+        title: '바이족 유선 (乳扇 치즈구이)',
         category: '음식',
         dayLabel: '3일차 간식 추천',
         jumpDay: 3,
@@ -2635,7 +2638,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'yunnan_coffee',
-        title: '운남 커피 (云南小粒咖啡 · 윈난 아라비카)',
+        title: '운남 커피 (云南小粒咖啡)',
         category: '음식',
         dayLabel: '자유시간 카페',
         jumpDay: 3,
@@ -2650,7 +2653,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'butter_tea',
-        title: '수유차 (酥油茶 · 티베트 버터차)',
+        title: '수유차 (酥油茶 버터차)',
         category: '음식',
         dayLabel: '4일차 시음',
         jumpDay: 4,
@@ -2667,7 +2670,7 @@ const ITINERARY_DATA = [
       // 3. 문화 & 역사 (5개)
       {
         id: 'puer_tea',
-        title: '보이차 (普洱茶 · 푸얼차)',
+        title: '보이차 (普洱茶)',
         category: '문화·역사',
         dayLabel: '전 일정 시음',
         jumpDay: 7,
@@ -2682,7 +2685,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'ancient_tea_horse_road',
-        title: '차마고도 (茶马古道 · 차마구다오)',
+        title: '차마고도 (茶马古道)',
         category: '문화·역사',
         dayLabel: '3·4일차 동선',
         jumpDay: 3,
@@ -2697,7 +2700,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'naxi_dongba',
-        title: '나시족 (纳西族) & 동파문자 (东巴文)',
+        title: '나시족 & 동파문자',
         category: '문화·역사',
         dayLabel: '4·5일차 문화',
         jumpDay: 5,
@@ -2712,7 +2715,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'bai_three_teas',
-        title: '바이족 삼도차 (白族 三道茶)',
+        title: '바이족 삼도차 (三道茶)',
         category: '문화·역사',
         dayLabel: '3일차 문화',
         jumpDay: 3,
@@ -2727,7 +2730,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'impression_lijiang',
-        title: '인상리장 (印象丽江 · 장예모 감독 실경공연)',
+        title: '인상리장 (印象丽江 실경공연)',
         category: '문화·역사',
         dayLabel: '7일차 공연',
         jumpDay: 7,
@@ -2744,7 +2747,7 @@ const ITINERARY_DATA = [
       // 4. 여행 상식 & 실전 가이드 (6개)
       {
         id: 'october_weather',
-        title: '10월 날씨 및 옷차림 가이드',
+        title: '10월 날씨 & 옷차림',
         category: '여행 상식',
         dayLabel: '출발 전 필수',
         jumpDay: null,
@@ -2759,7 +2762,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'alipay_wechat_pay',
-        title: '알리페이 & 위챗페이 환전 / 결제 가이드',
+        title: '환전 & 모바일 결제 (알리페이)',
         category: '여행 상식',
         dayLabel: '출발 전 필수',
         jumpDay: null,
@@ -2774,7 +2777,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'altitude_sickness',
-        title: '고산병 (高山病) 예방 및 대처법',
+        title: '고산병 예방 및 대처법',
         category: '여행 상식',
         dayLabel: '샹그릴라·설산 필수',
         jumpDay: 4,
@@ -2789,7 +2792,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'esim_roaming_vpn',
-        title: 'eSIM · 데이터 로밍 · VPN 상식',
+        title: '데이터 로밍 & eSIM 안내',
         category: '여행 상식',
         dayLabel: '출발 전 필수',
         jumpDay: null,
@@ -2804,7 +2807,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'voltage_plug_battery',
-        title: '전압 · 콘센트 · 보조배터리 비행기 규정',
+        title: '전압 콘센트 & 보조배터리 규정',
         category: '여행 상식',
         dayLabel: '출발 전 필수',
         jumpDay: null,
@@ -2819,7 +2822,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'hotel_general_guide',
-        title: '중국 호텔 종합 가이드 (준5성 숙소)',
+        title: '호텔 이용 안내 (준5성 숙소)',
         category: '여행 상식',
         dayLabel: '전 일정 숙소',
         jumpDay: 1,
@@ -2834,7 +2837,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'hotel_arrival_card',
-        title: '중국 입국신고서 작성용 호텔 주소',
+        title: '입국신고서 작성용 호텔 주소',
         category: '여행 상식',
         dayLabel: '기내 작성 필수',
         jumpDay: null,
@@ -2850,7 +2853,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'tiger_gorge_luggage',
-        title: '호도협 트레킹 짐 보관 & 1박 배낭 수칙',
+        title: '호도협 짐 보관 & 배낭 수칙',
         category: '여행 상식',
         dayLabel: '4일차 필수',
         jumpDay: 4,
@@ -2867,7 +2870,7 @@ const ITINERARY_DATA = [
       // 5. 부모님 맞춤 실전 가이드 & 여행자 빈출 검색 지식베이스 (18개)
       {
         id: 'yulong_cableway',
-        title: '옥룡설산 빙천공원 케이블카 (大索道 · 대삭도)',
+        title: '옥룡설산 케이블카 (빙천공원)',
         category: '명소',
         dayLabel: '7일차 탑승',
         jumpDay: 7,
@@ -2882,7 +2885,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'yunshanping_mouping',
-        title: '운삼평 & 모우평 (云杉坪 · 옥룡설산 원시림 초원)',
+        title: '운삼평 & 모우평 (원시림 초원)',
         category: '명소',
         dayLabel: '6일차 대체/안심코스',
         jumpDay: 6,
@@ -2897,7 +2900,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'tiger_gorge_horse_car',
-        title: '호도협 말(馬) 타기 & 빵차 이용 팁',
+        title: '호도협 말 타기 & 빵차 이용법',
         category: '여행 상식',
         dayLabel: '3·4일차 트레킹',
         jumpDay: 3,
@@ -2912,7 +2915,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'lijiang_waterway_lost',
-        title: '리장 고성 길 찾기 수로 비법 & 물레방아(대수차)',
+        title: '리장 고성 수로 길 찾기 & 물레방아',
         category: '여행 상식',
         dayLabel: '5·6일차 산책',
         jumpDay: 5,
@@ -2927,7 +2930,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'erhai_eco_corridor',
-        title: '얼하이호 생태회랑 & 유람선 관람',
+        title: '얼하이호 생태회랑 & 유람선',
         category: '명소',
         dayLabel: '3일차 관람',
         jumpDay: 3,
@@ -2942,7 +2945,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'buyao_xiangcai',
-        title: '부야오 샹차이 (不要香菜 · 고수 빼주세요) & 식사 가이드',
+        title: '부야오 샹차이 (고수 빼주세요)',
         category: '여행 상식',
         dayLabel: '전 일정 식사',
         jumpDay: null,
@@ -2957,7 +2960,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'yunnan_flower_cake',
-        title: '운남 장미빵 (鲜花饼 · 시엔화빙)',
+        title: '운남 장미빵 (鲜花饼)',
         category: '음식',
         dayLabel: '간식 & 선물 추천',
         jumpDay: 5,
@@ -2972,7 +2975,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'xuanwei_ham',
-        title: '선위 훠투이 (宣威火腿 · 운남 명품 숙성 햄)',
+        title: '선위 훠투이 (宣威火腿)',
         category: '음식',
         dayLabel: '일정 중 식사',
         jumpDay: 2,
@@ -2987,7 +2990,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'fenghuaxueyue_beer',
-        title: '풍화설월 맥주 (风花雪月 啤酒 · 따리 로컬 맥주)',
+        title: '풍화설월 맥주 (风花雪月)',
         category: '음식',
         dayLabel: '석식 반주 추천',
         jumpDay: 2,
@@ -3002,7 +3005,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'china_water_culture',
-        title: '중국 식수 및 온수 문화 (뜨거운 차와 생수 구별)',
+        title: '식수 및 온수 문화 (생수 구별)',
         category: '여행 상식',
         dayLabel: '전 일정 상식',
         jumpDay: null,
@@ -3017,7 +3020,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'china_restroom_culture',
-        title: '중국 화장실 문화 및 필수 휴대품 (포켓 티슈)',
+        title: '화장실 문화 및 휴대품 (포켓휴지)',
         category: '여행 상식',
         dayLabel: '전 일정 필수',
         jumpDay: null,
@@ -3032,7 +3035,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'altitude_shower_rule',
-        title: '고산 첫날 샤워·머리 감기 금기 상식',
+        title: '고산 첫날 샤워·머리 감기 주의',
         category: '여행 상식',
         dayLabel: '4일차 샹그릴라 도착일',
         jumpDay: 4,
@@ -3047,7 +3050,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'altitude_medicine_timing',
-        title: '고산병 상비약 (다이아목스 & 타이레놀 복용법)',
+        title: '고산병 약 (다이아목스 · 타이레놀)',
         category: '여행 상식',
         dayLabel: '3·4일차 복용 권장',
         jumpDay: 4,
@@ -3062,7 +3065,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'uv_protection_guide',
-        title: '고원 자외선 차단 및 피부 보호 가이드',
+        title: '고원 자외선 차단 & 피부 보호',
         category: '여행 상식',
         dayLabel: '전 일정 야외활동',
         jumpDay: null,
@@ -3077,7 +3080,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'airport_fingerprint_kiosk',
-        title: '중국 입국 심사 & 지문 등록 키오스크 요령',
+        title: '중국 입국 심사 & 지문 등록',
         category: '여행 상식',
         dayLabel: '1일차 쿤밍 도착',
         jumpDay: 1,
@@ -3092,7 +3095,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'kunming_lijiang_bullet_train',
-        title: '쿤밍-리장 고속열차 (CRH 화차) 탑승 가이드',
+        title: '쿤밍-리장 고속열차 탑승법',
         category: '여행 상식',
         dayLabel: '7일차 쿤밍 귀환',
         jumpDay: 7,
@@ -3107,7 +3110,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'souvenir_shopping_guide',
-        title: '기념품 쇼핑 추천 & 바가지 방지 팁',
+        title: '기념품 쇼핑 & 바가지 방지',
         category: '여행 상식',
         dayLabel: '자유시간 쇼핑',
         jumpDay: null,
@@ -3122,7 +3125,7 @@ const ITINERARY_DATA = [
       },
       {
         id: 'best_photo_spots',
-        title: '운남성 사진 촬영 명당 (부모님 인생샷 스팟)',
+        title: '사진 촬영 명당 (부모님 인생샷)',
         category: '여행 상식',
         dayLabel: '전 일정 포토존',
         jumpDay: null,
@@ -3160,9 +3163,9 @@ const ITINERARY_DATA = [
       // 추천 칩 스타일 활성화
       document.querySelectorAll('.ai-chip-btn').forEach(b => {
         if (b.getAttribute('data-keyword') === keyword || b === btnEl) {
-          b.className = "ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-900 text-white shadow-2xs text-sm sm:text-base font-bold transition active:scale-95";
+          b.className = "ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-900 text-white shadow-2xs text-xs sm:text-sm font-bold transition active:scale-95";
         } else {
-          b.className = "ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm sm:text-base font-bold transition active:scale-95";
+          b.className = "ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold transition active:scale-95";
         }
       });
     }
@@ -3176,7 +3179,7 @@ const ITINERARY_DATA = [
         handleAiSearch('');
       }
       document.querySelectorAll('.ai-chip-btn').forEach(b => {
-        b.className = "ai-chip-btn px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm sm:text-base font-bold transition active:scale-95";
+        b.className = "ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-bold transition active:scale-95";
       });
     }
 
@@ -3337,20 +3340,22 @@ const ITINERARY_DATA = [
       if (matchedWiki.length > 0) {
         html += matchedWiki.map(item => `
           <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-2xs space-y-4">
-            <!-- 카드 헤더 -->
-            <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100">
-              <div>
-                <div class="flex items-center gap-2 mb-1.5">
-                  <span class="text-sm font-bold px-3 py-1 rounded-xl bg-slate-900 text-white">${item.category}</span>
-                  <span class="text-sm font-semibold text-slate-500">${item.dayLabel}</span>
+            <!-- 카드 헤더 (상단 메타+버튼 / 하단 100% 전폭 제목 분리로 1줄 보장) -->
+            <div class="pb-3 border-b border-slate-100 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg bg-slate-900 text-white shrink-0">${item.category}</span>
+                  <span class="text-xs sm:text-sm font-semibold text-slate-500 truncate">${item.dayLabel}</span>
                 </div>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">${item.title}</h3>
+                ${item.jumpDay ? `
+                  <button type="button" onclick="jumpToDayFromMap(${item.jumpDay})" class="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200/70 transition shrink-0 whitespace-nowrap active:scale-95">
+                    일정표 ↗
+                  </button>
+                ` : ''}
               </div>
-              ${item.jumpDay ? `
-                <button type="button" onclick="jumpToDayFromMap(${item.jumpDay})" class="text-sm sm:text-base font-bold text-slate-800 hover:text-slate-900 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shrink-0">
-                  일정표 보기 →
-                </button>
-              ` : ''}
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">
+                ${item.title}
+              </h3>
             </div>
 
             <!-- 핵심 요약 -->
@@ -3377,17 +3382,19 @@ const ITINERARY_DATA = [
       if (isFlightQuery) {
         html += `
           <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-2xs space-y-4">
-            <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100">
-              <div>
-                <div class="flex items-center gap-2 mb-1.5">
-                  <span class="text-sm font-bold px-3 py-1 rounded-xl bg-slate-900 text-white">항공편</span>
-                  <span class="text-sm font-semibold text-slate-500">대한항공 직항</span>
+            <div class="pb-3 border-b border-slate-100 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg bg-slate-900 text-white shrink-0">항공편</span>
+                  <span class="text-xs sm:text-sm font-semibold text-slate-500 truncate">대한항공 직항</span>
                 </div>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">인천 ⇄ 쿤밍 직항 운항 스케줄</h3>
+                <button type="button" onclick="jumpToDayFromMap(1)" class="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200/70 transition shrink-0 whitespace-nowrap active:scale-95">
+                  1일차 ↗
+                </button>
               </div>
-              <button type="button" onclick="jumpToDayFromMap(1)" class="text-sm sm:text-base font-bold text-slate-800 hover:text-slate-900 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shrink-0">
-                1일차 보기 →
-              </button>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">
+                인천 ⇄ 쿤밍 직항 운항 스케줄
+              </h3>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-base">
               <div class="bg-slate-50 p-4 rounded-2xl border border-slate-100 space-y-1">
@@ -3413,17 +3420,19 @@ const ITINERARY_DATA = [
       if (matchedDays.length > 0) {
         html += matchedDays.map(m => `
           <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-2xs space-y-4">
-            <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100">
-              <div>
-                <div class="flex items-center gap-2 mb-1.5">
-                  <span class="text-sm font-bold px-3 py-1 rounded-xl bg-slate-900 text-white">${m.day.day}일차 일정</span>
-                  <span class="text-sm font-semibold text-slate-500">${m.day.date}</span>
+            <div class="pb-3 border-b border-slate-100 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg bg-slate-900 text-white shrink-0">${m.day.day}일차 일정</span>
+                  <span class="text-xs sm:text-sm font-semibold text-slate-500 truncate">${m.day.date}</span>
                 </div>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">${m.day.title}</h3>
+                <button type="button" onclick="jumpToDayFromMap(${m.day.day})" class="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200/70 transition shrink-0 whitespace-nowrap active:scale-95">
+                  일정표 ↗
+                </button>
               </div>
-              <button type="button" onclick="jumpToDayFromMap(${m.day.day})" class="text-sm sm:text-base font-bold text-slate-800 hover:text-slate-900 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shrink-0">
-                일정표 보기 →
-              </button>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">
+                ${m.day.title}
+              </h3>
             </div>
             <div class="bg-slate-50 rounded-2xl p-4 text-base space-y-2 text-slate-700 border border-slate-100">
               <div><span class="font-bold text-slate-900">위치:</span> ${m.day.location || '운남성'}</div>
@@ -3442,17 +3451,19 @@ const ITINERARY_DATA = [
       if (matchedChecklist.length > 0) {
         html += `
           <div class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-100 shadow-2xs space-y-4">
-            <div class="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100">
-              <div>
-                <div class="flex items-center gap-2 mb-1.5">
-                  <span class="text-sm font-bold px-3 py-1 rounded-xl bg-slate-900 text-white">체크리스트</span>
-                  <span class="text-sm font-semibold text-slate-500">여행 필수품</span>
+            <div class="pb-3 border-b border-slate-100 space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <div class="flex items-center gap-2 min-w-0">
+                  <span class="text-xs sm:text-sm font-bold px-2.5 py-1 rounded-lg bg-slate-900 text-white shrink-0">체크리스트</span>
+                  <span class="text-xs sm:text-sm font-semibold text-slate-500 truncate">여행 필수품</span>
                 </div>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight leading-snug">관련 준비물 확인</h3>
+                <button type="button" onclick="switchMainTab('checklist')" class="inline-flex items-center gap-1 text-xs sm:text-sm font-bold text-slate-700 hover:text-slate-900 px-3 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 border border-slate-200/70 transition shrink-0 whitespace-nowrap active:scale-95">
+                  체크리스트 ↗
+                </button>
               </div>
-              <button type="button" onclick="switchMainTab('checklist')" class="text-sm sm:text-base font-bold text-slate-800 hover:text-slate-900 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 border border-slate-200/80 transition shrink-0">
-                체크리스트 보기 →
-              </button>
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight leading-snug">
+                관련 준비물 확인
+              </h3>
             </div>
             <div class="space-y-2">
               ${matchedChecklist.map(c => `
