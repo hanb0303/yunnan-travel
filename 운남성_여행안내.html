@@ -722,32 +722,34 @@
 
         <!-- 검색창 입력 박스 (토스/애플 대형 검색 바) -->
         <div class="relative">
-          <input type="text" id="ai-search-input" oninput="handleAiSearch(this.value)" placeholder="명소, 음식, 호텔, 준비물 검색 (예: 옥룡설산, 환전)" 
+          <input type="text" id="ai-search-input" oninput="handleAiSearch(this.value)" placeholder="관광명소 및 여행 정보 검색 (예: 옥룡설산, 호도협)" 
                  class="w-full bg-slate-100 border border-transparent focus:border-slate-800 focus:bg-white rounded-2xl px-5 py-4 text-base sm:text-lg font-medium text-slate-900 placeholder:text-slate-400 focus:outline-none transition shadow-2xs">
           <button type="button" onclick="clearAiSearch()" id="ai-search-clear" class="hidden absolute right-4 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-slate-200 text-slate-600 flex items-center justify-center text-sm font-bold hover:bg-slate-300 transition">
             ✕
           </button>
         </div>
 
-        <!-- 추천 검색어 (1줄 가로 스크롤 캐러셀 - 화면 공간 80% 절약) -->
+        <!-- 추천 검색어 (관광명소 중심 1줄 가로 스크롤 캐러셀) -->
         <div class="space-y-1.5 pt-1">
           <div class="flex items-center justify-between px-1">
-            <span class="text-xs font-bold text-slate-400">추천 검색어</span>
+            <span class="text-xs font-bold text-slate-400">추천 명소</span>
             <span class="text-[11px] font-medium text-slate-400">좌우로 밀어서 탐색 →</span>
           </div>
           <div id="ai-chips-container" class="flex items-center gap-2 overflow-x-auto no-scrollbar scroll-smooth py-1 -mx-1 px-1">
-            <button type="button" onclick="quickAiSearch('고산병', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="고산병">고산병약 · 산소통</button>
-            <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="10월 날씨">10월 날씨 · 옷차림</button>
-            <button type="button" onclick="quickAiSearch('화장실', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="화장실">화장실 · 휴지 팁</button>
-            <button type="button" onclick="quickAiSearch('환전', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="환전">환전 · 알리페이</button>
             <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="옥룡설산">옥룡설산</button>
             <button type="button" onclick="quickAiSearch('람월곡', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="람월곡">람월곡</button>
             <button type="button" onclick="quickAiSearch('호도협', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="호도협">호도협</button>
             <button type="button" onclick="quickAiSearch('리장 고성', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="리장 고성">리장 고성</button>
             <button type="button" onclick="quickAiSearch('송찬림사', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="송찬림사">송찬림사</button>
             <button type="button" onclick="quickAiSearch('따리 고성', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="따리 고성">따리 고성</button>
-            <button type="button" onclick="quickAiSearch('과교미선', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="과교미선">과교미선</button>
-            <button type="button" onclick="quickAiSearch('야생 버섯 전골', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="야생 버섯 전골">버섯전골</button>
+            <button type="button" onclick="quickAiSearch('얼하이호', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="얼하이호">얼하이호</button>
+            <button type="button" onclick="quickAiSearch('창산', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="창산">창산</button>
+            <button type="button" onclick="quickAiSearch('독극종', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="독극종">독극종 고성</button>
+            <button type="button" onclick="quickAiSearch('수하 고성', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="수하 고성">수하 고성</button>
+            <button type="button" onclick="quickAiSearch('나파해', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="나파해">나파해 초원</button>
+            <button type="button" onclick="quickAiSearch('석림', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="석림">석림</button>
+            <button type="button" onclick="quickAiSearch('흑룡담', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="흑룡담">흑룡담 공원</button>
+            <button type="button" onclick="quickAiSearch('숭성사', this)" class="ai-chip-btn shrink-0 whitespace-nowrap px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs sm:text-sm font-bold text-slate-800 transition active:scale-95" data-keyword="숭성사">숭성사 삼탑</button>
           </div>
         </div>
 
@@ -3604,15 +3606,15 @@ const ITINERARY_DATA = [
             </div>
             <div class="text-base sm:text-lg font-bold text-slate-800">'${query}' 검색 결과가 없습니다</div>
             <p class="text-sm font-medium text-slate-500 max-w-sm mx-auto leading-relaxed">
-              추천 키워드를 누르시거나 명소, 음식, 호텔, 준비물 등 다른 단어로 검색해 보세요.
+              추천 명소를 누르시거나 찾으시는 여행지 명칭으로 검색해 보세요.
             </p>
             <div class="pt-2 flex flex-wrap justify-center gap-1.5">
               <button type="button" onclick="quickAiSearch('옥룡설산', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">옥룡설산</button>
               <button type="button" onclick="quickAiSearch('람월곡', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">람월곡</button>
-              <button type="button" onclick="quickAiSearch('호텔', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">호텔</button>
-              <button type="button" onclick="quickAiSearch('환전', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">환전</button>
-              <button type="button" onclick="quickAiSearch('고산병', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">고산병</button>
-              <button type="button" onclick="quickAiSearch('10월 날씨', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">10월 날씨</button>
+              <button type="button" onclick="quickAiSearch('호도협', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">호도협</button>
+              <button type="button" onclick="quickAiSearch('리장 고성', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">리장 고성</button>
+              <button type="button" onclick="quickAiSearch('송찬림사', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">송찬림사</button>
+              <button type="button" onclick="quickAiSearch('따리 고성', this)" class="px-3.5 py-1.5 rounded-xl bg-white border border-slate-200/80 text-xs sm:text-sm font-bold text-slate-700 hover:bg-slate-100 transition shadow-2xs">따리 고성</button>
             </div>
           </div>
         `;
