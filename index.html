@@ -1282,9 +1282,37 @@ const ITINERARY_DATA = [
         stayContent = `<span class="text-base sm:text-lg font-bold text-slate-900 truncate">${data.stay}</span>`;
       }
 
+      // 1일차 전용 슬림형 대표 이미지 플레이스홀더 (화면 스크롤 부담 없는 최적화된 115px 높이)
+      let heroImageHtml = '';
+      if (dayNum === 1) {
+        heroImageHtml = `
+          <!-- 1일차 대표 명소 슬림형 배너 플레이스홀더 (높이: 약 112~124px) -->
+          <div class="relative w-full h-[112px] min-[390px]:h-[124px] rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-950 border border-slate-700/60 flex flex-col items-center justify-center text-center p-3 select-none shadow-2xs">
+            <!-- 배경 미세 그리드 패턴 & 앰비언트 그라데이션 -->
+            <div class="absolute inset-0 bg-[radial-gradient(#38bdf8_1px,transparent_1px)] [background-size:14px_14px] opacity-15"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+
+            <div class="relative z-10 flex items-center gap-2 mb-1">
+              <div class="w-6 h-6 rounded-full bg-sky-500/20 text-sky-300 flex items-center justify-center border border-sky-400/30">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+              </div>
+              <span class="text-xs sm:text-sm font-bold text-white tracking-tight">1일차 대표 사진 자리 (슬림형)</span>
+            </div>
+            <p class="relative z-10 text-[11px] sm:text-xs font-medium text-slate-300">인천공항 출국 & 쿤밍 창수이 국제공항 노을 야경</p>
+
+            <!-- 우측 하단 명소 라벨 캡슐 -->
+            <div class="absolute bottom-2 right-2.5 z-10">
+              <span class="px-2 py-0.5 rounded-md bg-black/60 backdrop-blur-xs text-[10px] sm:text-[11px] font-bold text-slate-300 border border-white/10">
+                📍 인천 ➔ 쿤밍
+              </span>
+            </div>
+          </div>
+        `;
+      }
+
       const container = document.getElementById('day-card-container');
       container.innerHTML = `
-        <div class="bg-white rounded-3xl p-5 sm:p-6 space-y-5 shadow-2xs border border-slate-100">
+        <div class="bg-white rounded-3xl p-5 sm:p-6 space-y-4 shadow-2xs border border-slate-100">
           
           <!-- 헤더: 일차 및 날짜 (시원한 볼드 타이포그래피) -->
           <div class="flex items-center justify-between pb-3.5 border-b border-slate-100">
@@ -1294,6 +1322,8 @@ const ITINERARY_DATA = [
             </div>
             <span class="text-base font-semibold text-slate-500">${dayNum} / 8일</span>
           </div>
+
+          ${heroImageHtml}
 
           <!-- 당일 핵심 타이틀 (시원하고 큼직한 제목) -->
           <div>
